@@ -1,0 +1,288 @@
+[
+  {
+    "provider": "openrouter",
+    "models": [
+      {
+        "name": "openai/gpt4o",
+        "type": "llm",
+        "premium": true,
+        "description": "GPT-4 model by OpenAI for generating human-like text.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "deepseek/deepseek-chat",
+        "type": "llm",
+        "description": "Conversational AI by DeepSeek for a wide range of topics.",
+        "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg"
+      },
+      {
+        "name": "deepseek/deepseek-coder",
+        "type": "llm",
+        "description": "Coding AI by DeepSeek for code assistance and suggestions.",
+        "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg"
+      },
+      {
+        "name": "openai/gpt-4-turbo",
+        "type": "llm",
+        "premium": true,
+        "description": "High-performance GPT-4 variant for faster, more accurate results.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "anthropic/claude-3.5-sonnet",
+        "type": "llm",
+        "description": "Creative text generation model by Anthropic.",
+        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
+      },
+      {
+        "name": "google/gemma-7b",
+        "type": "llm",
+        "description": "Language model by Google for human-like text generation.",
+        "image": "https://example.com/gemma-7b-logo.png"
+      },
+      {
+        "name": "perplexity/llama-3.1-sonar-small-128k-chat",
+        "type": "llm",
+        "description": "Conversational AI by Perplexity for diverse topics.",
+        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
+      },
+      {
+        "name": "openai/gpt-4o-2024-08-06",
+        "type": "llm",
+        "description": "GPT-4 model by OpenAI, updated version from August 2024.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "01-ai/yi-large-fc",
+        "type": "llm",
+        "description": "Large language model by 01-ai for text generation.",
+        "image": "https://example.com/yi-large-fc-logo.png"
+      },
+      {
+        "name": "google/gemini-pro-1.5-exp",
+        "type": "llm",
+        "description": "Advanced language model by Google, Gemini Pro 1.5 experimental version.",
+        "image": "https://example.com/gemini-pro-1.5-exp-logo.png"
+      },
+      {
+        "name": "mistralai/codestral-mamba",
+        "type": "llm",
+        "description": "Coding AI by Mistralai for programming tasks and suggestions.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      }
+    ]
+  },
+  {
+    "provider": "hentaigpt",
+    "models": [
+      {
+        "name": "openai/gpt-4-1106-preview",
+        "type": "llm",
+        "description": "Preview version of GPT-4 by OpenAI from November 2023.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "gpt-4o-2024-05-13",
+        "type": "llm",
+        "description": "GPT-4 model by OpenAI, updated version from May 2024.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "gpt-4o",
+        "type": "llm",
+        "description": "Standard GPT-4 model by OpenAI for text generation.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "gemini-1.5-pro",
+        "type": "llm",
+        "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
+        "image": "https://example.com/gemini-1.5-pro-logo.png"
+      },
+      {
+        "name": "claude-3-haiku",
+        "type": "llm",
+        "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
+        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
+      },
+      {
+        "name": "command-r-plus",
+        "type": "llm",
+        "description": "Advanced conversational AI model by Meta.",
+        "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
+      },
+      {
+        "name": "command-r",
+        "type": "llm",
+        "description": "Conversational AI model by Meta for various topics.",
+        "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
+      },
+      {
+        "name": "gemma-2-27b",
+        "type": "llm",
+        "description": "27 billion parameter language model by Google.",
+        "image": "https://example.com/gemma-2-27b-logo.png"
+      },
+      {
+        "name": "openchat-3.6-8b",
+        "type": "llm",
+        "description": "Open-source conversational AI model, 8 billion parameters.",
+        "image": "https://example.com/openchat-3.6-8b-logo.png"
+      },
+      {
+        "name": "mistral-large-latest",
+        "type": "llm",
+        "description": "Latest large language model by Mistralai.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      },
+      {
+        "name": "llama-3.1-sonar-small-128k-chat",
+        "type": "llm",
+        "description": "Compact LLaMA 3.1 model optimized for chat, by Meta.",
+        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
+      }
+    ]
+  },
+  {
+    "provider": "lepton",
+    "models": [
+      {
+        "name": "dolphinmixtral8x7b",
+        "type": "llm",
+        "description": "Mixtral-based model by Lepton AI for text generation.",
+        "image": "https://example.com/dolphinmixtral8x7b-logo.png"
+      },
+      {
+        "name": "gemma-7b",
+        "type": "llm",
+        "description": "7 billion parameter language model by Google.",
+        "image": "https://example.com/gemma-7b-logo.png"
+      },
+      {
+        "name": "llama3.1-8b",
+        "type": "llm",
+        "description": "8 billion parameter LLaMA 3.1 model by Meta.",
+        "image": "https://example.com/llama3.1-8b-logo.png"
+      },
+      {
+        "name": "llama3-8b",
+        "type": "llm",
+        "description": "8 billion parameter LLaMA 3 model by Meta.",
+        "image": "https://example.com/llama3-8b-logo.png"
+      },
+      {
+        "name": "llama2-13b",
+        "type": "llm",
+        "description": "13 billion parameter LLaMA 2 model by Meta.",
+        "image": "https://example.com/llama2-13b-logo.png"
+      },
+      {
+        "name": "llama3.1-70b",
+        "type": "llm",
+        "description": "70 billion parameter LLaMA 3.1 model by Meta.",
+        "image": "https://example.com/llama3.1-70b-logo.png"
+      },
+      {
+        "name": "llama3-70b",
+        "type": "llm",
+        "description": "70 billion parameter LLaMA 3 model by Meta.",
+        "image": "https://example.com/llama3-70b-logo.png"
+      },
+      {
+        "name": "llama3.1-405b",
+        "type": "llm",
+        "description": "405 billion parameter LLaMA 3.1 model by Meta.",
+        "image": "https://example.com/llama3.1-405b-logo.png"
+      },
+      {
+        "name": "mistral7b",
+        "type": "llm",
+        "description": "7 billion parameter language model by Mistralai.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      },
+      {
+        "name": "mixtral8x7b",
+        "type": "llm",
+        "description": "Mixtral-based 8x7B parameter model by Mistralai.",
+        "image": "https://example.com/mixtral8x7b-logo.png"
+      },
+      {
+        "name": "noushermes13b",
+        "type": "llm",
+        "description": "13 billion parameter model by Nous Research.",
+        "image": "https://example.com/noushermes13b-logo.png"
+      },
+      {
+        "name": "openchat3.5",
+        "type": "llm",
+        "description": "Open-source conversational AI model, version 3.5.",
+        "image": "https://example.com/openchat3.5-logo.png"
+      },
+      {
+        "name": "toppym7b",
+        "type": "llm",
+        "description": "7 billion parameter model by Toppy AI.",
+        "image": "https://example.com/toppym7b-logo.png"
+      },
+      {
+        "name": "wizardlm2-7b",
+        "type": "llm",
+        "description": "7 billion parameter WizardLM model, version 2.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+      },
+      {
+        "name": "wizardlm2-8x22b",
+        "type": "llm",
+        "description": "176 billion parameter WizardLM model (8x22B), version 2.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+      }
+    ]
+  },
+  {
+    "provider": "deepinfra",
+    "models": [
+      {
+        "name": "mistralai/Mistral-7B-Instruct-v0.3",
+        "type": "llm",
+        "description": "7 billion parameter instructional model by Mistralai, version 0.3.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      },
+      {
+        "name": "openchat/openchat-3.6-8b",
+        "type": "llm",
+        "description": "8 billion parameter OpenChat model, version 3.6.",
+        "image": "https://example.com/openchat-3.6-8b-logo.png"
+      },
+      {
+        "name": "microsoft/Phi-3-medium-4k-instruct",
+        "type": "llm",
+        "description": "Phi-3 medium model by Microsoft, optimized for 4K context instructions.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+      },
+      {
+        "name": "Qwen/Qwen2-72B-Instruct",
+        "type": "llm",
+        "description": "72 billion parameter instructional model by Qwen, version 2.",
+        "image": "https://example.com/Qwen2-72B-Instruct-logo.png"
+      },
+      {
+        "name": "meta-llama/Meta-Llama-3-70B-Instruct",
+        "type": "llm",
+        "description": "70 billion parameter instructional LLaMA 3 model by Meta.",
+        "image": "https://example.com/Meta-Llama-3-70B-Instruct-logo.png"
+      },
+      {
+        "name": "microsoft/WizardLM-2-8x22B",
+        "type": "llm",
+        "description": "176 billion parameter WizardLM model (8x22B) by Microsoft, version 2.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+      },
+      {
+        "name": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "type": "llm",
+        "description": "176 billion parameter (8x22B) instructional Mixtral model by Mistralai, version 0.1.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      }
+    ]
+  }
+]
