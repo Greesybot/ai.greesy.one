@@ -1,40 +1,32 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import MSelect from './Select';
-import Nav from '../Main/Nav';
-import { LuSettings2 } from 'react-icons/lu';
-import { MdRuleFolder } from 'react-icons/md';
-import { RiAttachmentLine } from 'react-icons/ri';
-import rehypePrettyCode from 'rehype-pretty-code';
-import { transformerCopyButton } from '@rehype-pretty/transformers';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import Alert from '../Main/Alert'
+import React, { useState, useRef, useEffect } from "react";
+import MSelect from "./Select";
+import Nav from "../Main/Nav";
+import { LuSettings2 } from "react-icons/lu";
+import { MdRuleFolder } from "react-icons/md";
+import { RiAttachmentLine } from "react-icons/ri";
+import rehypePrettyCode from "rehype-pretty-code";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
+import { remark } from "remark";
+import remarkHtml from "remark-html";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import Alert from "../Main/Alert";
 const models = [
-  'deepseek/deepseek-chat',
-  'openai/gpt4o',
-  'deepseek/deepseek-coder',
-  'anthropic/claude-3.5-sonnet',
-  'perplexity/llama-3.1-sonar-small-128k-chat',
-
+  "deepseek/deepseek-chat",
+  "openai/gpt4o",
+  "deepseek/deepseek-coder",
+  "anthropic/claude-3.5-sonnet",
+  "perplexity/llama-3.1-sonar-small-128k-chat",
 ];
 
-const pr = [
-  'gpt-3.5-turbo',
-  'gpt-4',
-  'gpt-4o-mini',
-  'gpt-4o',
-  'gpt-4-turbo',
-
-];
+const pr = ["gpt-3.5-turbo", "gpt-4", "gpt-4o-mini", "gpt-4o", "gpt-4-turbo"];
 
 function App() {
   const [chatHistory, setChatHistory] = useState([]);
   const [selectedModel, setSelectedModel] = useState(models[0]);
   const [selectedPreset, setSelectedPreset] = useState(pr[0]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const chatContainerRef = useRef(null);
 
@@ -57,7 +49,7 @@ function App() {
       .use(rehypePrettyCode, {
         transformers: [
           transformerCopyButton({
-            visibility: 'always',
+            visibility: "always",
             feedbackDuration: 3000,
           }),
         ],
@@ -73,23 +65,21 @@ function App() {
 
     setIsLoading(true);
 
-
     setChatHistory((prevHistory) => [
       ...prevHistory,
-      { role: 'user', content: inputValue },
+      { role: "user", content: inputValue },
     ]);
 
-
-    setInputValue('');
+    setInputValue("");
 
     try {
       const response = await fetch(
         `${process.env.PROJECT_URL}/api/v1/chat/completions`,
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'gr-r7segnZbqBpNvefVv9TphizN6iKoTNfd',
+            "Content-Type": "application/json",
+            Authorization: "gr-r7segnZbqBpNvefVv9TphizN6iKoTNfd",
           },
           body: JSON.stringify({
             model: selectedModel,
@@ -98,10 +88,10 @@ function App() {
                 role: msg.role,
                 content: msg.content,
               })),
-              { role: 'user', content: inputValue },
+              { role: "user", content: inputValue },
             ],
           }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -110,30 +100,29 @@ function App() {
 
       const data = await response.json();
 
-
       const processedContent = await processMarkdown(
-        data.choices[0].message.content
+        data.choices[0].message.content,
       );
 
       setChatHistory((prevHistory) => [
         ...prevHistory,
         {
-          role: 'assistant',
+          role: "assistant",
           content: processedContent,
         },
       ]);
     } catch (error) {
-      console.error('There was an error sending the message:', error);
-      
+      console.error("There was an error sending the message:", error);
+
       setChatHistory((prevHistory) => [
         ...prevHistory,
         {
-          role: 'assistant',
+          role: "assistant",
           content:
             "I'm sorry, there was an error processing your request. Please try again.",
         },
       ]);
-      return (<Alert message={error.message}/>)
+      return <Alert message={error.message} />;
     } finally {
       setIsLoading(false);
     }
@@ -141,7 +130,8 @@ function App() {
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
     }
   }, [chatHistory]);
 
@@ -177,16 +167,16 @@ function App() {
               <div
                 key={index}
                 className={`flex ${
-                  message.role === 'user' ? 'justify-end' : 'justify-start'
+                  message.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
                   className={`max-w-[85%] rounded-lg p-3 ${
-                    message.role === 'user' ? 'bg-[#2c2f33]' : 'bg-[#23272a]'
+                    message.role === "user" ? "bg-[#2c2f33]" : "bg-[#23272a]"
                   }`}
                 >
                   <div className="font-bold mb-1 text-[#ffffff]">
-                    {message.role === 'user' ? 'You' : 'AI'}
+                    {message.role === "user" ? "You" : "AI"}
                   </div>
                   <div
                     className="break-all"
@@ -221,7 +211,7 @@ function App() {
             type="text"
             value={inputValue}
             onChange={handleUserInput}
-            onKeyPress={(e) => e.key === 'Enter' && handleSendButton()}
+            onKeyPress={(e) => e.key === "Enter" && handleSendButton()}
             placeholder="Message AI"
             className="flex-1 text-[#dcddde] placeholder-[#72767d] bg-transparent outline-none"
             disabled={isLoading}
@@ -230,12 +220,12 @@ function App() {
             onClick={handleSendButton}
             className={`ml-2 w-8 h-8 text-white rounded-full flex items-center justify-center ${
               isLoading
-                ? 'bg-gray-500 cursor-not-allowed'
-                : 'bg-gradient-to-bl from-blue-500 to-purple-800  hover:bg-[#4752c4]'
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-gradient-to-bl from-blue-500 to-purple-800  hover:bg-[#4752c4]"
             }`}
             disabled={isLoading}
           >
-            {isLoading ? '...' : '↑'}
+            {isLoading ? "..." : "↑"}
           </button>
         </div>
         <div className="flex justify-center mt-4 text-sm text-[#72767d] space-x-4">

@@ -11,14 +11,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-   // "baseUrl":".",
+    // "baseUrl":".",
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-  /*  "paths": {
+    ]
+    /*  "paths": {
       "@/*": ["./*"],
       "@/api/*":["./api/*"]
     }*/

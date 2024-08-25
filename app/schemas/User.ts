@@ -1,6 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
-
-
+import mongoose, { Schema } from "mongoose";
 
 interface UserSchema {
   email: string;
@@ -12,21 +10,20 @@ interface UserSchema {
   };
   premium: boolean;
   beta: string;
-  ip: string; 
+  ip: string;
   creation: string;
-  apiKey: string
+  apiKey: string;
 }
 
 const userDataSchema = new Schema<UserSchema>({
   email: { type: String, required: true },
   avatar: { type: String },
   credits: { type: Number },
-  apiKey: { type:String},
+  apiKey: { type: String },
   limits: {
     left: { type: Number, default: 0 },
     total: { type: Number, default: 0 },
   },
-  
 
   premium: { type: Boolean, default: false },
   beta: { type: String },
@@ -34,6 +31,7 @@ const userDataSchema = new Schema<UserSchema>({
   creation: { type: String },
 });
 
-const UserModel = mongoose.models.User|| mongoose.model<UserSchema>('User', userDataSchema);
+const UserModel =
+  mongoose.models.User || mongoose.model<UserSchema>("User", userDataSchema);
 
 export default UserModel;

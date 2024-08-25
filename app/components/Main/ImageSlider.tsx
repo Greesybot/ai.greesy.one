@@ -13,13 +13,13 @@ interface ImageData {
 // Image data array
 const images: ImageData[] = [
   {
-    "src": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/logo.png",
+    src: "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/logo.png",
   },
   {
-   "src": "https://images.unsplash.com/photo-1720048171419-b515a96a73b8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://images.unsplash.com/photo-1720048171419-b515a96a73b8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    "src": "https://images.unsplash.com/photo-1720048171419-b515a96a73b8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://images.unsplash.com/photo-1720048171419-b515a96a73b8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function ImageSlider(): JSX.Element {
   // Function to show the previous slide
   const prevSlide = (): void => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
     );
   };
 
@@ -88,13 +88,14 @@ export default function ImageSlider(): JSX.Element {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-1 w-10 mx-1 ${index === currentIndex
+            className={`h-1 w-10 mx-1 ${
+              index === currentIndex
                 ? "bg-[#3437eb] rounded-xl"
                 : "bg-gray-300 rounded-xl"
-              } transition-all duration-500 ease-in-out`}
+            } transition-all duration-500 ease-in-out`}
           ></div>
         ))}
       </div>
     </div>
   );
-} 
+}

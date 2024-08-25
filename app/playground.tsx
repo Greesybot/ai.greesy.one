@@ -1,7 +1,8 @@
-import Playground from './components/Playground/'
+import Playground from "./components/Playground/";
 export default function Pl() {
   return (
     <>
-      <Playground/>
-    </>)
+      <Playground />
+    </>
+  );
 }

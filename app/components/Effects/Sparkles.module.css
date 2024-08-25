@@ -1,0 +1,17 @@
+/* styles/Sparkles.module.css */
+.sparklesWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkle {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.childWrapper {
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+}

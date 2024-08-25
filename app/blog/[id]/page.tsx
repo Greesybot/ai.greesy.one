@@ -1,15 +1,15 @@
 "use client";
-import BlogCard from '../../components/Blog/Card';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import { richTextToJsx } from '@madebyconnor/rich-text-to-jsx';
-import remarkGfm from 'remark-gfm';
-import Nav from '../../components/Main/Nav';
+import BlogCard from "../../components/Blog/Card";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { richTextToJsx } from "@madebyconnor/rich-text-to-jsx";
+import remarkGfm from "remark-gfm";
+import Nav from "../../components/Main/Nav";
 import { TiWarning } from "react-icons/ti";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { useRouter } from 'next/navigation';
-import Markdown from 'react-markdown';
-import { useState, useEffect } from 'react';
+import { useRouter } from "next/navigation";
+import Markdown from "react-markdown";
+import { useState, useEffect } from "react";
 
 export default function Blog({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -60,9 +60,11 @@ export default function Blog({ params }: { params: { id: string } }) {
       <Nav />
       {Array.isArray(data) ? (
         data.map((item, index) => (
-          <div key={index} className="flex z-0 justify-between px-6 py-4 flex-col h-screen w-full">
+          <div
+            key={index}
+            className="flex z-0 justify-between px-6 py-4 flex-col h-screen w-full"
+          >
             <div className="flex flex-col space-y-4 isolate ">
-
               <button className="inline-flex items-center text-gray-200 font-bold font-sans">
                 <span className="text-gray-500 -ml-4">
                   <MdKeyboardArrowLeft />
@@ -70,14 +72,18 @@ export default function Blog({ params }: { params: { id: string } }) {
                 Go Back
               </button>
               <div className="flex flex-col space-y-4 pt-12 -ml-2.5 text-white">
-                <span className="text-gray-500 font-semibold">Aug 15, 2024</span>
-                <span className="text-gray-200 pt-2 text-4xl font-extrabold">{item.title}</span>
+                <span className="text-gray-500 font-semibold">
+                  Aug 15, 2024
+                </span>
+                <span className="text-gray-200 pt-2 text-4xl font-extrabold">
+                  {item.title}
+                </span>
                 <div className="flex mt-4">
-                  <span className="text-blue-500 font-bold">@{item.author}</span>
+                  <span className="text-blue-500 font-bold">
+                    @{item.author}
+                  </span>
                 </div>
-                <div className="mt-2 ">
-                  {item.content}
-                </div>
+                <div className="mt-2 ">{item.content}</div>
               </div>
             </div>
           </div>

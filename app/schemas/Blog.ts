@@ -1,12 +1,12 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 interface BlogData {
-  id: string
-  title: string
-  content: string
-  background: string
-  author: string
-  date: string
+  id: string;
+  title: string;
+  content: string;
+  background: string;
+  author: string;
+  date: string;
 }
 
 const blogDataSchema = new mongoose.Schema<BlogData>({
@@ -15,8 +15,9 @@ const blogDataSchema = new mongoose.Schema<BlogData>({
   background: String,
   content: String,
   id: String,
-  date: String, 
-})
+  date: String,
+});
 
-const BlogModel = mongoose.models.Blogs || mongoose.model('Blogs', blogDataSchema)
-export { BlogModel }
+const BlogModel =
+  mongoose.models.Blogs || mongoose.model("Blogs", blogDataSchema);
+export { BlogModel };

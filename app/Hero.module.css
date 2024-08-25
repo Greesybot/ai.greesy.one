@@ -1,0 +1,143 @@
+/* styles/Hero.module.css */
+.heroContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.sparkleBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.contentWrapper {
+  text-align: center;
+}
+
+.gradientBorder {
+  background: linear-gradient(to right, #7953cd, #00affa);
+  padding: 2px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.introLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: black;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.introLink:hover {
+  opacity: 0.9;
+}
+
+.gradientText {
+  background: linear-gradient(to right, #7953cd, #00affa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.arrowIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: white;
+}
+
+.mainHeading {
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 1.2;
+  background: linear-gradient(to bottom right, white, #808080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.animateText {
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 10s linear infinite;
+}
+
+@keyframes animateText {
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+    background-image: linear-gradient(to right, #00ff00, #0000ff);
+    color: transparent;
+  }
+  25% {
+    background-size: 200% 200%;
+    background-position: center center;
+    background-image: linear-gradient(to right, #ff69b4, #ffa07a);
+    color: transparent;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+    background-image: linear-gradient(to right, #ffff00, #ff0000);
+    color: transparent;
+  }
+  75% {
+    background-size: 200% 200%;
+    background-position: center center;
+    background-image: linear-gradient(to right, #00ff00, #ff00ff);
+    color: transparent;
+  }
+}
+
+.subHeading {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #9ca3af;
+}
+
+.buttonWrapper {
+  margin-top: 2rem;
+}
+
+.getStartedButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.getStartedButton:hover {
+  background-color: #f3f4f6;
+}
+
+.buttonIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mainHeading {
+    font-size: 3rem;
+  }
+}

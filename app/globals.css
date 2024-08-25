@@ -10,14 +10,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: rgb(9,15,19);
+    --foreground-rgb: rgb(9, 15, 19);
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: rgb(9,15,19);
+    --foreground-rgb: rgb(9, 15, 19);
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -49,68 +49,68 @@ body pre[class^="language-"]::before {
   top: 0.5em;
 }
 .code-figure {
-  @apply rounded-lg w-64 break-all border border-gray-800
+  @apply rounded-lg w-64 break-all border border-gray-800;
 }
-body pre[class~='language-c']::before {
+body pre[class~="language-c"]::before {
   content: "C";
 }
-body pre[class~='language-cs']::before {
+body pre[class~="language-cs"]::before {
   content: "C#";
 }
-body pre[class~='language-cpp']::before {
+body pre[class~="language-cpp"]::before {
   content: "C++";
 }
-body pre[class~='language-java']::before {
+body pre[class~="language-java"]::before {
   content: "JAVA";
 }
-body pre[class~='language-py']::before,
-body pre[class~='language-python']::before {
+body pre[class~="language-py"]::before,
+body pre[class~="language-python"]::before {
   content: "PYTHON";
 }
-body pre[class~='language-javascript']::before,
-  body pre[class~='language-js']::before {
+body pre[class~="language-javascript"]::before,
+body pre[class~="language-js"]::before {
   content: "JS";
 }
-body pre[class~='language-html']::before {
+body pre[class~="language-html"]::before {
   content: "HTML";
 }
-body pre[class~='language-css']::before {
+body pre[class~="language-css"]::before {
   content: "CSS";
 }
-body pre[class~='language-xml']::before {
+body pre[class~="language-xml"]::before {
   content: "XML";
 }
-body pre[class~='language-php']::before {
+body pre[class~="language-php"]::before {
   content: "PHP";
 }
 
-body pre[class~='language-shell']::before,
-body pre[class~='language-bash']::before {
+body pre[class~="language-shell"]::before,
+body pre[class~="language-bash"]::before {
   content: "SHELL";
 }
-body pre[class~='language-flow']::before {
+body pre[class~="language-flow"]::before {
   content: "FLOW";
 }
-body pre[class~='language-sequence']::before {
+body pre[class~="language-sequence"]::before {
   content: "SEQUENCE";
 }
-body pre[class~='language-sql']::before {
+body pre[class~="language-sql"]::before {
   content: "SQL";
 }
-body pre[class~='language-yml']::before,
-body pre[class~='language-yaml']::before {
+body pre[class~="language-yml"]::before,
+body pre[class~="language-yaml"]::before {
   content: "YAML";
 }
-body pre[class~='language-ini']::before {
+body pre[class~="language-ini"]::before {
   content: "INI";
 }
-body pre[class~='language-git']::before {
+body pre[class~="language-git"]::before {
   content: "GIT";
 }
-body pre[class~='language-txt']::before {
+body pre[class~="language-txt"]::before {
   content: "TXT";
 }
-body pre[class~='language-r']::before {
+body pre[class~="language-r"]::before {
   content: "R";
 }
 .code-figure button.copy-code-button {
@@ -129,6 +129,49 @@ body pre[class~='language-r']::before {
   transform: rotateY(180deg);
 }*/
 .border-gradient-to-r {
-  border-image-source: linear-gradient(to right, #blue-500, #green-500, #purple-500);
+  border-image-source: linear-gradient(
+    to right,
+    #blue-500,
+    #green-500,
+    #purple-500
+  );
   border-image-slice: 1;
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.gradient-border {
+  background: linear-gradient(to right, #ff8c00, #ff69b4, #8a2be2);
+  padding: 1px;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff8c00, #ff69b4, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-slider {
+  animation: slide 10s linear infinite;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 125px;
 }
