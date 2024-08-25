@@ -24,6 +24,8 @@ npm run build && npm run start
 - [ ] Optimize performance for production and build
 - [ ] Improve Chat Completions
 - [ ] Add v1/models
+- [ ] Add Models UI
+- [ ] Add blog create post method
 - [ ] Add v1/moderations
 - [ ] Remove Unnecessary things
 - [ ] Add Other Providers
