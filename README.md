@@ -23,7 +23,7 @@ npm run build && npm run start
 - [ ] Enhance the visual design of the website for Destkop
 - [ ] Optimize performance for production and build
 - [ ] Improve Chat Completions
-- [ ] Add v1/models
+- [X] Add v1/models
 - [ ] Add Models UI
 - [ ] Add blog create post method
 - [ ] Add v1/moderations
