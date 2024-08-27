@@ -1,0 +1,357 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "openai/gpt4o",
+      "object": "chat.completion",
+      "description": "GPT-4 model by OpenAI for generating human-like text.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "deepseek/deepseek-chat",
+      "object": "chat.completion",
+      "description": "Conversational AI by DeepSeek for a wide range of topics.",
+      "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "deepseek/deepseek-coder",
+      "object": "chat.completion",
+      "description": "Coding AI by DeepSeek for code assistance and suggestions.",
+      "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "openai/gpt-4-turbo",
+      "object": "chat.completion",
+      "description": "High-performance GPT-4 variant for faster, more accurate results.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "anthropic/claude-3.5-sonnet",
+      "object": "chat.completion",
+      "description": "Creative text generation model by Anthropic.",
+      "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "google/gemma-7b",
+      "object": "chat.completion",
+      "description": "Language model by Google for human-like text generation.",
+      "image": "https://example.com/gemma-7b-logo.png",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "perplexity/llama-3.1-sonar-small-128k-chat",
+      "object": "chat.completion",
+      "description": "Conversational AI by Perplexity for diverse topics.",
+      "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "openai/gpt-4o-2024-08-06",
+      "object": "chat.completion",
+      "description": "GPT-4 model by OpenAI, updated version from August 2024.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "01-ai/yi-large-fc",
+      "object": "chat.completion",
+      "description": "Large language model by 01-ai for text generation.",
+      "image": "https://example.com/yi-large-fc-logo.png",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "google/gemini-pro-1.5-exp",
+      "object": "chat.completion",
+      "description": "Advanced language model by Google, Gemini Pro 1.5 experimental version.",
+      "image": "https://example.com/gemini-pro-1.5-exp-logo.png",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "mistralai/codestral-mamba",
+      "object": "chat.completion",
+      "description": "Coding AI by Mistralai for programming tasks and suggestions.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "openrouter"
+    },
+    {
+      "id": "openai/gpt-4-1106-preview",
+      "object": "chat.completion",
+      "description": "Preview version of GPT-4 by OpenAI from November 2023.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "object": "chat.completion",
+      "description": "GPT-4 model by OpenAI, updated version from May 2024.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "gpt-4o",
+      "object": "chat.completion",
+      "description": "Standard GPT-4 model by OpenAI for text generation.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "object": "chat.completion",
+      "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
+      "image": "https://example.com/gemini-1.5-pro-logo.png",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "claude-3-haiku",
+      "object": "chat.completion",
+      "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
+      "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "command-r-plus",
+      "object": "chat.completion",
+      "description": "Advanced conversational AI model by Meta.",
+      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "command-r",
+      "object": "chat.completion",
+      "description": "Conversational AI model by Meta for various topics.",
+      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "gemma-2-27b",
+      "object": "chat.completion",
+      "description": "27 billion parameter language model by Google.",
+      "image": "https://example.com/gemma-2-27b-logo.png",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "openchat-3.6-8b",
+      "object": "chat.completion",
+      "description": "Open-source conversational AI model, 8 billion parameters.",
+      "image": "https://example.com/openchat-3.6-8b-logo.png",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "mistral-large-latest",
+      "object": "chat.completion",
+      "description": "Latest large language model by Mistralai.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "llama-3.1-sonar-small-128k-chat",
+      "object": "chat.completion",
+      "description": "Compact LLaMA 3.1 model optimized for chat, by Meta.",
+      "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
+      "created": 1724477736,
+      "owned_by": "hentaigpt"
+    },
+    {
+      "id": "lepton/dolphinmixtral8x7b",
+      "object": "chat.completion",
+      "description": "Mixtral-based model by Lepton AI for text generation.",
+      "image": "https://example.com/dolphinmixtral8x7b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/gemma-7b",
+      "object": "chat.completion",
+      "description": "7 billion parameter language model by Google.",
+      "image": "https://example.com/gemma-7b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama3.1-8b",
+      "object": "chat.completion",
+      "description": "8 billion parameter LLaMA 3.1 model by Meta.",
+      "image": "https://example.com/llama3.1-8b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama3-8b",
+      "object": "chat.completion",
+      "description": "8 billion parameter LLaMA 3 model by Meta.",
+      "image": "https://example.com/llama3-8b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama2-13b",
+      "object": "chat.completion",
+      "description": "13 billion parameter LLaMA 2 model by Meta.",
+      "image": "https://example.com/llama2-13b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama3.1-70b",
+      "object": "chat.completion",
+      "description": "70 billion parameter LLaMA 3.1 model by Meta.",
+      "image": "https://example.com/llama3.1-70b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama3-70b",
+      "object": "chat.completion",
+      "description": "70 billion parameter LLaMA 3 model by Meta.",
+      "image": "https://example.com/llama3-70b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/llama3.1-405b",
+      "object": "chat.completion",
+      "description": "405 billion parameter LLaMA 3.1 model by Meta.",
+      "image": "https://example.com/llama3.1-405b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/mistral7b",
+      "object": "chat.completion",
+      "description": "7 billion parameter language model by Mistralai.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/mixtral8x7b",
+      "object": "chat.completion",
+      "description": "Mixtral-based 8x7B parameter model by Mistralai.",
+      "image": "https://example.com/mixtral8x7b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/noushermes13b",
+      "object": "chat.completion",
+      "description": "13 billion parameter model by Nous Research.",
+      "image": "https://example.com/noushermes13b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "openchat/openchat3.5",
+      "object": "chat.completion",
+      "description": "Open-source conversational AI model, version 3.5.",
+      "image": "https://example.com/openchat3.5-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/toppym7b",
+      "object": "chat.completion",
+      "description": "7 billion parameter model by Toppy AI.",
+      "image": "https://example.com/toppym7b-logo.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/wizardlm2-7b",
+      "object": "chat.completion",
+      "description": "7 billion parameter WizardLM model, version 2.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "lepton/wizardlm2-8x22b",
+      "object": "chat.completion",
+      "description": "176 billion parameter WizardLM model (8x22B), version 2.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
+      "created": 1724477736,
+      "owned_by": "lepton"
+    },
+    {
+      "id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "object": "chat.completion",
+      "description": "7 billion parameter instructional model by Mistralai, version 0.3.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "openchat/openchat-3.6-8b",
+      "object": "chat.completion",
+      "description": "8 billion parameter OpenChat model, version 3.6.",
+      "image": "https://example.com/openchat-3.6-8b-logo.png",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "microsoft/Phi-3-medium-4k-instruct",
+      "object": "chat.completion",
+      "description": "Phi-3 medium model by Microsoft, optimized for 4K context instructions.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "deepinfra/Qwen/Qwen2-72B-Instruct",
+      "object": "chat.completion",
+      "description": "72 billion parameter instructional model by Qwen, version 2.",
+      "image": "https://example.com/Qwen2-72B-Instruct-logo.png",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "object": "chat.completion",
+      "description": "70 billion parameter instructional LLaMA 3 model by Meta.",
+      "image": "https://example.com/Meta-Llama-3-70B-Instruct-logo.png",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "microsoft/WizardLM-2-8x22B",
+      "object": "chat.completion",
+      "description": "176 billion parameter WizardLM model (8x22B) by Microsoft, version 2.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    },
+    {
+      "id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "object": "chat.completion",
+      "description": "176 billion parameter (8x22B) instructional Mixtral model by Mistralai, version 0.1.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1724477736,
+      "owned_by": "deepinfra"
+    }
+  ]
+}

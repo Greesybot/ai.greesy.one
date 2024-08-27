@@ -17,7 +17,12 @@ type ResponseData = {
   status: number;
   blogs: [BlogData];
 };
-
+/**
+ * Handles GET requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
 export async function GET(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
@@ -63,7 +68,12 @@ export async function GET(
     }
   }
 }
-
+/**
+ * Handles POST requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
 export function POST() {
   return "";
 }

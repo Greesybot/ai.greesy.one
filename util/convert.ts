@@ -41,6 +41,7 @@ function convertToOutputFormat(input: InputProvider[]): OutputList {
         image: model.image,
         created: currentTimestamp,
         owned_by: provider.provider,
+        provider: provider.provider
       });
       modelId++;
     });

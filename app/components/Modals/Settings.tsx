@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { IoCopy } from "react-icons/io5";
 import { useSession } from "next-auth/react";
 
-const SettingsModal = ({ isOpen, onClose }) => {
-  const [activeTab, setActiveTab] = useState("api");
 
+
+const SettingsModal =  ({ isOpen, onClose }) => {
+  const [activeTab, setActiveTab] = useState("api");
+  const { data: session, status } = useSession();
+  
   return (
     <div className="fixed inset-0 bg-opacity-75 flex items-center justify-center z-40 border border-gray-800">
       <div className="bg-transparent backdrop-filter backdrop-blur-lg shadow-xl rounded-xl shadow-xl w-full max-w-md mx-4 text-gray-200 border border-gray-800">
@@ -52,7 +55,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
             User Settings
           </button>
         </div>
-        {activeTab === "user" && <UserSettings />}
+        {activeTab === "user" && <UserSettings session={session} />}
         {activeTab === "api" && <ApiSettings />}
         <div className="flex justify-end p-4 border-t border-gray-700">
           <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -64,7 +67,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
   );
 };
 
-const UserSettings = () => (
+const UserSettings = ({session}) => (
   <div className="p-4 max-h-96 overflow-y-auto">
     <div className="mb-4">
       <label
@@ -78,6 +81,8 @@ const UserSettings = () => (
         id="username"
         type="text"
         placeholder="Username"
+        value={session.user.name}
+        disabled
       />
     </div>
     <div className="mb-4">
@@ -92,6 +97,8 @@ const UserSettings = () => (
         id="email"
         type="email"
         placeholder="Email"
+        value={session.user.email}
+        disabled
       />
     </div>
     <div className="mb-4">
@@ -163,9 +170,11 @@ const ApiSettings = () => {
   const [reqRetries, setReqRetries] = useState(() => {
     return parseInt(window.localStorage.getItem("request-retries") || "3", 10);
   });
+
   const [copied, setCopied] = useState(false);
 
-  const copyKey = async () => {
+  
+  const copyKey =  async() => {
     try {
       const response = await fetch("/api/key", {
         headers: {

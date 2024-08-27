@@ -73,7 +73,7 @@
     ]
   },
   {
-    "provider": "hentaigpt",
+    "provider": "pocketai",
     "models": [
       {
         "name": "openai/gpt-4-1106-preview",
@@ -112,9 +112,9 @@
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
-        "name": "command-r",
+        "name": "claude-2",
         "type": "llm",
-        "description": "Conversational AI model by Meta for various topics.",
+        "description": "Conversational AI model by Anthropic for various topics.",
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
@@ -124,24 +124,41 @@
         "image": "https://example.com/gemma-2-27b-logo.png"
       },
       {
-        "name": "openchat-3.6-8b",
+        "name": "mistral-next",
         "type": "llm",
-        "description": "Open-source conversational AI model, 8 billion parameters.",
+        "description": "Open-source conversational AI model.",
         "image": "https://example.com/openchat-3.6-8b-logo.png"
       },
       {
-        "name": "mistral-large-latest",
+        "name": "mistral-large",
         "type": "llm",
         "description": "Latest large language model by Mistralai.",
         "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
       },
       {
-        "name": "llama-3.1-sonar-small-128k-chat",
+        "name": "claude-instant",
         "type": "llm",
-        "description": "Compact LLaMA 3.1 model optimized for chat, by Meta.",
+        "description": "Claude model optimized for chat, by Anthropic.",
         "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
       }
     ]
+  },
+  {
+    "provider": "greesyai",
+    "models":[
+      {
+        "name": "greesychat-turbo",
+        "type": "llm",
+        "description": "Latest Model of GreesyAI, Suprasses GPT-4 and Llama 3 8b",
+        "image":""
+      },
+            {
+        "name": "greesyguard-2.5-pre",
+        "type": "text.moderations",
+        "description": "Latest Strong Guard Model of GreesyAI, Suprasses Text-Moderation By OpenAI and Llama Guard",
+        "image":""
+      }
+      ]
   },
   {
     "provider": "lepton",
@@ -149,7 +166,7 @@
       {
         "name": "dolphinmixtral8x7b",
         "type": "llm",
-        "description": "Mixtral-based model by Lepton AI for text generation.",
+        "description": "Mixtral-based model by Dolphin AI for text generation.",
         "image": "https://example.com/dolphinmixtral8x7b-logo.png"
       },
       {

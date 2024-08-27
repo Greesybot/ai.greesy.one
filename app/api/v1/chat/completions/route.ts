@@ -54,7 +54,12 @@ async function streamToString(stream: ReadableStream) {
   }
   return new TextDecoder().decode(Buffer.concat(chunks));
 }
-
+/**
+ * Handles POST requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
   if (req.method !== "POST") {
@@ -88,7 +93,15 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       { status: 403 },
     );
   }
-
+  if(userdata.limits.left === 0 || userdata.limits.left < 10) {
+    return NextResponse.json(
+      {
+        message: "You're out of credits.",
+        tip: "ai.greesy.one/discord",
+        code: "INSUFFICENT_CREDITS"
+      }, 
+      { status: 403 })
+  }
   try {
     const providers = models.filter((provider) =>
       provider.models.some((m) => m.name === model),
@@ -109,6 +122,9 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       try {
         let response;
         switch (provider.provider) {
+          case "greesyai":
+            response = await handleGreesyAi(model,messages)
+            break;
           case "openrouter":
             response = await fetchFromProvider(
               "https://openrouter.ai/api/v1/chat/completions",
@@ -152,7 +168,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
         }
 
         await UserModel.findByIdAndUpdate(userdata._id, {
-          $inc: { "limits.0.left": -2, "limits.0.total": -2 },
+          $inc: { "limits.0.left": -10, "limits.0.total": -10 },
         });
 
         return NextResponse.json({
@@ -182,6 +198,12 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     );
   }
 }
+/**
+ * Handles GET requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     return NextResponse.json(
