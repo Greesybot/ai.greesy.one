@@ -3,7 +3,7 @@ import connectMongo from "../../../util/mongo";
 import UserModel from "../../schemas/User";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
-
+import cors from "../../middleware/cors";
 type ResponseData = {
   key: string;
 };
@@ -18,6 +18,8 @@ export async function GET(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
+  await cors(req, res);
+
   try {
     const h = headers();
     if (!h) {

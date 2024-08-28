@@ -26,11 +26,12 @@ export default function InfiniteSlider() {
         {LOGOS.map((logo, index) => (
           <div
             className="slide flex w-[125px] items-center justify-center"
-            key={index + LOGOS.length}
+            key={index}
           >
             {logo}
           </div>
         ))}
+         {/* +LOGOS.LENGTH*/}
       </div>
     </div>
   );

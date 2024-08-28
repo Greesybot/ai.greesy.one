@@ -147,7 +147,7 @@
     "provider": "greesyai",
     "models":[
       {
-        "name": "greesychat-turbo",
+        "name": "greesyai/greesychat-turbo",
         "type": "llm",
         "description": "Latest Model of GreesyAI, Suprasses GPT-4 and Llama 3 8b",
         "image":""

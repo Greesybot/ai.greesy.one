@@ -35,7 +35,7 @@ function convertToOutputFormat(input: InputProvider[]): OutputList {
   input.forEach((provider) => {
     provider.models.forEach((model) => {
       output.data.push({
-        id: `${modelId}`,
+        id: model.name,
         object: model.type === "llm" ? "chat.completions" : model.type,
         description: model.description,
         image: model.image,
@@ -61,7 +61,7 @@ function readJsonFile(filePath: string): InputProvider[] {
 }
 
 // Main execution
-const filePath = "../models.json";
+const filePath = "./models.json";
 const inputData = readJsonFile(filePath);
 const outputData = convertToOutputFormat(inputData);
 

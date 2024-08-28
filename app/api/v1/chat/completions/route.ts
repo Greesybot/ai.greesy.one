@@ -4,7 +4,16 @@ import { NextResponse } from "next/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 import UserModel from "../../../../schemas/User";
 import connectMongo from "../../../../../util/mongo";
-
+import {handleGreesyAi} from "../../../../../util/handleGreesyAi";
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+  },
+  // Specifies the maximum allowed duration for this function to execute (in seconds)
+  maxDuration: 20,
+}
 async function fetchFromProvider(url: string, options: RequestInit) {
   try {
     const response = await fetch(url, options);
