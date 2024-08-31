@@ -25,6 +25,7 @@ npm run build && npm run start
 - [ ] Improve Chat Completions
 - [X] Add v1/models
 - [ ] Add Models UI
+- [ ] Add Custom Model Handler Like some model named (ex: gpt-4-1106-preview to openai/gpt-4-1106)
 - [ ] Add blog create post method
 - [ ] Add v1/moderations
 - [ ] Remove Unnecessary things
