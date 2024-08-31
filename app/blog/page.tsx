@@ -8,6 +8,7 @@ export default function Blog() {
   const [datas, setDatas] = useState([]);
   const [status, setStatus] = useState(null);
   const [error, setError] = useState({});
+  
   useEffect(() => {
     async function fetchData() {
       try {
@@ -16,7 +17,6 @@ export default function Blog() {
         const result = await response.json();
         if (result.status === 404) {
           setStatus(404);
-          //   setError(result)
         } else {
           console.log(result.blogs);
           setDatas(result.blogs || []);
@@ -35,23 +35,27 @@ export default function Blog() {
     <>
       <Nav />
 
-      <div className="bg- text-white p-6 min-h-screen">
+      <div className="bg-black text-white p-6 min-h-screen">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-5xl font-bold mb-8">News Overview</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center">
+            News Overview
+          </h2>
         </div>
-        {status === 200 && datas !== [] ? (
-          datas.map((data, index) => <BlogCard key={index} data={data} />)
+        {status === 200 && datas.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {datas.map((data, index) => (
+              <BlogCard key={index} data={data} />
+            ))}
+          </div>
         ) : (
-          <>
-            <div className="flex shadow shadow-xl border-dotted w-80 h-12 justify-between rounded-md mx-auto mt-14 border-gray-500 border  text-center ">
-              <div className="flex flex-row-2 font-bold font-sans  mx-auto space-x-2 justify-between mt-2">
-                <span className="text-rose-400 mt-1 mx-auto">
-                  <TiWarning />
-                </span>{" "}
-                <h1 className="text-gray-200">No blogs published recently</h1>
-              </div>
+          <div className="flex shadow shadow-xl border-dotted w-full sm:w-80 h-12 justify-between rounded-md mx-auto mt-14 border-gray-500 border text-center">
+            <div className="flex items-center space-x-2 mx-auto">
+              <span className="text-rose-400">
+                <TiWarning size={24} />
+              </span>
+              <h1 className="text-gray-200">No blogs published recently</h1>
             </div>
-          </>
+          </div>
         )}
       </div>
     </>

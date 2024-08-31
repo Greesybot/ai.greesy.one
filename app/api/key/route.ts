@@ -4,9 +4,11 @@ import UserModel from "../../schemas/User";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import cors from "../../middleware/cors";
-type ResponseData = {
-  key: string;
-};
+import { useSession } from 'next-auth/react'
+import { getSession } from "next-auth/react"
+
+// Connect to the database when the server starts
+
 
 /**
  * Handles GET requests to this API endpoint.
@@ -16,9 +18,14 @@ type ResponseData = {
  */
 export async function GET(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>,
+  res: NextApiResponse,
 ) {
-  await cors(req, res);
+  await connectMongo();
+  const data = await getSession({req})
+
+  if (!data) {
+    return NextResponse.json({ message: "You do not have access to do this."}, { status: 401 });
+  }
 
   try {
     const h = headers();
@@ -36,11 +43,10 @@ export async function GET(
       return NextResponse.json({ key: email });
     }
 
-    await connectMongo();
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      return NextResponse.json({ message: "user not found" }, { status: 404 });
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
     return NextResponse.json({ key: user.apiKey });
   } catch (error) {

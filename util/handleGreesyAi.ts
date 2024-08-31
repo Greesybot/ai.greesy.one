@@ -1,5 +1,5 @@
 import { Client } from "@gradio/client";
-
+import {handleCustomGreesyAi} from './handleCustomGreesyAi'
 interface Message {
   role: "user" | "assistant" | "system";
   content: string;
@@ -50,9 +50,15 @@ async function handleGreesyAi(modelName: string, messages: Message[]): Promise<a
       content: String(result.data) // Assuming the response contains the message directly
     };
 
-    return convertToOpenAi([data]); // Converting the result to OpenAI format
+    return convertToOpenAi([data]); 
+  } else {
+    const body = {
+      model: modelName.split("/")[1],
+      messages: messages
+    }
+    return await handleCustomGreesyAi(body)
   }
-  return null; // Return null or handle other model names as needed
+  return null;
 }
 
 export { convertToOpenAi, handleGreesyAi };

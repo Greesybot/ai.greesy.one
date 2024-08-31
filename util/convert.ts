@@ -65,6 +65,6 @@ const filePath = "./models.json";
 const inputData = readJsonFile(filePath);
 const outputData = convertToOutputFormat(inputData);
 
-fs.writeFileSync("output.json", JSON.stringify(outputData, null, 2));
+fs.writeFileSync("data/output.json", JSON.stringify(outputData, null, 2));
 
 console.log("Conversion complete. Output written to output.json");

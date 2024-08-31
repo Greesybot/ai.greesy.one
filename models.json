@@ -12,6 +12,7 @@
       {
         "name": "deepseek/deepseek-chat",
         "type": "llm",
+        "premium": true,
         "description": "Conversational AI by DeepSeek for a wide range of topics.",
         "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg"
       },
@@ -22,7 +23,7 @@
         "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg"
       },
       {
-        "name": "openai/gpt-4-turbo",
+        "name": "openai/chatgpt-4o-latest",
         "type": "llm",
         "premium": true,
         "description": "High-performance GPT-4 variant for faster, more accurate results.",
@@ -31,6 +32,7 @@
       {
         "name": "anthropic/claude-3.5-sonnet",
         "type": "llm",
+        "premium": true,
         "description": "Creative text generation model by Anthropic.",
         "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
       },
@@ -49,6 +51,7 @@
       {
         "name": "openai/gpt-4o-2024-08-06",
         "type": "llm",
+       "premium": true,     
         "description": "GPT-4 model by OpenAI, updated version from August 2024.",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
@@ -61,6 +64,7 @@
       {
         "name": "google/gemini-pro-1.5-exp",
         "type": "llm",
+        "premium": true,
         "description": "Advanced language model by Google, Gemini Pro 1.5 experimental version.",
         "image": "https://example.com/gemini-pro-1.5-exp-logo.png"
       },
@@ -145,20 +149,98 @@
   },
   {
     "provider": "greesyai",
-    "models":[
+    "models": [
+       {
+        "name": "openai/gpt-4o-2024-05-13",
+        "type": "llm",
+        "description": "GPT-4o Provided By GreesyAI",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+       {
+        "name": "openai/gpt-4-0125-preview",
+        "type": "llm",
+        "description": "GPT-4 Provided By GreesyAI",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "openai/gpt-4-1106-preview",
+        "type": "llm",
+        "description": "GPT-4 Provided By GreesyAI",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
       {
         "name": "greesyai/greesychat-turbo",
         "type": "llm",
         "description": "Latest Model of GreesyAI, Suprasses GPT-4 and Llama 3 8b",
-        "image":""
+        "image": ""
       },
-            {
+      {
         "name": "greesyguard-2.5-pre",
         "type": "text.moderations",
         "description": "Latest Strong Guard Model of GreesyAI, Suprasses Text-Moderation By OpenAI and Llama Guard",
-        "image":""
+        "image": ""
+      },
+      {
+        "name": "openai/chatgpt-4o-latest",
+        "type": "llm",
+        "description": "High-performance GPT-4 variant for faster, more accurate results.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "cohere/command-r-plus",
+        "type": "llm",
+        "description": "Advanced conversational AI model by Meta.",
+        "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
+      },
+      {
+        "name": "google/gemini-1.5-flash",
+        "type": "llm",
+        "description": "Fast variant of the Gemini 1.5 model by Google.",
+        "image": "https://example.com/gemini-1.5-flash-logo.png"
+      },
+      {
+        "name": "google/gemini-1.5-pro",
+        "type": "llm",
+        "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
+        "image": "https://example.com/gemini-1.5-pro-logo.png"
+      },
+      {
+        "name": "meta/llama-3.1-405b",
+        "type": "llm",
+        "description": "405 billion parameter LLaMA 3.1 model by Meta.",
+        "image": "https://example.com/llama3.1-405b-logo.png"
+      },
+      {
+        "name": "openai/gpt-4o",
+        "type": "llm",
+        "description": "Standard GPT-4 model by OpenAI for text generation.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "openai/gpt-4o-mini",
+        "type": "llm",
+        "description": "Compact variant of the GPT-4 model by OpenAI.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "anthropic/claude-3-sonnet",
+        "type": "llm",
+        "description": "Creative text generation model by Anthropic.",
+        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
+      },
+        {
+        "name": "anthropic/claude-3-opus",
+        "type": "llm",
+        "description": "Creative text generation model by Anthropic.",
+        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
+      },
+      {
+        "name": "anthropic/claude-3-haiku",
+        "type": "llm",
+        "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
+        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
       }
-      ]
+    ]
   },
   {
     "provider": "lepton",

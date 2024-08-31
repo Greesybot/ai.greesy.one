@@ -13,6 +13,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import Alert from "../Main/Alert";
 const models = [
+  "greesyai/greesychat-turbo",
   "deepseek/deepseek-chat",
   "openai/gpt4o",
   "deepseek/deepseek-coder",
@@ -74,7 +75,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `${process.env.PROJECT_URL}/api/v1/chat/completions`,
+        `/api/v1/chat/completions`,
         {
           method: "POST",
           headers: {

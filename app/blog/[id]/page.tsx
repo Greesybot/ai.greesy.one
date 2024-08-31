@@ -128,19 +128,19 @@ export default function Blog({ params }: { params: BlogParams }) {
         <div className="flex flex-col space-y-4 isolate">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center text-gray-200 font-bold font-sans"
+            className="inline-flex items-center text-gray-200 font-bold font-sans "
           >
             <span className="text-gray-500 -ml-4">
               <MdKeyboardArrowLeft />
             </span>
             Go Back
           </button>
-          <div className={`flex flex-col space-y-4 pt-12 -ml-2.5 text-white `}>
+          <div className={`flex flex-col space-y-4 pt-12 -ml-2.5 mt-2 text-white `}>
             <span className="text-gray-500 font-semibold">Aug 15, 2024</span>
-            <span className="text-gray-200 pt-2 text-4xl font-extrabold">
+            <span className="text-gray-200 text-6xl break-all font-sans font-extrabold">
               {data.title}
             </span>
-            <div className="flex mt-4">
+            <div className="flex">
               <span className="text-blue-500 font-bold">@{data.author}</span>
             </div>
             <div className="mt-2"><Markdown

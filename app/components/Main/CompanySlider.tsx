@@ -3,21 +3,25 @@ import { FaMeta } from "react-icons/fa6";
 import { IoLogoMicrosoft } from "react-icons/io5";
 import { SiPerplexity } from "react-icons/si";
 import { FaGoogle } from "react-icons/fa";
+
 const LOGOS = [
-  <AiFillOpenAI width={28} height={28} className="text-gray-200" />,
-  <FaMeta width={28} height={28} className="text-gray-200" />,
-  <IoLogoMicrosoft width={28} height={28} className="text-gray-200" />,
-  <SiPerplexity width={28} height={28} className="text-gray-200" />,
-  <FaGoogle width={28} height={28} className="text-gray-200" />,
+  <AiFillOpenAI className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <FaMeta className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <IoLogoMicrosoft className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <SiPerplexity className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <FaGoogle className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <img src="https://logowik.com/content/uploads/images/cohere-new9011.logowik.com.webp" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <img src="https://raw.githubusercontent.com/01-ai/Yi/main/assets/img/Yi_logo_icon_dark.svg" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <img src="https://avatars.githubusercontent.com/u/76263028?s=280&v=4" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
 ];
 
 export default function InfiniteSlider() {
   return (
-    <div className="relative m-auto w-screen overflow-hidden bg-black before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,black_0%,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,black_0%,rgba(255,255,255,0)_100%)] after:content-['']">
-      <div className="animate-infinite-slider flex w-[calc(125px*8)]">
+    <div className="relative mx-auto overflow-hidden bg-black w-full before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[50px] sm:before:w-[100px] before:bg-gradient-to-r before:from-black before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[50px] sm:after:w-[100px] after:-scale-x-100 after:bg-gradient-to-l after:from-black after:to-transparent after:content-['']">
+      <div className="animate-infinite-slider flex w-[calc(100px*10)] sm:w-[calc(125px*10)] md:w-[calc(150px*10)] lg:w-[calc(175px*10)]">
         {LOGOS.map((logo, index) => (
           <div
-            className="slide flex w-[125px] items-center justify-center"
+            className="slide flex items-center justify-center w-[100px] sm:w-[125px] md:w-[150px] lg:w-[175px]"
             key={index}
           >
             {logo}
@@ -25,13 +29,12 @@ export default function InfiniteSlider() {
         ))}
         {LOGOS.map((logo, index) => (
           <div
-            className="slide flex w-[125px] items-center justify-center"
-            key={index}
+            className="slide flex items-center justify-center w-[100px] sm:w-[125px] md:w-[150px] lg:w-[175px]"
+            key={index + LOGOS.length}
           >
             {logo}
           </div>
         ))}
-         {/* +LOGOS.LENGTH*/}
       </div>
     </div>
   );

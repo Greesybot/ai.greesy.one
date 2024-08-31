@@ -1,37 +1,35 @@
 import models from "../../../../../models.json";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import type { NextApiRequest, NextApiResponse } from "next";
 import UserModel from "../../../../schemas/User";
 import connectMongo from "../../../../../util/mongo";
-import {handleGreesyAi} from "../../../../../util/handleGreesyAi";
+import { handleGreesyAi } from "../../../../../util/handleGreesyAi";
+
 export const config = {
   api: {
     bodyParser: {
       sizeLimit: '1mb',
     },
+    externalResolver: true,
   },
-  // Specifies the maximum allowed duration for this function to execute (in seconds)
-  maxDuration: 20,
-}
-async function fetchFromProvider(url: string, options: RequestInit) {
+};
+
+async function fetchFromProvider(url, options) {
   try {
     const response = await fetch(url, options);
 
     if (!response.ok) {
       throw new Error(`Provider response not OK: ${response.statusText}`);
     }
-
+   
     return await response.json();
   } catch (error) {
-    console.error(
-      `Fetch error: ${error instanceof Error ? error.message : String(error)}`,
-    );
+    console.error(`Fetch error: ${error.message}`);
     throw error;
   }
 }
 
-async function getProviderAndModel(modelName: string) {
+async function getProviderAndModel(modelName) {
   for (const provider of models) {
     let model = provider.models.find((m) => m.name === modelName);
     if (!model) {
@@ -49,7 +47,7 @@ async function getProviderAndModel(modelName: string) {
   throw new Error("Model not found");
 }
 
-async function streamToString(stream: ReadableStream) {
+async function streamToString(stream) {
   const chunks = [];
   const reader = stream.getReader();
   try {
@@ -63,14 +61,10 @@ async function streamToString(stream: ReadableStream) {
   }
   return new TextDecoder().decode(Buffer.concat(chunks));
 }
-/**
- * Handles POST requests to this API endpoint.
- *
- * @param req The incoming request object.
- * @param res The outgoing response object.
- */
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+
+export async function POST(req) {
   await connectMongo();
+  
   if (req.method !== "POST") {
     return NextResponse.json(
       { error: "Method not allowed, only POST requests are accepted." },
@@ -86,7 +80,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     );
   }
 
-  const { model, messages, max_tokens, top_p, top_k, temperature } =
+  const { model, messages,response_format, max_tokens, top_p, top_k, temperature } =
     await req.json();
   if (!model) {
     return NextResponse.json(
@@ -102,15 +96,17 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       { status: 403 },
     );
   }
-  if(userdata.limits.left === 0 || userdata.limits.left < 10) {
+  if (userdata.limits.left === 0 || userdata.limits.left < 10) {
     return NextResponse.json(
       {
         message: "You're out of credits.",
         tip: "ai.greesy.one/discord",
-        code: "INSUFFICENT_CREDITS"
-      }, 
-      { status: 403 })
+        code: "INSUFFICIENT_CREDITS"
+      },
+      { status: 403 },
+    );
   }
+
   try {
     const providers = models.filter((provider) =>
       provider.models.some((m) => m.name === model),
@@ -122,6 +118,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
     for (const provider of providers) {
       if (provider.premium && !userdata.premium) {
+        throw new Error("Premium Required Model")
         return NextResponse.json(
           { message: "This model requires a Premium Account" },
           { status: 402 },
@@ -132,7 +129,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
         let response;
         switch (provider.provider) {
           case "greesyai":
-            response = await handleGreesyAi(model,messages)
+            response = await handleGreesyAi(model, messages);
             break;
           case "openrouter":
             response = await fetchFromProvider(
@@ -149,6 +146,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
                   max_tokens: max_tokens ?? 1024,
                   temperature: temperature ?? 1,
                   top_p,
+                  response_format,
                   top_k,
                 }),
               },
@@ -176,10 +174,11 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
             throw new Error("Provider not supported");
         }
 
-        await UserModel.findByIdAndUpdate(userdata._id, {
-          $inc: { "limits.0.left": -10, "limits.0.total": -10 },
-        });
-
+await UserModel.findByIdAndUpdate(userdata._id, {
+      $inc: { "limits.0.left": -10, "limits.0.total": -10 },
+    });
+console.log(response)
+        if(!response.choices || response.choices.length === null) throw new Error("response doesnt have choices array.")
         return NextResponse.json({
           id: response.id,
           model: model,
@@ -188,39 +187,28 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
           choices: response.choices,
         });
       } catch (error) {
-        console.error(
-          `Error with provider ${provider.provider}:`,
-          error instanceof Error ? error.message : String(error),
-        );
+        console.error(`Error with provider ${provider.provider}: ${error.message}`);
       }
     }
 
     throw new Error("No available providers left.");
   } catch (error) {
-    console.error(
-      "Error:",
-      error instanceof Error ? error.message : String(error),
-    );
+    console.error(`Error: ${error.message}`);
     return NextResponse.json(
       { error: "Provider Error: Unable to process the request." },
       { status: 500 },
     );
   }
 }
-/**
- * Handles GET requests to this API endpoint.
- *
- * @param req The incoming request object.
- * @param res The outgoing response object.
- */
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+
+export async function GET(req) {
   try {
     return NextResponse.json(
       { message: "GET request not implemented" },
       { status: 501 },
     );
   } catch (error) {
-    console.error(error);
+    console.error(`Error: ${error.message}`);
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 },

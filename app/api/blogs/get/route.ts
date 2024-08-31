@@ -42,10 +42,11 @@ export async function GET(
   } else {
     if (testmode) {
       const d = new BlogModel({
-        title: "First Release",
+        title: "Beta Docs",
         author: "Only Cheeini",
         content: "Release of GreesyAI",
-        background: "bg-gradient-br from-purple-700 to-pink-400",
+        background: "bg-gradient-to-br from-gray-700 to-cyan-400",
+        id:"tests"
       });
       d.save()
         .then((savedUser) => {})

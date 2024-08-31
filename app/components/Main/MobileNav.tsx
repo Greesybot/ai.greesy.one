@@ -11,7 +11,7 @@ import SettingsModal from "../Modals/Settings";
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [modal, setModal] = useState(false);
-  const { data: session, status } = useSession();
+   const { data: session, status } = useSession();
 
   useEffect(() => {
     if (open) {

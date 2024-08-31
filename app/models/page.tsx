@@ -7,7 +7,7 @@ export default function Home() {
   const [models, setModels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+ const [search,setSearch] = useState('')
   useEffect(() => {
     async function fetchModels() {
       try {
@@ -34,36 +34,22 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <div className="bg-gradient-to-br from-black via-black to-purple-700/[0.2] text-white p-6">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Browse GreesyAI Models</h1>
+      <div className="bg-gradient-to-br from-black via-black to-purple-700/[0.2] text-white p-6 w-full min-h-screen">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-3xl font-bold mb-4">Browse GreesyAI Models</h1>
 
-          <p className="mb-6 text-sm text-gray-400 leading-tight">
+          <p className="mb-6 text-base text-gray-400 leading-tight">
             Click on a model to view more details. All models are hosted by GreesyAI and other providers.
           </p>
 
-          <div className="relative mb-6">
+          <div className="relative mb-6 max-w-xl mx-auto">
             <input
               type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Search..."
               className="w-full bg-black border border-gray-800 rounded-full py-2 px-4 pr-12 focus:outline-none text-sm"
             />
-            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
-                />
-              </svg>
-            </button>
             <button className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +67,7 @@ export default function Home() {
           </div>
         </div>
         {models.data.length > 0 ? (
-          <Models models={models.data} />
+          <Models models={models.data} searchQuery={search} />
         ) : (
           <p>No models available.</p>
         )}
