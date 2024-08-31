@@ -7,7 +7,7 @@ Enhance your AI experience effortlessly with the Greesy.one AI platform. Build a
 
 - ✨ **Tons of Providers**: Get access to models like (chatgpt-4o,claude-3.5) and others with stable access with providers
 - 🪄 **Fast API**: Get faster experience with api
-- 💻 **Instant Manage**: Access and manage models through a dedicated API endpoint.
+- 💻 **Instant Run**: Access and manage models through ui.
 - 🎨 **Models UI**: A user-friendly interface to visualize and interact with your models.
 - 🚀 **Optimized Performance**: Continuous improvements to ensure fast and reliable AI computations.
 - 💬 **Enhanced Chat Completions**: Improve AI-driven conversations with refined chat completion capabilities.
