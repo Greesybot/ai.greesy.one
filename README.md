@@ -5,8 +5,9 @@ Enhance your AI experience effortlessly with the Greesy.one AI platform. Build a
 
 ## Features
 
-- ✨ **Custom Model Handlers**: Seamlessly integrate and manage custom models like `gpt-4-1106-preview` to `openai/gpt-4-1106`.
-- 💻 **v1/Models Endpoint**: Access and manage models through a dedicated API endpoint.
+- ✨ **Tons of Providers**: Get access to models like (chatgpt-4o,claude-3.5) and others with stable access with providers
+- 🪄 **Fast API**: Get faster experience with api
+- 💻 **Instant Manage**: Access and manage models through a dedicated API endpoint.
 - 🎨 **Models UI**: A user-friendly interface to visualize and interact with your models.
 - 🚀 **Optimized Performance**: Continuous improvements to ensure fast and reliable AI computations.
 - 💬 **Enhanced Chat Completions**: Improve AI-driven conversations with refined chat completion capabilities.
