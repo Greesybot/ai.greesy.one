@@ -5,6 +5,28 @@ import UserModel from "../../../../schemas/User";
 import connectMongo from "../../../../../util/mongo";
 import { handleGreesyAi } from "../../../../../util/handleGreesyAi";
 
+const idToRequestCount = new Map<string, number>(); 
+const rateLimiter = {
+  windowStart: Date.now(),
+  windowSize: 10000,
+  maxRequests: 5,
+};
+
+const limit = (ip: string) => {
+
+  const now = Date.now();
+  const isNewWindow = now - rateLimiter.windowStart > rateLimiter.windowSize;
+  if (isNewWindow) {
+    rateLimiter.windowStart = now;
+    idToRequestCount.set(ip, 0);
+  }
+
+  const currentRequestCount = idToRequestCount.get(ip) ?? 0;
+  if (currentRequestCount >= rateLimiter.maxRequests) return true;
+  idToRequestCount.set(ip, currentRequestCount + 1);
+
+  return false;
+};
 export const config = {
   api: {
     bodyParser: {
@@ -64,7 +86,12 @@ async function streamToString(stream) {
 
 export async function POST(req) {
   await connectMongo();
-  
+  const ip = req.ip ?? headers().get('X-Forwarded-For') ?? 'unknown';
+  const isRateLimited = limit(ip);
+
+  if (isRateLimited)
+    return NextResponse.json({ error: 'You are rate limited.' }, { status: 429 });
+    
   if (req.method !== "POST") {
     return NextResponse.json(
       { error: "Method not allowed, only POST requests are accepted." },
@@ -200,7 +227,6 @@ console.log(response)
     );
   }
 }
-
 export async function GET(req) {
   try {
     return NextResponse.json(

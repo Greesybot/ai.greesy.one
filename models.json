@@ -150,11 +150,23 @@
   {
     "provider": "greesyai",
     "models": [
+      {
+        "name": "perplexity/sonar-medium",
+        "type": "llm",
+        "description": "Conversational AI by Perplexity for diverse topics.",
+        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
+      },
        {
         "name": "openai/gpt-4o-2024-05-13",
         "type": "llm",
         "description": "GPT-4o Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+       {
+        "name": "huggingface/starcoder-7b",
+        "type": "llm",
+        "description": "Star Coder Provided By GreesyAI",
+        "image": ""
       },
        {
         "name": "openai/gpt-4-0125-preview",

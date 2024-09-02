@@ -15,7 +15,7 @@ interface BlogData {
   title: string;
   author: string;
   content: string;
-  // Add other properties as needed
+  date: string; // Added date field
 }
 
 interface CodeBlockProps {
@@ -31,22 +31,38 @@ interface BlogParams {
 const CustomCodeBlock: React.FC<CodeBlockProps> = ({ inline, className, children }) => {
   const [copied, setCopied] = useState(false);
   const match = /language-(\w+)/.exec(className || '');
-  let language = match ? match[1] : 'text';
+  const language = match ? match[1] : 'text';
   
-  const codeContent = (children[0] || '').toString().split();
+  const codeContent = Array.isArray(children) ? children.join('') : children?.toString() || '';
+  const lines = codeContent.split('\n');
 
   const copyToClipboard = async () => {
-    try {
+  const codeContent = Array.isArray(children) ? children.join('') : children?.toString() || '';
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      // Modern browsers with secure context
       await navigator.clipboard.writeText(codeContent);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
+    } else {
+      // Fallback for older browsers or non-HTTPS environments
+      const textArea = document.createElement("textarea");
+      textArea.value = codeContent;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
     }
-  };
-
+    setTimeout(() => setCopied(false), 2000);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    setCopied(false);
+  }
+};
   if (inline) {
-    return <code className={className}>{codeContent}</code>;
+    return <code className={className}>{JSON.stringify(codeContent)}</code>;
   }
 
   return (
@@ -57,39 +73,45 @@ const CustomCodeBlock: React.FC<CodeBlockProps> = ({ inline, className, children
           {copied ? 'Copied!' : 'Copy'}
         </button>
       </div>
-      <pre className={className}>
-        <code>{children}</code>
-      </pre>
+      <div className="code-content">
+        <pre className={className}>
+          <div>
+            {lines.map((line, index) => (
+              <div key={index} className="code-line">
+                <span className="line-number">{index + 1}</span>
+                <span className="line-content">{line}</span>
+              </div>
+            ))}
+          </div>
+        </pre>
+      </div>
     </div>
   );
 };
-
-
-
-  
 
 export default function Blog({ params }: { params: BlogParams }) {
   const router = useRouter();
   const [data, setData] = useState<BlogData | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [status, setStatus] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`/api/blogs/get?id=${params.id}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const result = await response.json();
         if (result.length === 0) {
           router.push("/404");
         } else {
-          setLoading(false);
           setData(result[0]);
-          setStatus(response.status);
         }
       } catch (error) {
-        setStatus(500);
         setError("Failed to fetch data");
+        console.error("Fetch error:", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -124,53 +146,55 @@ export default function Blog({ params }: { params: BlogParams }) {
   return (
     <>
       <Nav />
-      <div className="flex z-0 justify-between px-6 py-4 flex-col h-screen bg-black w-full">
+      <div className="flex z-0 justify-between px-6 py-4 flex-col min-h-screen bg-black w-full">
         <div className="flex flex-col space-y-4 isolate">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center text-gray-200 font-bold font-sans "
+            className="inline-flex items-center text-gray-200 font-bold font-sans"
           >
             <span className="text-gray-500 -ml-4">
               <MdKeyboardArrowLeft />
             </span>
             Go Back
           </button>
-          <div className={`flex flex-col space-y-4 pt-12 -ml-2.5 mt-2 text-white `}>
-            <span className="text-gray-500 font-semibold">Aug 15, 2024</span>
-            <span className="text-gray-200 text-6xl break-all font-sans font-extrabold">
+          <div className="flex flex-col space-y-4 pt-12 -ml-2.5 mt-2 text-white">
+            <span className="text-gray-500 font-semibold">{data.date}</span>
+            <h1 className="text-gray-200 text-6xl break-words font-sans font-extrabold">
               {data.title}
-            </span>
+            </h1>
             <div className="flex">
               <span className="text-blue-500 font-bold">@{data.author}</span>
             </div>
-            <div className="mt-2"><Markdown
-  remarkPlugins={[remarkGfm]}
-  rehypePlugins={[rehypeHighlight]}
-  components={{
-    img: ({ node, ...props }) => (
-      <div className="relative w-full h-64">
-        <Image
-          {...props}
-          layout="fill"
-          objectFit="cover"
-          alt={props.alt || ""}
-          loading="lazy"
-        />
-      </div>
-    ),
-    code: CustomCodeBlock,
-    h1: ({node, ...props}) => <h1 className="text-xl font-bold mt-6 mb-4" {...props} />,
-    h2: ({node, ...props}) => <h2 className="text-md font-bold mt-5 mb-3" {...props} />,
-    h3: ({node, ...props}) => <h3 className="text-md text-gray-400 font-semibold mt-4 mb-2" {...props} />,
-    h4: ({node, ...props}) => <h3 className="text-sm text-gray-400 font-semibold mt-4 mb-2" {...props} />,
-    h5: ({node, ...props}) => <h3 className="text-xl text-gray-400 font-semibold mt-4 mb-2" {...props} />,
-    // Add more heading styles as needed
-  }}
->
-  {data.content}
-</Markdown>
-
-
+            <div className="mt-2">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeHighlight]}
+                components={{
+                  img: ({ node, ...props }) => (
+                    <div className="relative w-full h-64 rounded-2xl flex border border-none">
+                      <Image
+                        {...props}
+                        layout="fill"
+                        objectFit="cover"
+                        alt={props.alt || ""}
+                        loading="lazy"
+                      />
+                    </div>
+                  ),
+                  code: CustomCodeBlock,
+                  h1: ({node, ...props}) => <h1 className="text-2xl font-bold mt-6 mb-4" {...props} />,
+                  h2: ({node, ...props}) => <h2 className="text-xl font-bold mt-5 mb-3" {...props} />,
+                  h3: ({node, ...props}) => <h3 className="text-lg text-gray-300 font-semibold mt-4 mb-2" {...props} />,
+                  h4: ({node, ...props}) => <h4 className="text-base text-gray-400 font-semibold mt-4 mb-2" {...props} />,
+                  h5: ({node, ...props}) => <h5 className="text-sm text-gray-500 font-semibold mt-4 mb-2" {...props} />,
+                  table: ({node, ...props}) => <div className="overflow-x-auto"><table className="table-auto border-collapse my-4 w-full" {...props} /></div>,
+                  thead: ({node, ...props}) => <thead className="bg-gray-800" {...props} />,
+                  th: ({node, ...props}) => <th className="border border-gray-600 px-4 py-2 text-left" {...props} />,
+                  td: ({node, ...props}) => <td className="border border-gray-700 px-4 py-2" {...props} />,
+                }}
+              >
+                {data.content}
+              </Markdown>
             </div>
           </div>
         </div>
@@ -180,8 +204,9 @@ export default function Blog({ params }: { params: BlogParams }) {
           background-color: #1e1e1e;
           border-radius: 8px;
           overflow: hidden;
-          font-family: monospace;
+          font-family: 'Fira Code', monospace;
           margin: 20px 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .code-header {
           display: flex;
@@ -190,24 +215,77 @@ export default function Blog({ params }: { params: BlogParams }) {
           padding: 8px 12px;
           background-color: #2d2d2d;
           color: #e0e0e0;
+          font-size: 14px;
         }
         .language {
-          font-size: 14px;
+          font-weight: bold;
+          color: #bb86fc;
         }
         .copy-button {
           background: none;
-          border: none;
-          color: #e0e0e0;
+          border: 1px solid #bb86fc;
+          color: #bb86fc;
           cursor: pointer;
-          font-size: 14px;
+          font-size: 12px;
+          padding: 4px 8px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+        }
+        .copy-button:hover {
+          background-color: #bb86fc;
+          color: #1e1e1e;
+        }
+        .code-content {
+          max-height: 400px;
+          overflow-y: auto;
         }
         .code-block pre {
           margin: 0;
-          padding: 12px;
-          overflow-x: auto;
+          padding: 12px 0;
         }
         .code-block code {
           color: #e0e0e0;
+          display: block;
+        }
+        .code-line {
+          display: flex;
+          padding: 0 12px;
+        }
+        .code-line:hover {
+          background-color: #2d2d2d;
+        }
+        .line-number {
+          color: #6c6c6c;
+          text-align: right;
+          user-select: none;
+          padding-right: 12px;
+          min-width: 40px;
+        }
+        .line-content {
+          padding-left: 12px;
+          border-left: 1px solid #3d3d3d;
+        }
+        .overflow-x-auto {
+          overflow-x: auto;
+        }
+        .table-auto {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        .table-auto th,
+        .table-auto td {
+          border: 1px solid #4a4a4a;
+          padding: 8px 12px;
+        }
+        .table-auto thead {
+          background-color: #2d2d2d;
+        }
+        .table-auto th {
+          font-weight: bold;
+          text-align: left;
+        }
+        .table-auto tr:nth-child(even) {
+          background-color: #1a1a1a;
         }
       `}</style>
     </>
