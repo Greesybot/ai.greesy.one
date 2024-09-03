@@ -138,12 +138,15 @@ export async function POST(req) {
     const providers = models.filter((provider) =>
       provider.models.some((m) => m.name === model),
     );
+    
+    
 
     if (providers.length === 0) {
       throw new Error("No providers found for the model");
     }
 
     for (const provider of providers) {
+      console.log(provider.premium)
       if (provider.premium && !userdata.premium) {
         throw new Error("Premium Required Model")
         return NextResponse.json(

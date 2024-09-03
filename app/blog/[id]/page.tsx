@@ -137,8 +137,8 @@ export default function Blog({ params }: { params: BlogParams }) {
 
   if (!data) {
     return (
-      <div className="flex mx-auto justify-center">
-        <h1>No data found</h1>
+      <div className="flex text-white mx-auto justify-center">
+        <h1>No data found {JSON.stringify(data)}</h1>
       </div>
     );
   }

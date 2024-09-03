@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import connectMongo from "../../../../util/mongo";
 import { BlogModel } from "../../../schemas/Blog";
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 
 type BlogData = {
   id: string;
@@ -9,69 +10,71 @@ type BlogData = {
   content: string;
   background: string;
   author: string;
-  date: string; // Ensure this is in ISO string format for sorting
+  date: string;
 };
 
 type ResponseData = {
   status: number;
-  message?: string;
-  blogs?: BlogData[];
+  blogs: [BlogData];
 };
-
+/**
+ * Handles GET requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
 export async function GET(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
   await connectMongo();
 
-  const { searchParams } = new URL(req.url || "", `http://${req.headers.host}`);
+  const data = await BlogModel.find({}).sort({ date: -1 });
+
+  const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   const testmode = searchParams.get("test");
-
-  try {
+  if (data === null) {
+    return NextResponse.json({
+      status: 404,
+      message: "Blogs did not have a database",
+    });
+  } else {
     if (testmode) {
-      // Create a test blog post if `testmode` is enabled
-      const testBlog = new BlogModel({
+      const d = new BlogModel({
         title: "Beta Docs",
         author: "Only Cheeini",
         content: "Release of GreesyAI",
         background: "bg-gradient-to-br from-gray-700 to-cyan-400",
-        id: "tests",
-        date: new Date(), // Set current date
+        id:"tests"
       });
-      await testBlog.save();
+      d.save()
+        .then((savedUser) => {})
+        .catch((error) => {
+          console.error("Error creating user:", error);
+        });
     }
 
-    const blogs = await BlogModel.find({}).sort({ date: -1 }).exec();
-
     if (id) {
-      const blogPost = blogs.find((x) => x.id === id);
-      if (!blogPost) {
-        return NextResponse.json({
-          status: 404,
-          message: "Blog not found",
-        });
-      }
-      return NextResponse.json({
-        status: 200,
-        blogs: [blogPost],
-      });
+      const blogPost = data.filter((x) => x.id === id);
+      if (blogPost.length === 0)
+        return NextResponse.json({ message: "not found" });
+      return NextResponse.json(blogPost);
     } else {
       return NextResponse.json({
         status: 200,
-        blogs,
+        message: "success",
+        blogs: data,
       });
     }
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-    return NextResponse.json({
-      status: 500,
-      message: "Internal Server Error",
-    });
   }
 }
-
-export function POST(req: NextApiRequest, res: NextApiResponse) {
-  // Implement POST request handling if needed
-  return res.status(405).json({ message: "Method not allowed" });
+/**
+ * Handles POST requests to this API endpoint.
+ *
+ * @param req The incoming request object.
+ * @param res The outgoing response object.
+ */
+export function POST() {
+  return "";
 }

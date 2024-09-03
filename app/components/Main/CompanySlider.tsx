@@ -3,16 +3,16 @@ import { FaMeta } from "react-icons/fa6";
 import { IoLogoMicrosoft } from "react-icons/io5";
 import { SiPerplexity } from "react-icons/si";
 import { FaGoogle } from "react-icons/fa";
-
+import Image from 'next/image'
 const LOGOS = [
-  <AiFillOpenAI className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <FaMeta className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <IoLogoMicrosoft className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <SiPerplexity className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <FaGoogle className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <img src="https://logowik.com/content/uploads/images/cohere-new9011.logowik.com.webp" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <img src="https://raw.githubusercontent.com/01-ai/Yi/main/assets/img/Yi_logo_icon_dark.svg" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
-  <img src="https://avatars.githubusercontent.com/u/76263028?s=280&v=4" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <AiFillOpenAI key="openai" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <FaMeta key="meta" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <IoLogoMicrosoft key="microsoft" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <SiPerplexity key="perplexity" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <FaGoogle key="google" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <Image src="https://logowik.com/content/uploads/images/cohere-new9011.logowik.com.webp" key="cohere" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <Image src="https://raw.githubusercontent.com/01-ai/Yi/main/assets/Image/Yi_logo_icon_dark.svg" key="yi" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
+  <Image src="https://avatars.githubusercontent.com/u/76263028?s=280&v=4" key="other" className="text-gray-200 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />,
 ];
 
 export default function InfiniteSlider() {

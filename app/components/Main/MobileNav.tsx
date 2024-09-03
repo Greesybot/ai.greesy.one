@@ -100,7 +100,7 @@ export default function Nav() {
                 onClick={() => setModal(true)}
               >
                 <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg  ">
-                  <img
+                  <Image
                     src={`${session.user.image}`}
                     alt="User Avatar"
                     className="w-full h-full object-cover"
