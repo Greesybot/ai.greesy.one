@@ -27,14 +27,6 @@ const limit = (ip: string) => {
 
   return false;
 };
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '1mb',
-    },
-    externalResolver: true,
-  },
-};
 
 async function fetchFromProvider(url, options) {
   try {
