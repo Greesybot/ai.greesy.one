@@ -34,6 +34,8 @@ npm run build && npm run start
 
 - [X] Enhance the visual design of the website for Desktop
 - [ ] Optimize performance for production and build
+- [ ] Implement Layout
+- [ ] Fix Some Build Dependencies 
 - [ ] Improve Chat Completions
 - [X] Add v1/models
 - [X] Add Models UI
