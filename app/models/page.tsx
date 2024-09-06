@@ -1,19 +1,22 @@
 "use client";
-import { useEffect, useState } from 'react';
-import Models from '../components/Models/Card';
-import Nav from '../components/Main/Nav';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Models from "../components/Models/Card";
+import Nav from "../components/Main/Nav";
 
 export default function Home() {
   const [models, setModels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
- const [search,setSearch] = useState('')
+  const [search, setSearch] = useState("");
+  const [loadingMessage, setLoadingMessage] = useState("");
+
   useEffect(() => {
     async function fetchModels() {
       try {
-        const response = await fetch('/api/v1/models');
+        const response = await fetch("/api/v1/models");
         if (!response.ok) {
-          throw new Error('Failed to fetch models');
+          throw new Error("Failed to fetch models");
         }
         const data = await response.json();
         setModels(data);
@@ -27,7 +30,33 @@ export default function Home() {
     fetchModels();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  useEffect(() => {
+    const messages = [
+      "Kurdistan is Real",
+      "GreesyAI have its own ai models",
+      "Greesy is best friend of DisCore",
+      "AI is Future of Our Era",
+      "GreesyAI's purpose is give access to AI Models",
+    ];
+    setLoadingMessage(messages[Math.floor(Math.random() * messages.length)]);
+  }, []);
+
+  if (isLoading)
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen  text-white">
+        <div className="w-16 h-16 mb-4 relative">
+          <Image
+            src="/favicon.ico"
+            alt="Discord Logo"
+            width={64}
+            height={64}
+            className="animate-pulse"
+          />
+        </div>
+        <h2 className="text-lg font-semibold mb-2">DID YOU KNOW</h2>
+        <p className="text-sm text-center max-w-xs">{loadingMessage}</p>
+      </div>
+    );
 
   if (error) return <div>Error: {error}</div>;
 
@@ -39,7 +68,8 @@ export default function Home() {
           <h1 className="text-3xl font-bold mb-4">Browse GreesyAI Models</h1>
 
           <p className="mb-6 text-base text-gray-400 leading-tight">
-            Click on a model to view more details. All models are hosted by GreesyAI and other providers.
+            Click on a model to view more details. All models are hosted by
+            GreesyAI and other providers.
           </p>
 
           <div className="relative mb-6 max-w-xl mx-auto">
@@ -66,7 +96,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        {models.data.length > 0 ? (
+        {models.data && models.data.length > 0 ? (
           <Models models={models.data} searchQuery={search} />
         ) : (
           <p>No models available.</p>

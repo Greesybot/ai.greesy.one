@@ -11,25 +11,23 @@ import SettingsModal from "../Modals/Settings";
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [modal, setModal] = useState(false);
-   const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (open) {
-
       document.body.classList.add("overflow-hidden");
     } else {
-
       document.body.classList.remove("overflow-hidden");
     }
   }, [open]);
 
   return (
     <>
-      <div className="flex flex-col gap-4 fixed backdrop-filter bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-96 md:w-full lg:w-full h-16 mx-auto items-center justify-between  select-none">
+      <div className="flex flex-col gap-4 fixed backdrop-filter bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-full md:w-full lg:w-full h-16 mx-auto items-center justify-between  select-none">
         <div className="flex  w-full mx-auto items-center justify-between space-x-8 mx-auto mb-4">
           <p className="w-full font-normal bg-transparent text-[#e7e8ea] !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pr-6 rtl:pr-0 rtl:pl-6 is-filled font-sans text-[25px] ml-8">
             Greesy
-            <span className="bg-gradient-to-bl from-blue-500 to-purple-800 bg-clip-text animate- text-transparent">
+            <span className="bg-gradient-to-bl from-blue-500 to-purple-800 bg-clip-text animate- text-transparent stroke-red-400">
               AI
             </span>
           </p>
@@ -84,7 +82,9 @@ export default function Nav() {
               </a>
             </motion.div>
           </div>
-{modal && <SettingsModal isOpen={modal} onClose={() => setModal(false)} />}
+          {modal && (
+            <SettingsModal isOpen={modal} onClose={() => setModal(false)} />
+          )}
           <motion.footer
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -101,6 +101,8 @@ export default function Nav() {
               >
                 <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg  ">
                   <Image
+                    width={20}
+                    height={20}
                     src={`${session.user.image}`}
                     alt="User Avatar"
                     className="w-full h-full object-cover"

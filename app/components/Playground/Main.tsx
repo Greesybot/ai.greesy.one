@@ -74,26 +74,23 @@ function App() {
     setInputValue("");
 
     try {
-      const response = await fetch(
-        `/api/v1/chat/completions`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "gr-r7segnZbqBpNvefVv9TphizN6iKoTNfd",
-          },
-          body: JSON.stringify({
-            model: selectedModel,
-            messages: [
-              ...chatHistory.map((msg) => ({
-                role: msg.role,
-                content: msg.content,
-              })),
-              { role: "user", content: inputValue },
-            ],
-          }),
+      const response = await fetch(`/api/v1/chat/completions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "gr-r7segnZbqBpNvefVv9TphizN6iKoTNfd",
         },
-      );
+        body: JSON.stringify({
+          model: selectedModel,
+          messages: [
+            ...chatHistory.map((msg) => ({
+              role: msg.role,
+              content: msg.content,
+            })),
+            { role: "user", content: inputValue },
+          ],
+        }),
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

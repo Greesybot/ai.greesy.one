@@ -17,6 +17,10 @@
 # production
 /build
 
+# proxy
+.proxy.txt 
+proxy.txt
+
 # misc
 .DS_Store
 *.pem

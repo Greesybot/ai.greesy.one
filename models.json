@@ -1,5 +1,36 @@
 [
   {
+    "provider": "github",
+    "models":[
+      {
+        "name":"openai/gpt-4o",
+        "type":"llm",
+        "description": "GPT-4 model by OpenAI for generating human-like text.",
+         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+         "premium": true
+      },
+        {
+        "name":"openai/gpt-4o-mini",
+        "type":"llm",
+        "description": "GPT-4 model by OpenAI for generating human-like text.",
+         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+         "premium": false
+      },
+     {
+        "name": "mistralai/Mistral-large-2407",
+        "type": "llm",
+        "description": "Coding AI by Mistralai for programming tasks and suggestions.",
+        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
+      },
+      {
+        "name":"meta/Meta-Llama-3-1-405B-Instruct",
+        "type":"llm",
+        "description": "405 billion parameter LLaMA 3.1 model by Meta.",
+        "image": "https://example.com/llama3.1-405b-logo.png"
+      }
+    ]
+  },
+  {
     "provider": "openrouter",
     "models": [
       {
@@ -51,7 +82,7 @@
       {
         "name": "openai/gpt-4o-2024-08-06",
         "type": "llm",
-       "premium": true,     
+        "premium": true,
         "description": "GPT-4 model by OpenAI, updated version from August 2024.",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
@@ -112,7 +143,7 @@
       {
         "name": "command-r-plus",
         "type": "llm",
-        "description": "Advanced conversational AI model by Meta.",
+        "description": "Advanced conversational AI model by Cohere.",
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
@@ -156,28 +187,28 @@
         "description": "Conversational AI by Perplexity for diverse topics.",
         "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
       },
-       {
+      {
         "name": "openai/gpt-4o-2024-05-13",
         "type": "llm",
         "description": "GPT-4o Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
-       {
+      {
         "name": "huggingface/starcoder-7b",
         "type": "llm",
         "description": "Star Coder Provided By GreesyAI",
         "image": ""
       },
-       {
-        "name": "openai/gpt-4-0125-preview",
+      {
+        "name": "openai/gpt-4o-mini",
         "type": "llm",
         "description": "GPT-4 Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
       {
-        "name": "openai/gpt-4-1106-preview",
+        "name": "openai/gpt-3.5-turbo",
         "type": "llm",
-        "description": "GPT-4 Provided By GreesyAI",
+        "description": "GPT-3 Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
       {
@@ -201,7 +232,7 @@
       {
         "name": "cohere/command-r-plus",
         "type": "llm",
-        "description": "Advanced conversational AI model by Meta.",
+        "description": "Advanced conversational AI model by cohere.",
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
@@ -240,7 +271,7 @@
         "description": "Creative text generation model by Anthropic.",
         "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
       },
-        {
+      {
         "name": "anthropic/claude-3-opus",
         "type": "llm",
         "description": "Creative text generation model by Anthropic.",

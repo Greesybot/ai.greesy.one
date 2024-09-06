@@ -19,9 +19,18 @@ export default function DestkopNav() {
           </p>
         </div>
         <div className="navlinkSec col-span-3 flex items-center justify-center">
-          <a href="/" className="text-gray-400 font-bold text-center mx-4">Home</a>
-          <a href="/blog/" className="text-gray-400 font-bold text-center mx-4">Blog</a>
-          <a href="/models" className="text-gray-400 font-bold text-center mx-4">Models</a>
+          <a href="/" className="text-gray-400 font-bold text-center mx-4">
+            Home
+          </a>
+          <a href="/blog/" className="text-gray-400 font-bold text-center mx-4">
+            Blog
+          </a>
+          <a
+            href="/models"
+            className="text-gray-400 font-bold text-center mx-4"
+          >
+            Models
+          </a>
         </div>
         <div className="col-span-1 w-full flex items-center justify-end pr-6">
           {status === "authenticated" ? (
@@ -39,7 +48,9 @@ export default function DestkopNav() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="text-lg font-semibold">{session.user.name}</div>
+              <div className="text-lg font-semibold text-white">
+                {session.user.name}
+              </div>
             </motion.div>
           ) : (
             <motion.div
@@ -66,7 +77,7 @@ export default function DestkopNav() {
           )}
         </div>
       </div>
-
+      <div className="w-full h-8"></div>
       {modal && (
         <SettingsModal isOpen={modal} onClose={() => setModal(false)} />
       )}

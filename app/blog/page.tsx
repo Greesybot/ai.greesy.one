@@ -8,7 +8,7 @@ export default function Blog() {
   const [datas, setDatas] = useState([]);
   const [status, setStatus] = useState(null);
   const [error, setError] = useState({});
-  
+
   useEffect(() => {
     async function fetchData() {
       try {

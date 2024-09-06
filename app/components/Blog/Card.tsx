@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 export default function Blog({ data }) {
   //const dateString = '2020-05-14T04:00:00Z'
 
@@ -6,11 +6,12 @@ export default function Blog({ data }) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <div
-        className={`${data.background || " bg-gradient-to-br from-cyan-200 to-blue-200"} rounded-3xl p-6 mb-6`} onClick={() => router.push(`/blog/${data.id}`)}
+        className={`${data.background || " bg-gradient-to-br from-cyan-200 to-blue-200"} rounded-3xl p-6 mb-6`}
+        onClick={() => router.push(`/blog/${data.id}`)}
       >
         <div className="text-gray-200 text-sm mb-2">
           {data.category || "Research"} • {formatDate(Date.now())}
@@ -24,7 +25,7 @@ export default function Blog({ data }) {
         </div>
       </div>
 
-     {/* <div className="bg-gradient-to-br from-blue-500 to-orange-500 rounded-3xl p-6">
+      {/* <div className="bg-gradient-to-br from-blue-500 to-orange-500 rounded-3xl p-6">
         <div className="text-sm mb-2">Research • Aug 04, 2024</div>
         <div className="text-2xl font-bold mb-4">Greesy Guard 2</div>
         <div className="text-lg">Nextgen Content moderation model.</div>

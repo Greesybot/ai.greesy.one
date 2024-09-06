@@ -28,39 +28,47 @@ interface BlogParams {
   id: string;
 }
 
-const CustomCodeBlock: React.FC<CodeBlockProps> = ({ inline, className, children }) => {
+const CustomCodeBlock: React.FC<CodeBlockProps> = ({
+  inline,
+  className,
+  children,
+}) => {
   const [copied, setCopied] = useState(false);
-  const match = /language-(\w+)/.exec(className || '');
-  const language = match ? match[1] : 'text';
-  
-  const codeContent = Array.isArray(children) ? children.join('') : children?.toString() || '';
-  const lines = codeContent.split('\n');
+  const match = /language-(\w+)/.exec(className || "");
+  const language = match ? match[1] : "text";
+
+  const codeContent = Array.isArray(children)
+    ? children.join("")
+    : children?.toString() || "";
+  const lines = codeContent.split("\n");
 
   const copyToClipboard = async () => {
-  const codeContent = Array.isArray(children) ? children.join('') : children?.toString() || '';
+    const codeContent = Array.isArray(children)
+      ? children.join("")
+      : children?.toString() || "";
 
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      // Modern browsers with secure context
-      await navigator.clipboard.writeText(codeContent);
-      setCopied(true);
-    } else {
-      // Fallback for older browsers or non-HTTPS environments
-      const textArea = document.createElement("textarea");
-      textArea.value = codeContent;
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        // Modern browsers with secure context
+        await navigator.clipboard.writeText(codeContent);
+        setCopied(true);
+      } else {
+        // Fallback for older browsers or non-HTTPS environments
+        const textArea = document.createElement("textarea");
+        textArea.value = codeContent;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        setCopied(true);
+      }
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+      setCopied(false);
     }
-    setTimeout(() => setCopied(false), 2000);
-  } catch (err) {
-    console.error('Failed to copy text: ', err);
-    setCopied(false);
-  }
-};
+  };
   if (inline) {
     return <code className={className}>{JSON.stringify(codeContent)}</code>;
   }
@@ -70,7 +78,7 @@ const CustomCodeBlock: React.FC<CodeBlockProps> = ({ inline, className, children
       <div className="code-header">
         <span className="language">{language}</span>
         <button className="copy-button" onClick={copyToClipboard}>
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
       <div className="code-content">
@@ -94,6 +102,7 @@ export default function Blog({ params }: { params: BlogParams }) {
   const [data, setData] = useState<BlogData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -119,13 +128,33 @@ export default function Blog({ params }: { params: BlogParams }) {
     fetchData();
   }, [params.id, router]);
 
-  if (loading) {
+  useEffect(() => {
+    const messages = [
+      "Kurdistan is Real",
+      "GreesyAI have its own ai models",
+      "Greesy is best friend of DisCore",
+      "AI is Future of Our Era",
+      "GreesyAI's purpose is give access to AI Models",
+    ];
+    setLoadingMessage(messages[Math.floor(Math.random() * messages.length)]);
+  }, []);
+
+  if (loading)
     return (
-      <div className="flex mx-auto justify-center h-screen w-full">
-        <Skeleton height={20} width={200} />
+      <div className="flex flex-col items-center justify-center min-h-screen  text-white">
+        <div className="w-16 h-16 mb-4 relative">
+          <Image
+            src="/favicon.ico"
+            alt="Discord Logo"
+            width={64}
+            height={64}
+            className="animate-pulse"
+          />
+        </div>
+        <h2 className="text-lg font-semibold mb-2">DID YOU KNOW</h2>
+        <p className="text-sm text-center max-w-xs">{loadingMessage}</p>
       </div>
     );
-  }
 
   if (error) {
     return (
@@ -182,15 +211,53 @@ export default function Blog({ params }: { params: BlogParams }) {
                     </div>
                   ),
                   code: CustomCodeBlock,
-                  h1: ({node, ...props}) => <h1 className="text-2xl font-bold mt-6 mb-4" {...props} />,
-                  h2: ({node, ...props}) => <h2 className="text-xl font-bold mt-5 mb-3" {...props} />,
-                  h3: ({node, ...props}) => <h3 className="text-lg text-gray-300 font-semibold mt-4 mb-2" {...props} />,
-                  h4: ({node, ...props}) => <h4 className="text-base text-gray-400 font-semibold mt-4 mb-2" {...props} />,
-                  h5: ({node, ...props}) => <h5 className="text-sm text-gray-500 font-semibold mt-4 mb-2" {...props} />,
-                  table: ({node, ...props}) => <div className="overflow-x-auto"><table className="table-auto border-collapse my-4 w-full" {...props} /></div>,
-                  thead: ({node, ...props}) => <thead className="bg-gray-800" {...props} />,
-                  th: ({node, ...props}) => <th className="border border-gray-600 px-4 py-2 text-left" {...props} />,
-                  td: ({node, ...props}) => <td className="border border-gray-700 px-4 py-2" {...props} />,
+                  h1: ({ node, ...props }) => (
+                    <h1 className="text-2xl font-bold mt-6 mb-4" {...props} />
+                  ),
+                  h2: ({ node, ...props }) => (
+                    <h2 className="text-xl font-bold mt-5 mb-3" {...props} />
+                  ),
+                  h3: ({ node, ...props }) => (
+                    <h3
+                      className="text-lg text-gray-300 font-semibold mt-4 mb-2"
+                      {...props}
+                    />
+                  ),
+                  h4: ({ node, ...props }) => (
+                    <h4
+                      className="text-base text-gray-400 font-semibold mt-4 mb-2"
+                      {...props}
+                    />
+                  ),
+                  h5: ({ node, ...props }) => (
+                    <h5
+                      className="text-sm text-gray-500 font-semibold mt-4 mb-2"
+                      {...props}
+                    />
+                  ),
+                  table: ({ node, ...props }) => (
+                    <div className="overflow-x-auto">
+                      <table
+                        className="table-auto border-collapse my-4 w-full"
+                        {...props}
+                      />
+                    </div>
+                  ),
+                  thead: ({ node, ...props }) => (
+                    <thead className="bg-gray-800" {...props} />
+                  ),
+                  th: ({ node, ...props }) => (
+                    <th
+                      className="border border-gray-600 px-4 py-2 text-left"
+                      {...props}
+                    />
+                  ),
+                  td: ({ node, ...props }) => (
+                    <td
+                      className="border border-gray-700 px-4 py-2"
+                      {...props}
+                    />
+                  ),
                 }}
               >
                 {data.content}
@@ -204,7 +271,7 @@ export default function Blog({ params }: { params: BlogParams }) {
           background-color: #1e1e1e;
           border-radius: 8px;
           overflow: hidden;
-          font-family: 'Fira Code', monospace;
+          font-family: "Fira Code", monospace;
           margin: 20px 0;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }

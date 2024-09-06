@@ -1,4 +1,3 @@
-
 # Greesy.one AI Website
 
 Enhance your AI experience effortlessly with the Greesy.one AI platform. Build and manage your AI models with ease and enjoy:
@@ -32,12 +31,12 @@ npm run build && npm run start
 
 ## TODO
 
-- [X] Enhance the visual design of the website for Desktop
+- [x] Enhance the visual design of the website for Desktop
 - [ ] Optimize performance for production and build
 - [ ] Improve Chat Completions
-- [X] Add v1/models
-- [X] Add Models UI
-- [X] Add Custom Model Handler (e.g., gpt-4-1106-preview to openai/gpt-4-1106)
+- [x] Add v1/models
+- [x] Add Models UI
+- [x] Add Custom Model Handler (e.g., gpt-4-1106-preview to openai/gpt-4-1106)
 - [ ] Add blog create post method
 - [ ] Add v1/moderations
 - [ ] Remove unnecessary features

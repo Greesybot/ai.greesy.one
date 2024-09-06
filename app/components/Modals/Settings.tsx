@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { IoCopy } from "react-icons/io5";
 import { useSession } from "next-auth/react";
 
-
-
-const SettingsModal =  ({ isOpen, onClose }) => {
+const SettingsModal = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState("api");
   const { data: session, status } = useSession();
-  
+
   return (
     <div className="fixed inset-0 bg-opacity-75 flex items-center justify-center z-40 border border-gray-800">
       <div className="bg-transparent backdrop-filter backdrop-blur-lg shadow-xl rounded-xl shadow-xl w-full max-w-md mx-4 text-gray-200 border border-gray-800">
@@ -67,7 +65,7 @@ const SettingsModal =  ({ isOpen, onClose }) => {
   );
 };
 
-const UserSettings = ({session}) => (
+const UserSettings = ({ session }) => (
   <div className="p-4 max-h-96 overflow-y-auto">
     <div className="mb-4">
       <label
@@ -173,12 +171,11 @@ const ApiSettings = () => {
 
   const [copied, setCopied] = useState(false);
 
-  
-  const copyKey =  async() => {
+  const copyKey = async () => {
     try {
       const response = await fetch("/api/key", {
         headers: {
-          Authorization: session?.user?.email || '',
+          Authorization: session?.user?.email || "",
           "X-Force-UI": process.env.key ?? "UIGREESY",
         },
       });
@@ -188,7 +185,7 @@ const ApiSettings = () => {
         window.localStorage.setItem("key", data.key);
         window.localStorage.setItem("request-timeout", reqTimeout.toString());
         window.localStorage.setItem("request-retries", reqRetries.toString());
-        
+
         if (navigator.clipboard && window.isSecureContext) {
           // For modern browsers
           await navigator.clipboard.writeText(data.key);
@@ -200,15 +197,15 @@ const ApiSettings = () => {
           textArea.focus();
           textArea.select();
           try {
-            document.execCommand('copy');
+            document.execCommand("copy");
           } catch (err) {
-            console.error('Failed to copy: ', err);
+            console.error("Failed to copy: ", err);
           }
           document.body.removeChild(textArea);
         }
 
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000); 
+        setTimeout(() => setCopied(false), 2000);
       } else {
         console.error("Failed to fetch API key:", response.status);
       }
@@ -244,7 +241,7 @@ const ApiSettings = () => {
           <span className="mr-2">
             <IoCopy />
           </span>
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
 

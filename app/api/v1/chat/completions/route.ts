@@ -27,20 +27,13 @@ const limit = (ip: string) => {
 
   return false;
 };
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '1mb',
-    },
-    externalResolver: true,
-  },
-};
 
 async function fetchFromProvider(url, options) {
   try {
     const response = await fetch(url, options);
 
     if (!response.ok) {
+      console.log(response)
       throw new Error(`Provider response not OK: ${response.statusText}`);
     }
    
@@ -89,8 +82,8 @@ export async function POST(req) {
   const ip = req.ip ?? headers().get('X-Forwarded-For') ?? 'unknown';
   const isRateLimited = limit(ip);
 
-  if (isRateLimited)
-    return NextResponse.json({ error: 'You are rate limited.' }, { status: 429 });
+ /* if (isRateLimited)
+    return NextResponse.json({ error: 'You are rate limited.' }, { status: 429 });*/
     
   if (req.method !== "POST") {
     return NextResponse.json(
@@ -183,17 +176,17 @@ export async function POST(req) {
             );
             break;
 
-          case "lepton":
+          case "github":
             response = await fetchFromProvider(
-              "https://lepton.ai/api/v1/chat/completions",
+              "https://models.inference.ai.azure.com/chat/completions",
               {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: `Bearer ${process.env.LEPTON_API_KEY}`,
+                  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
                 },
                 body: JSON.stringify({
-                  model: provider.models.find((m) => m.name === model)?.name,
+                  model: provider.models.find((m) => m.name === model)?.name.split("/")[1],
                   messages,
                 }),
               },

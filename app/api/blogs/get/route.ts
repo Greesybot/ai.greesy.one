@@ -46,7 +46,7 @@ export async function GET(
         author: "Only Cheeini",
         content: "Release of GreesyAI",
         background: "bg-gradient-to-br from-gray-700 to-cyan-400",
-        id:"tests"
+        id: "tests",
       });
       d.save()
         .then((savedUser) => {})
