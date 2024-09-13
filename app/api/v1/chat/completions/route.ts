@@ -100,7 +100,7 @@ export async function POST(req) {
     );
   }
 
-  const { model, messages,response_format, max_tokens, top_p, top_k, temperature } =
+  const { model, tools,messages,response_format, max_tokens, top_p, top_k, temperature } =
     await req.json();
   if (!model) {
     return NextResponse.json(
@@ -165,6 +165,7 @@ export async function POST(req) {
                 },
                 body: JSON.stringify({
                   model: provider.models.find((m) => m.name === model)?.name,
+                  tools,
                   messages,
                   max_tokens: max_tokens ?? 1024,
                   temperature: temperature ?? 1,
@@ -175,7 +176,29 @@ export async function POST(req) {
               },
             );
             break;
-
+          case "deepseek":
+            response = await fetchFromProvider(
+              "https://api.deepseek.com/v1/chat/completions",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+                },
+                body: JSON.stringify({
+                  model: provider.models.find((m) => m.name === model)?.name,
+                  tools,
+                  messages,
+                  max_tokens: max_tokens ?? 1024,
+                  temperature: temperature ?? 1,
+                  top_p,
+                  response_format,
+                  top_k,
+                }),
+              },
+            );
+            break;
+            
           case "github":
             response = await fetchFromProvider(
               "https://models.inference.ai.azure.com/chat/completions",
@@ -188,6 +211,7 @@ export async function POST(req) {
                 body: JSON.stringify({
                   model: provider.models.find((m) => m.name === model)?.name.split("/")[1],
                   messages,
+                  tools
                 }),
               },
             );

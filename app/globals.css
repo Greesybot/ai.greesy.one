@@ -48,77 +48,7 @@ body pre[class^="language-"]::before {
   right: 0.5em;
   top: 0.5em;
 }
-.code-figure {
-  @apply rounded-lg w-64 break-all border border-gray-800;
-}
-body pre[class~="language-c"]::before {
-  content: "C";
-}
-body pre[class~="language-cs"]::before {
-  content: "C#";
-}
-body pre[class~="language-cpp"]::before {
-  content: "C++";
-}
-body pre[class~="language-java"]::before {
-  content: "JAVA";
-}
-body pre[class~="language-py"]::before,
-body pre[class~="language-python"]::before {
-  content: "PYTHON";
-}
-body pre[class~="language-javascript"]::before,
-body pre[class~="language-js"]::before {
-  content: "JS";
-}
-body pre[class~="language-html"]::before {
-  content: "HTML";
-}
-body pre[class~="language-css"]::before {
-  content: "CSS";
-}
-body pre[class~="language-xml"]::before {
-  content: "XML";
-}
-body pre[class~="language-php"]::before {
-  content: "PHP";
-}
 
-body pre[class~="language-shell"]::before,
-body pre[class~="language-bash"]::before {
-  content: "SHELL";
-}
-body pre[class~="language-flow"]::before {
-  content: "FLOW";
-}
-body pre[class~="language-sequence"]::before {
-  content: "SEQUENCE";
-}
-body pre[class~="language-sql"]::before {
-  content: "SQL";
-}
-body pre[class~="language-yml"]::before,
-body pre[class~="language-yaml"]::before {
-  content: "YAML";
-}
-body pre[class~="language-ini"]::before {
-  content: "INI";
-}
-body pre[class~="language-git"]::before {
-  content: "GIT";
-}
-body pre[class~="language-txt"]::before {
-  content: "TXT";
-}
-body pre[class~="language-r"]::before {
-  content: "R";
-}
-.code-figure button.copy-code-button {
-  background-color: var(--background-secondary-alt);
-}
-.code-figure button.copy-code-button:hover {
-  color: var(--text-accent);
-}
 /*
 .imgcard:hover {
   transform: rotateY(180deg);

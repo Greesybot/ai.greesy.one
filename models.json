@@ -1,4 +1,5 @@
 [
+  
   {
     "provider": "github",
     "models":[
@@ -191,6 +192,12 @@
         "name": "openai/gpt-4o-2024-05-13",
         "type": "llm",
         "description": "GPT-4o Provided By GreesyAI",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
+      {
+        "name": "openai/o1-preview",
+        "type": "llm",
+        "description": "O1 Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
       {
