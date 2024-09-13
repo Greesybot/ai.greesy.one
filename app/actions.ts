@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Plan, Subscription, WebhookEvent } from '../schemas/Plan'; // Adjust path as needed
+import { Plan, Subscription, WebhookEvent } from './schemas/Plan'; // Adjust path as needed
 
 export async function syncPlans() {
   configureLemonSqueezy();
