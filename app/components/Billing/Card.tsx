@@ -2,7 +2,7 @@
 import axios from "axios";
 import React from "react";
 import { useSession } from 'next-auth/react'
-
+import { useRouter } from "next/navigation";
 type PricingTier = {
   id: string;
   name: string;
@@ -16,6 +16,7 @@ type PricingTier = {
 
 const PricingSection: React.FC = () => {
   const { data: session, status } = useSession();
+  const router= useRouter()
   const pricingTiers: PricingTier[] = [
     {
       disabled: true,
@@ -44,29 +45,35 @@ const PricingSection: React.FC = () => {
     },
   ];
 
-  const handleLemonSqueezyCheckout = async (productId: string) => {
-    if (!session?.user) {
-      alert("You need to be logged in to make a purchase.");
-      return;
-    }
+const handleLemonSqueezyCheckout = async (productId: string) => {
+  if (!session?.user) {
+    alert("You need to be logged in to make a purchase.");
+    return;
+  }
 
-    try {
-      const response = await axios.post("/api/billing/checkout", {
-        customerEmail: session?.user.email,
-        productId,
-      });
-      const { url } = response.data;
-
-      if (url) {
+  try {
+    const response = await axios.post("/api/billing/checkout", {
+      customerEmail: session?.user.email,
+      productId,
+    });
+    const { checkoutUrl } = response.data;
+console.log(response.data)
+    if (checkoutUrl) {
+      // Attempt to use router.push for redirection
+      try {
+        await router.push(checkoutUrl);
+      } catch (err) {
+        console.error("Router push error:", err);
+        // Fallback to window.location.href for redirection
         window.location.href = url;
-      } else {
-        throw new Error("Checkout URL not received.");
       }
-    } catch (error) {
-      console.error("Error creating checkout session:", error);
+    } else {
+      throw new Error("Checkout URL not received.");
     }
-  };
-
+  } catch (error) {
+    console.error("Error creating checkout session:", error);
+  }
+};
   return (
     <section className="flex flex-col items-center justify-center mt-8 z-10 backdrop-filter border-gradient-to-r bg-opacity-40 backdrop-blur-lg">
       <div className="p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">

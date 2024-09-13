@@ -17,7 +17,7 @@ const OrderSchema: Schema<IOrder> = new Schema({
   orderId: { type: String, required: true },
   status: { type: String, enum: ['pending', 'completed', 'failed'], default: 'pending' },
   amount: { type: Number, required: true },
-  currency: { type: String, default: 'USD' },
+  currency: { type: String, default: 'TL' },
   createdAt: { type: Date, default: Date.now }
 });
 
