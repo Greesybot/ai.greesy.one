@@ -1,36 +1,45 @@
-import Stripe from "stripe";
-import { NextRequest, NextResponse } from "next/server";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { getToken } from "next-auth/jwt"
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+// app/api/payment/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
+import connectMongo from '../../../../util/mongo';
+import Order from '../../../schemas/Order';
 
-export async function POST(request: NextApiRequest) {
+interface PaymentRequestBody {
+  customerEmail: string;
+  productId: string;
+  amount: number;
+}
+
+export async function POST(req: NextRequest) {
+  const { customerEmail, productId, amount }: PaymentRequestBody = await req.json();
+
+  await connectMongo();
+
+  const newOrder = new Order({
+    customerEmail,
+    productId,
+    amount,
+    status: 'pending',
+  });
+  await newOrder.save();
+
   try {
-    const req = request
-    const token = await getToken({req})
-    const data = await request.json()
-    
-    const priceId = data.priceId;
-    const checkoutSession: Stripe.Checkout.Session =
-      await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items: [
-          {
-            price: priceId,
-            quantity: 1,
-          },
-        ],
-        mode: "payment",
-        success_url: `${process.env.PROJECT_URL}/billing`,
-        cancel_url: `${process.env.PROJECT_URL}/billing`,
-        metadata: {
-          userId: token,
-          priceId,
-        },
-      });
-    return NextResponse.json({ result: checkoutSession, ok: true });
+    const response = await axios.post('https://api.lemonsqueezy.com/v1/checkouts', {
+      checkout: {
+        email: customerEmail,
+        products: [productId],
+        custom_price_cents: amount * 100,
+      }
+    }, {
+      headers: {
+        Authorization: `Bearer ${process.env.LEMON_SQUEEZY_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    return NextResponse.json({ checkoutUrl: response.data.data.attributes.url }, { status: 200 });
   } catch (error) {
-    console.log(error);
-    return new NextResponse("Internal Server", { status: 500 });
+    console.error(error);
+    return NextResponse.json({ error: 'Payment initiation failed' }, { status: 500 });
   }
 }
