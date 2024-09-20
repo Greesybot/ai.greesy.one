@@ -4,6 +4,8 @@ interface InputModel {
   name: string;
   type: string;
   premium?: boolean;
+  description?: string;
+  image?: string;
 }
 
 interface InputProvider {
@@ -16,6 +18,10 @@ interface OutputModel {
   object: string;
   created: number;
   owned_by: string;
+  providers: string[];
+  premium: boolean;
+  description?: string;
+  image?: string;
 }
 
 interface OutputList {
@@ -29,21 +35,28 @@ function convertToOutputFormat(input: InputProvider[]): OutputList {
     data: [],
   };
 
-  let modelId = 0;
   const currentTimestamp = Math.floor(Date.now() / 1000);
 
   input.forEach((provider) => {
     provider.models.forEach((model) => {
-      output.data.push({
-        id: model.name,
-        object: model.type === "llm" ? "chat.completions" : model.type,
-        description: model.description,
-        image: model.image,
-        created: currentTimestamp,
-        owned_by: provider.provider,
-        provider: provider.provider,
-      });
-      modelId++;
+      const existingModel = output.data.find(m => m.id === model.name);
+      
+      if (existingModel) {
+        if (!existingModel.providers.includes(provider.provider)) {
+          existingModel.providers.push(provider.provider);
+        }
+      } else {
+        output.data.push({
+          id: model.name,
+          object: model.type === "llm" ? "chat.completions" : model.type,
+          description: model.description,
+          image: model.image,
+          created: currentTimestamp,
+          owned_by: model.name.split("/")[0],
+          providers: [provider.provider],
+          premium: model.premium ?? false,
+        });
+      }
     });
   });
 
@@ -60,7 +73,6 @@ function readJsonFile(filePath: string): InputProvider[] {
   }
 }
 
-// Main execution
 const filePath = "./models.json";
 const inputData = readJsonFile(filePath);
 const outputData = convertToOutputFormat(inputData);

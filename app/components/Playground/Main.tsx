@@ -16,6 +16,7 @@ const models = [
   "greesyai/greesychat-turbo",
   "deepseek/deepseek-chat",
   "openai/gpt4o",
+  "openai/o1-preview",
   "deepseek/deepseek-coder",
   "anthropic/claude-3.5-sonnet",
   "perplexity/llama-3.1-sonar-small-128k-chat",
@@ -23,9 +24,9 @@ const models = [
 
 const pr = ["gpt-3.5-turbo", "gpt-4", "gpt-4o-mini", "gpt-4o", "gpt-4-turbo"];
 
-function App() {
+function App(showSelect?:boolean, selected?: string) {
   const [chatHistory, setChatHistory] = useState([]);
-  const [selectedModel, setSelectedModel] = useState(models[0]);
+  const [selectedModel, setSelectedModel] = useState(selected ?? models[0]);
   const [selectedPreset, setSelectedPreset] = useState(pr[0]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -78,7 +79,7 @@ function App() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "gr-r7segnZbqBpNvefVv9TphizN6iKoTNfd",
+          Authorization: "Bearer userkey",
         },
         body: JSON.stringify({
           model: selectedModel,
@@ -143,6 +144,7 @@ function App() {
         <div className="flex items-center space-x-2 p-4 border-b border-gray-900">
           <MSelect
             size="w-64"
+            disabled={showSelect}
             options={models}
             selectedOption={selectedModel}
             onChange={handleModelChange}

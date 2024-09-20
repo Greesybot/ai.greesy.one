@@ -50,7 +50,7 @@ const LOGOS = [
 
 export default function InfiniteSlider() {
   return (
-    <div className="relative mx-auto overflow-hidden bg-black w-full before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[50px] sm:before:w-[100px] before:bg-gradient-to-r before:from-black before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[50px] sm:after:w-[100px] after:-scale-x-100 after:bg-gradient-to-l after:from-black after:to-transparent after:content-['']">
+    <div className="relative mx-auto overflow-hidden bg-transparent w-full before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[50px] sm:before:w-[100px] before:bg-gradient-to-r before:from- before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[50px] sm:after:w-[100px] after:-scale-x-100 after:bg-gradient-to-l after:from- after:to-transparent after:content-['']">
       <div className="animate-infinite-slider flex w-[calc(100px*10)] sm:w-[calc(125px*10)] md:w-[calc(150px*10)] lg:w-[calc(175px*10)]">
         {LOGOS.map((logo, index) => (
           <div

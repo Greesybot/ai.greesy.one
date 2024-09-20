@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <div className="bg-gradient-to-br from-black via-black to-purple-700/[0.2] text-white p-6 w-full min-h-screen">
+      <div className="bg-transparent text-white p-6 w-full min-h-screen">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl font-bold mb-4">Browse GreesyAI Models</h1>
 

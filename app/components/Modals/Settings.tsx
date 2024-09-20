@@ -127,20 +127,21 @@ const UserSettings = ({ session }) => (
             name="theme"
             value="light"
           />
-          <span className="ml-2">Light</span>
+          <span className="ml-2">light purple</span>
         </label>
         <label className="inline-flex items-center ml-6">
           <input
             type="radio"
             className="form-radio text-blue-600"
             name="theme"
+            selected={true}
             value="dark"
           />
-          <span className="ml-2">Dark</span>
+          <span className="ml-2">Dark Blue</span>
         </label>
       </div>
     </div>
-    <div className="mb-4">
+    {/*<div className="mb-4">
       <label
         className="block text-gray-300 text-sm font-bold mb-2"
         htmlFor="language"
@@ -156,7 +157,7 @@ const UserSettings = ({ session }) => (
         <option>French</option>
         <option>German</option>
       </select>
-    </div>
+    </div>*/}
   </div>
 );
 

@@ -35,7 +35,7 @@ export default function Blog() {
     <>
       <Nav />
 
-      <div className="bg-black text-white p-6 min-h-screen">
+      <div className=" text-white p-6 min-h-screen">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center">
             News Overview

@@ -118,6 +118,7 @@ export default function Blog({ params }: { params: BlogParams }) {
           setData(result[0]);
         }
       } catch (error) {
+        router.push("/404")
         setError("Failed to fetch data");
         console.error("Fetch error:", error);
       } finally {
@@ -130,7 +131,7 @@ export default function Blog({ params }: { params: BlogParams }) {
 
   useEffect(() => {
     const messages = [
-      "Kurdistan is Real",
+      "Minelya's one of best project is GreesyAI",
       "GreesyAI have its own ai models",
       "Greesy is best friend of DisCore",
       "AI is Future of Our Era",
@@ -165,17 +166,13 @@ export default function Blog({ params }: { params: BlogParams }) {
   }
 
   if (!data) {
-    return (
-      <div className="flex text-white mx-auto justify-center">
-        <h1>No data found {JSON.stringify(data)}</h1>
-      </div>
-    );
+    return router.push("/404")
   }
 
   return (
     <>
       <Nav />
-      <div className="flex z-0 justify-between px-6 py-4 flex-col min-h-screen bg-black w-full">
+      <div className="flex z-0 justify-between px-6 py-4 flex-col min-h-screen w-full">
         <div className="flex flex-col space-y-4 isolate">
           <button
             onClick={() => router.back()}

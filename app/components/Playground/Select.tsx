@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiAttachmentLine } from "react-icons/ri";
 
-function ModelSelect({ size, options, onChange }) {
+function ModelSelect({ size, disabled, options, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("deepseek/deepseek-chat");
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,6 +19,7 @@ function ModelSelect({ size, options, onChange }) {
   return (
     <div className="relative">
       <button
+
         onClick={() => setIsOpen(!isOpen)}
         className={`border border-md border-gray-700 ${size} flex items-center justify-between text-white text-[9px] h-10 px-2 py-2 rounded-md`}
       >

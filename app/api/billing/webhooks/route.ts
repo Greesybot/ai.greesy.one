@@ -4,7 +4,7 @@ import connectMongo from '../../../../util/mongo';
 import Order from '../../../schemas/Order';
 
 export async function POST(req: NextRequest) {
-  await dbConnect();
+  await connectMongo();
   const { event } = await req.json();
 
   if (event.type === 'order.paid') {

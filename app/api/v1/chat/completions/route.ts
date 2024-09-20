@@ -1,4 +1,4 @@
-import models from "../../../../../models.json";
+import models from "../../../../../data/output.json";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import UserModel from "../../../../schemas/User";
@@ -13,12 +13,11 @@ const rateLimiter = {
 };
 
 const limit = (ip: string) => {
-
   const now = Date.now();
   const isNewWindow = now - rateLimiter.windowStart > rateLimiter.windowSize;
   if (isNewWindow) {
     rateLimiter.windowStart = now;
-    idToRequestCount.set(ip, 0);
+    idToRequestCount.clear();
   }
 
   const currentRequestCount = idToRequestCount.get(ip) ?? 0;
@@ -33,7 +32,7 @@ async function fetchFromProvider(url, options) {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      console.log(response)
+      console.error(`Provider response not OK: ${response.status} ${response.statusText}`);
       throw new Error(`Provider response not OK: ${response.statusText}`);
     }
    
@@ -44,113 +43,84 @@ async function fetchFromProvider(url, options) {
   }
 }
 
-async function getProviderAndModel(modelName) {
-  for (const provider of models) {
-    let model = provider.models.find((m) => m.name === modelName);
-    if (!model) {
-      const strippedModelName = modelName.split("/").pop() || "";
-      model = provider.models.find((m) => m.name === strippedModelName);
-    }
-    if (model) {
-      return {
-        premium: model.premium ?? false,
-        provider: provider.provider,
-        model,
-      };
-    }
-  }
-  throw new Error("Model not found");
-}
+function getProviderAndModel(modelId) {
+  const modelData = models.data.find((model) => model.id === modelId);
 
-async function streamToString(stream) {
-  const chunks = [];
-  const reader = stream.getReader();
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      chunks.push(value);
-    }
-  } finally {
-    reader.releaseLock();
+  if (!modelData) {
+    throw new Error(`Model not found: ${modelId}`);
   }
-  return new TextDecoder().decode(Buffer.concat(chunks));
+
+  return {
+    premium: modelData.premium,
+    providers: modelData.providers,
+    model: {
+      name: modelData.id,
+      object: modelData.object,
+      description: modelData.description,
+      created: modelData.created,
+      owned_by: modelData.owned_by
+    }
+  };
 }
 
 export async function POST(req) {
-  await connectMongo();
-  const ip = req.ip ?? headers().get('X-Forwarded-For') ?? 'unknown';
-  const isRateLimited = limit(ip);
-
- /* if (isRateLimited)
-    return NextResponse.json({ error: 'You are rate limited.' }, { status: 429 });*/
-    
-  if (req.method !== "POST") {
-    return NextResponse.json(
-      { error: "Method not allowed, only POST requests are accepted." },
-      { status: 405 },
-    );
-  }
-
-  const authHeader = headers().get("Authorization");
-  if (!authHeader) {
-    return NextResponse.json(
-      { message: "The API Key is needed to access the API." },
-      { status: 401 },
-    );
-  }
-
-  const { model, tools,messages,response_format, max_tokens, top_p, top_k, temperature } =
-    await req.json();
-  if (!model) {
-    return NextResponse.json(
-      { message: "Invalid Params", tip: "https://ai.greesy.one/blog/" },
-      { status: 400 },
-    );
-  }
-
-  const userdata = await UserModel.findOne({ apiKey: authHeader });
-  if (!userdata) {
-    return NextResponse.json(
-      { message: "The API Key doesn't exist in the database" },
-      { status: 403 },
-    );
-  }
-  if (userdata.limits.left === 0 || userdata.limits.left < 10) {
-    return NextResponse.json(
-      {
-        message: "You're out of credits.",
-        tip: "ai.greesy.one/discord",
-        code: "INSUFFICIENT_CREDITS"
-      },
-      { status: 403 },
-    );
-  }
-
   try {
-    const providers = models.filter((provider) =>
-      provider.models.some((m) => m.name === model),
-    );
-    
-    
+    await connectMongo();
+    const ip = req.ip ?? headers().get('X-Forwarded-For') ?? 'unknown';
+    const isRateLimited = limit(ip);
 
-    if (providers.length === 0) {
-      throw new Error("No providers found for the model");
+    if (isRateLimited) {
+      return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
+    }
+
+    const authHeader = headers().get("Authorization");
+    if (!authHeader) {
+      return NextResponse.json(
+        { error: "The API Key is needed to access the API." },
+        { status: 401 },
+      );
+    }
+
+    const requestData = await req.json();
+    const { model, tools, messages, response_format, max_tokens, top_p, top_k, temperature } = requestData;
+    
+    if (!model) {
+      return NextResponse.json(
+        { error: "Invalid Params: model is required" },
+        { status: 400 },
+      );
+    }
+
+    const userdata = await UserModel.findOne({ apiKey: authHeader.split("Bearer ")[1] });
+    if (!userdata) {
+      return NextResponse.json(
+        { error: "The API Key doesn't exist in the database" },
+        { status: 403 },
+      );
+    }
+    if (userdata.limits.left === 0 || userdata.limits.left < 10) {
+      return NextResponse.json(
+        {
+          error: "You're out of credits.",
+          code: "INSUFFICIENT_CREDITS"
+        },
+        { status: 403 },
+      );
+    }
+
+    const { premium, providers, model: modelInfo } = getProviderAndModel(model);
+
+    if (premium && !userdata.premium) {
+      return NextResponse.json(
+        { error: "This model requires a Premium Subscription" },
+        { status: 402 },
+      );
     }
 
     for (const provider of providers) {
-      console.log(provider.premium)
-      if (provider.premium && !userdata.premium) {
-        throw new Error("Premium Required Model")
-        return NextResponse.json(
-          { message: "This model requires a Premium Account" },
-          { status: 402 },
-        );
-      }
-
       try {
         let response;
-        switch (provider.provider) {
+        switch (provider) {
           case "greesyai":
             response = await handleGreesyAi(model, messages);
             break;
@@ -164,7 +134,7 @@ export async function POST(req) {
                   Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
                 },
                 body: JSON.stringify({
-                  model: provider.models.find((m) => m.name === model)?.name,
+                  model: modelInfo.name,
                   tools,
                   messages,
                   max_tokens: max_tokens ?? 1024,
@@ -186,7 +156,7 @@ export async function POST(req) {
                   Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
                 },
                 body: JSON.stringify({
-                  model: provider.models.find((m) => m.name === model)?.name,
+                  model: modelInfo.name,
                   tools,
                   messages,
                   max_tokens: max_tokens ?? 1024,
@@ -198,7 +168,6 @@ export async function POST(req) {
               },
             );
             break;
-            
           case "github":
             response = await fetchFromProvider(
               "https://models.inference.ai.azure.com/chat/completions",
@@ -209,23 +178,32 @@ export async function POST(req) {
                   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
                 },
                 body: JSON.stringify({
-                  model: provider.models.find((m) => m.name === model)?.name.split("/")[1],
+                  model: modelInfo.name.split("/")[1],
                   messages,
                   tools
                 }),
               },
             );
             break;
-
+          case "pocketai":
+          case "lepton":
+          case "deepinfra":
+            console.warn(`Provider ${provider} not implemented yet`);
+            continue;
           default:
-            throw new Error("Provider not supported");
+            console.warn(`Provider ${provider} not supported`);
+            continue;
         }
 
-await UserModel.findByIdAndUpdate(userdata._id, {
-      $inc: { "limits.0.left": -10, "limits.0.total": -10 },
-    });
-console.log(response)
-        if(!response.choices || response.choices.length === null) throw new Error("response doesnt have choices array.")
+        if (!response || !response.choices || response.choices.length === 0) {
+          console.error(`Invalid response from provider ${provider}`);
+          continue;
+        }
+
+        await UserModel.findByIdAndUpdate(userdata._id, {
+          $inc: { "limits.0.left": -10, "limits.0.total": -10 },
+        });
+
         return NextResponse.json({
           id: response.id,
           model: model,
@@ -234,11 +212,11 @@ console.log(response)
           choices: response.choices,
         });
       } catch (error) {
-        console.error(`Error with provider ${provider.provider}: ${error.message}`);
+        console.error(`Error with provider ${provider}: ${error.message}`);
       }
     }
 
-    throw new Error("No available providers left.");
+    throw new Error("No available providers succeeded.");
   } catch (error) {
     console.error(`Error: ${error.message}`);
     return NextResponse.json(
@@ -247,17 +225,10 @@ console.log(response)
     );
   }
 }
+
 export async function GET(req) {
-  try {
-    return NextResponse.json(
-      { message: "GET request not implemented" },
-      { status: 501 },
-    );
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 },
-    );
-  }
+  return NextResponse.json(
+    { message: "GET request not implemented" },
+    { status: 501 },
+  );
 }

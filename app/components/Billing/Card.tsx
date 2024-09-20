@@ -34,7 +34,9 @@ const PricingSection: React.FC = () => {
       originalPrice: "39.99₺",
       description: "Get Higher Limits and Premium models",
       features: [
-        "Lifetime access",
+        "Special Role in Discord Server",
+        "Built-in Web Search",
+        "Monthly access",
         "All AI features",
         "5000 Total Credits",
         "Use Premium Models",
@@ -78,7 +80,7 @@ console.log(response.data)
     <section className="flex flex-col items-center justify-center mt-8 z-10 backdrop-filter border-gradient-to-r bg-opacity-40 backdrop-blur-lg">
       <div className="p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
         <h3 className="text-5xl font-semibold text-center flex gap-2 justify-center mb-10">
-          Pay once, use forever
+
         </h3>
         <div className="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {pricingTiers.map((tier) => (

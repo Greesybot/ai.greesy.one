@@ -200,6 +200,12 @@
         "description": "O1 Provided By GreesyAI",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
+       {
+        "name": "openai/o1-mini",
+        "type": "llm",
+        "description": "O1 Provided By GreesyAI",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+      },
       {
         "name": "huggingface/starcoder-7b",
         "type": "llm",
