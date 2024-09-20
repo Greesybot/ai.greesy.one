@@ -39,8 +39,8 @@ function convertToOutputFormat(input: InputProvider[]): OutputList {
 
   input.forEach((provider) => {
     provider.models.forEach((model) => {
-      const existingModel = output.data.find(m => m.id === model.name);
-      
+      const existingModel = output.data.find((m) => m.id === model.name);
+
       if (existingModel) {
         if (!existingModel.providers.includes(provider.provider)) {
           existingModel.providers.push(provider.provider);

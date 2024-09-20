@@ -24,7 +24,7 @@ const models = [
 
 const pr = ["gpt-3.5-turbo", "gpt-4", "gpt-4o-mini", "gpt-4o", "gpt-4-turbo"];
 
-function App(showSelect?:boolean, selected?: string) {
+function App(showSelect?: boolean, selected?: string) {
   const [chatHistory, setChatHistory] = useState([]);
   const [selectedModel, setSelectedModel] = useState(selected ?? models[0]);
   const [selectedPreset, setSelectedPreset] = useState(pr[0]);

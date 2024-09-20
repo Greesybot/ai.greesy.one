@@ -5,7 +5,7 @@ import UserModel from "../../../../schemas/User";
 import connectMongo from "../../../../../util/mongo";
 import { handleGreesyAi } from "../../../../../util/handleGreesyAi";
 
-const idToRequestCount = new Map<string, number>(); 
+const idToRequestCount = new Map<string, number>();
 const rateLimiter = {
   windowStart: Date.now(),
   windowSize: 10000,
@@ -32,10 +32,12 @@ async function fetchFromProvider(url, options) {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      console.error(`Provider response not OK: ${response.status} ${response.statusText}`);
+      console.error(
+        `Provider response not OK: ${response.status} ${response.statusText}`,
+      );
       throw new Error(`Provider response not OK: ${response.statusText}`);
     }
-   
+
     return await response.json();
   } catch (error) {
     console.error(`Fetch error: ${error.message}`);
@@ -58,19 +60,22 @@ function getProviderAndModel(modelId) {
       object: modelData.object,
       description: modelData.description,
       created: modelData.created,
-      owned_by: modelData.owned_by
-    }
+      owned_by: modelData.owned_by,
+    },
   };
 }
 
 export async function POST(req) {
   try {
     await connectMongo();
-    const ip = req.ip ?? headers().get('X-Forwarded-For') ?? 'unknown';
+    const ip = req.ip ?? headers().get("X-Forwarded-For") ?? "unknown";
     const isRateLimited = limit(ip);
 
     if (isRateLimited) {
-      return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
+      return NextResponse.json(
+        { error: "Rate limit exceeded" },
+        { status: 429 },
+      );
     }
 
     const authHeader = headers().get("Authorization");
@@ -82,8 +87,17 @@ export async function POST(req) {
     }
 
     const requestData = await req.json();
-    const { model, tools, messages, response_format, max_tokens, top_p, top_k, temperature } = requestData;
-    
+    const {
+      model,
+      tools,
+      messages,
+      response_format,
+      max_tokens,
+      top_p,
+      top_k,
+      temperature,
+    } = requestData;
+
     if (!model) {
       return NextResponse.json(
         { error: "Invalid Params: model is required" },
@@ -91,7 +105,9 @@ export async function POST(req) {
       );
     }
 
-    const userdata = await UserModel.findOne({ apiKey: authHeader.split("Bearer ")[1] });
+    const userdata = await UserModel.findOne({
+      apiKey: authHeader.split("Bearer ")[1],
+    });
     if (!userdata) {
       return NextResponse.json(
         { error: "The API Key doesn't exist in the database" },
@@ -102,7 +118,7 @@ export async function POST(req) {
       return NextResponse.json(
         {
           error: "You're out of credits.",
-          code: "INSUFFICIENT_CREDITS"
+          code: "INSUFFICIENT_CREDITS",
         },
         { status: 403 },
       );
@@ -180,7 +196,7 @@ export async function POST(req) {
                 body: JSON.stringify({
                   model: modelInfo.name.split("/")[1],
                   messages,
-                  tools
+                  tools,
                 }),
               },
             );

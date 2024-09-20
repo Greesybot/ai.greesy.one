@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import Sparkles from "../Effects/Sparkle";
 import styles from "../../Hero.module.css";
 import { useRouter } from "next/navigation";
 const Hero = () => {
-    const router= useRouter()
+  const router = useRouter();
   return (
     <div className={styles.heroContainer}>
       <div className={styles.contentWrapper}>
@@ -31,7 +31,10 @@ const Hero = () => {
         <p className={styles.subHeading}>API Support coming soon.</p>
 
         <div className={styles.buttonWrapper}>
-          <button onClick={()=> router.push("/blog/getting-started")} className={styles.getStartedButton}>
+          <button
+            onClick={() => router.push("/blog/getting-started")}
+            className={styles.getStartedButton}
+          >
             Get Started <FaArrowRight className={styles.buttonIcon} />
           </button>
         </div>

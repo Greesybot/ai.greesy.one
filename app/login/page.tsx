@@ -39,18 +39,6 @@ export default function Login() {
             Welcome back! Please log in to continue.
           </p>
 
-          <div className="mb-4">
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 bg-transparent border border-gray-700 rounded-full focus:outline-none focus:border-white"
-            />
-          </div>
-
-          <button className="w-full p-3 mb-6 bg-white text-black rounded-full font-semibold">
-            Continue with Email
-          </button>
-
           <div className="text-gray-500 text-xs text-center mb-4">
             OR CONTINUE WITH
           </div>

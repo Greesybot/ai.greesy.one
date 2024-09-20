@@ -6,10 +6,11 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI for generating human-like text.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "github",
+        "pocketai",
         "greesyai"
       ],
       "premium": true
@@ -19,7 +20,7 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI for generating human-like text.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "github",
@@ -32,7 +33,7 @@
       "object": "chat.completions",
       "description": "Coding AI by Mistralai for programming tasks and suggestions.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mistralai",
       "providers": [
         "github"
@@ -44,7 +45,7 @@
       "object": "chat.completions",
       "description": "405 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "meta",
       "providers": [
         "github"
@@ -56,7 +57,7 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI for generating human-like text.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "openrouter"
@@ -68,7 +69,7 @@
       "object": "chat.completions",
       "description": "Conversational AI by DeepSeek for a wide range of topics.",
       "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "deepseek",
       "providers": [
         "openrouter"
@@ -80,7 +81,7 @@
       "object": "chat.completions",
       "description": "Coding AI by DeepSeek for code assistance and suggestions.",
       "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "deepseek",
       "providers": [
         "openrouter"
@@ -92,7 +93,7 @@
       "object": "chat.completions",
       "description": "High-performance GPT-4 variant for faster, more accurate results.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "openrouter",
@@ -105,7 +106,7 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "anthropic",
       "providers": [
         "openrouter"
@@ -117,7 +118,7 @@
       "object": "chat.completions",
       "description": "Language model by Google for human-like text generation.",
       "image": "https://example.com/gemma-7b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "google",
       "providers": [
         "openrouter"
@@ -129,7 +130,7 @@
       "object": "chat.completions",
       "description": "Conversational AI by Perplexity for diverse topics.",
       "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "perplexity",
       "providers": [
         "openrouter"
@@ -141,7 +142,7 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI, updated version from August 2024.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "openrouter"
@@ -153,7 +154,7 @@
       "object": "chat.completions",
       "description": "Large language model by 01-ai for text generation.",
       "image": "https://example.com/yi-large-fc-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "01-ai",
       "providers": [
         "openrouter"
@@ -165,7 +166,7 @@
       "object": "chat.completions",
       "description": "Advanced language model by Google, Gemini Pro 1.5 experimental version.",
       "image": "https://example.com/gemini-pro-1.5-exp-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "google",
       "providers": [
         "openrouter"
@@ -177,7 +178,7 @@
       "object": "chat.completions",
       "description": "Coding AI by Mistralai for programming tasks and suggestions.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mistralai",
       "providers": [
         "openrouter"
@@ -189,152 +190,132 @@
       "object": "chat.completions",
       "description": "Preview version of GPT-4 by OpenAI from November 2023.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "gpt-4o-2024-05-13",
-      "object": "chat.completions",
-      "description": "GPT-4 model by OpenAI, updated version from May 2024.",
-      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
-      "owned_by": "gpt-4o-2024-05-13",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "gpt-4o",
-      "object": "chat.completions",
-      "description": "Standard GPT-4 model by OpenAI for text generation.",
-      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
-      "owned_by": "gpt-4o",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "gemini-1.5-pro",
-      "object": "chat.completions",
-      "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
-      "image": "https://example.com/gemini-1.5-pro-logo.png",
-      "created": 1726838422,
-      "owned_by": "gemini-1.5-pro",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "claude-3-haiku",
-      "object": "chat.completions",
-      "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
-      "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "claude-3-haiku",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "command-r-plus",
-      "object": "chat.completions",
-      "description": "Advanced conversational AI model by Cohere.",
-      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "command-r-plus",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "claude-2",
-      "object": "chat.completions",
-      "description": "Conversational AI model by Anthropic for various topics.",
-      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "claude-2",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "gemma-2-27b",
-      "object": "chat.completions",
-      "description": "27 billion parameter language model by Google.",
-      "image": "https://example.com/gemma-2-27b-logo.png",
-      "created": 1726838422,
-      "owned_by": "gemma-2-27b",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "mistral-next",
-      "object": "chat.completions",
-      "description": "Open-source conversational AI model.",
-      "image": "https://example.com/openchat-3.6-8b-logo.png",
-      "created": 1726838422,
-      "owned_by": "mistral-next",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "mistral-large",
-      "object": "chat.completions",
-      "description": "Latest large language model by Mistralai.",
-      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "mistral-large",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "claude-instant",
-      "object": "chat.completions",
-      "description": "Claude model optimized for chat, by Anthropic.",
-      "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
-      "created": 1726838422,
-      "owned_by": "claude-instant",
-      "providers": [
-        "pocketai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "perplexity/sonar-medium",
-      "object": "chat.completions",
-      "description": "Conversational AI by Perplexity for diverse topics.",
-      "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
-      "created": 1726838422,
-      "owned_by": "perplexity",
-      "providers": [
-        "greesyai"
       ],
       "premium": false
     },
     {
       "id": "openai/gpt-4o-2024-05-13",
       "object": "chat.completions",
-      "description": "GPT-4o Provided By GreesyAI",
+      "description": "GPT-4 model by OpenAI, updated version from May 2024.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
+      "providers": [
+        "pocketai",
+        "greesyai"
+      ],
+      "premium": true
+    },
+    {
+      "id": "google/gemini-1.5-pro",
+      "object": "chat.completions",
+      "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
+      "image": "https://example.com/gemini-1.5-pro-logo.png",
+      "created": 1726875355,
+      "owned_by": "google",
+      "providers": [
+        "pocketai",
+        "greesyai"
+      ],
+      "premium": true
+    },
+    {
+      "id": "anthropic/claude-3-haiku",
+      "object": "chat.completions",
+      "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
+      "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+      "created": 1726875355,
+      "owned_by": "anthropic",
+      "providers": [
+        "pocketai",
+        "greesyai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "cohere/command-r-plus",
+      "object": "chat.completions",
+      "description": "Advanced conversational AI model by Cohere.",
+      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
+      "created": 1726875355,
+      "owned_by": "cohere",
+      "providers": [
+        "pocketai",
+        "greesyai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "anthropic/claude-2",
+      "object": "chat.completions",
+      "description": "Conversational AI model by Anthropic for various topics.",
+      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
+      "created": 1726875355,
+      "owned_by": "anthropic",
+      "providers": [
+        "pocketai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "google/gemma-2-27b",
+      "object": "chat.completions",
+      "description": "27 billion parameter language model by Google.",
+      "image": "https://example.com/gemma-2-27b-logo.png",
+      "created": 1726875355,
+      "owned_by": "google",
+      "providers": [
+        "pocketai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "mistralai/mistral-next",
+      "object": "chat.completions",
+      "description": "Open-source conversational AI model.",
+      "image": "https://example.com/openchat-3.6-8b-logo.png",
+      "created": 1726875355,
+      "owned_by": "mistralai",
+      "providers": [
+        "pocketai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "mistralai/mistral-large",
+      "object": "chat.completions",
+      "description": "Latest large language model by Mistralai.",
+      "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+      "created": 1726875355,
+      "owned_by": "mistralai",
+      "providers": [
+        "pocketai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "antrophic/claude-instant",
+      "object": "chat.completions",
+      "description": "Claude model optimized for chat, by Anthropic.",
+      "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png",
+      "created": 1726875355,
+      "owned_by": "antrophic",
+      "providers": [
+        "pocketai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
+      "object": "chat.completions",
+      "description": "70 billion parameter LLaMA 3 model by Meta.",
+      "image": "https://example.com/llama3.1-405b-logo.png",
+      "created": 1726875355,
+      "owned_by": "meta-llama",
       "providers": [
         "greesyai"
       ],
@@ -345,32 +326,32 @@
       "object": "chat.completions",
       "description": "O1 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "greesyai"
       ],
-      "premium": false
+      "premium": true
     },
     {
       "id": "openai/o1-mini",
       "object": "chat.completions",
       "description": "O1 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "greesyai"
       ],
-      "premium": false
+      "premium": true
     },
     {
-      "id": "huggingface/starcoder-7b",
+      "id": "cohere/command-r",
       "object": "chat.completions",
-      "description": "Star Coder Provided By GreesyAI",
+      "description": "Command R Provided By GreesyAI",
       "image": "",
-      "created": 1726838422,
-      "owned_by": "huggingface",
+      "created": 1726875355,
+      "owned_by": "cohere",
       "providers": [
         "greesyai"
       ],
@@ -381,7 +362,7 @@
       "object": "chat.completions",
       "description": "GPT-3 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openai",
       "providers": [
         "greesyai"
@@ -393,7 +374,7 @@
       "object": "chat.completions",
       "description": "Latest Model of GreesyAI, Suprasses GPT-4 and Llama 3 8b",
       "image": "",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "greesyai",
       "providers": [
         "greesyai"
@@ -405,20 +386,8 @@
       "object": "text.moderations",
       "description": "Latest Strong Guard Model of GreesyAI, Suprasses Text-Moderation By OpenAI and Llama Guard",
       "image": "",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "greesyguard-2.5-pre",
-      "providers": [
-        "greesyai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "cohere/command-r-plus",
-      "object": "chat.completions",
-      "description": "Advanced conversational AI model by cohere.",
-      "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "cohere",
       "providers": [
         "greesyai"
       ],
@@ -429,19 +398,7 @@
       "object": "chat.completions",
       "description": "Fast variant of the Gemini 1.5 model by Google.",
       "image": "https://example.com/gemini-1.5-flash-logo.png",
-      "created": 1726838422,
-      "owned_by": "google",
-      "providers": [
-        "greesyai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "google/gemini-1.5-pro",
-      "object": "chat.completions",
-      "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
-      "image": "https://example.com/gemini-1.5-pro-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "google",
       "providers": [
         "greesyai"
@@ -453,7 +410,7 @@
       "object": "chat.completions",
       "description": "405 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "meta",
       "providers": [
         "greesyai"
@@ -465,7 +422,7 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "anthropic",
       "providers": [
         "greesyai"
@@ -477,19 +434,7 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
-      "created": 1726838422,
-      "owned_by": "anthropic",
-      "providers": [
-        "greesyai"
-      ],
-      "premium": false
-    },
-    {
-      "id": "anthropic/claude-3-haiku",
-      "object": "chat.completions",
-      "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
-      "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "anthropic",
       "providers": [
         "greesyai"
@@ -501,7 +446,7 @@
       "object": "chat.completions",
       "description": "Mixtral-based model by Dolphin AI for text generation.",
       "image": "https://example.com/dolphinmixtral8x7b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "dolphinmixtral8x7b",
       "providers": [
         "lepton"
@@ -513,7 +458,7 @@
       "object": "chat.completions",
       "description": "7 billion parameter language model by Google.",
       "image": "https://example.com/gemma-7b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "gemma-7b",
       "providers": [
         "lepton"
@@ -525,7 +470,7 @@
       "object": "chat.completions",
       "description": "8 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-8b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama3.1-8b",
       "providers": [
         "lepton"
@@ -537,7 +482,7 @@
       "object": "chat.completions",
       "description": "8 billion parameter LLaMA 3 model by Meta.",
       "image": "https://example.com/llama3-8b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama3-8b",
       "providers": [
         "lepton"
@@ -549,7 +494,7 @@
       "object": "chat.completions",
       "description": "13 billion parameter LLaMA 2 model by Meta.",
       "image": "https://example.com/llama2-13b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama2-13b",
       "providers": [
         "lepton"
@@ -561,7 +506,7 @@
       "object": "chat.completions",
       "description": "70 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-70b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama3.1-70b",
       "providers": [
         "lepton"
@@ -573,7 +518,7 @@
       "object": "chat.completions",
       "description": "70 billion parameter LLaMA 3 model by Meta.",
       "image": "https://example.com/llama3-70b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama3-70b",
       "providers": [
         "lepton"
@@ -585,7 +530,7 @@
       "object": "chat.completions",
       "description": "405 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "llama3.1-405b",
       "providers": [
         "lepton"
@@ -597,7 +542,7 @@
       "object": "chat.completions",
       "description": "7 billion parameter language model by Mistralai.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mistral7b",
       "providers": [
         "lepton"
@@ -609,7 +554,7 @@
       "object": "chat.completions",
       "description": "Mixtral-based 8x7B parameter model by Mistralai.",
       "image": "https://example.com/mixtral8x7b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mixtral8x7b",
       "providers": [
         "lepton"
@@ -621,7 +566,7 @@
       "object": "chat.completions",
       "description": "13 billion parameter model by Nous Research.",
       "image": "https://example.com/noushermes13b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "noushermes13b",
       "providers": [
         "lepton"
@@ -633,7 +578,7 @@
       "object": "chat.completions",
       "description": "Open-source conversational AI model, version 3.5.",
       "image": "https://example.com/openchat3.5-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openchat3.5",
       "providers": [
         "lepton"
@@ -645,7 +590,7 @@
       "object": "chat.completions",
       "description": "7 billion parameter model by Toppy AI.",
       "image": "https://example.com/toppym7b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "toppym7b",
       "providers": [
         "lepton"
@@ -657,7 +602,7 @@
       "object": "chat.completions",
       "description": "7 billion parameter WizardLM model, version 2.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "wizardlm2-7b",
       "providers": [
         "lepton"
@@ -669,7 +614,7 @@
       "object": "chat.completions",
       "description": "176 billion parameter WizardLM model (8x22B), version 2.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "wizardlm2-8x22b",
       "providers": [
         "lepton"
@@ -681,7 +626,7 @@
       "object": "chat.completions",
       "description": "7 billion parameter instructional model by Mistralai, version 0.3.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mistralai",
       "providers": [
         "deepinfra"
@@ -693,7 +638,7 @@
       "object": "chat.completions",
       "description": "8 billion parameter OpenChat model, version 3.6.",
       "image": "https://example.com/openchat-3.6-8b-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "openchat",
       "providers": [
         "deepinfra"
@@ -705,7 +650,7 @@
       "object": "chat.completions",
       "description": "Phi-3 medium model by Microsoft, optimized for 4K context instructions.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "microsoft",
       "providers": [
         "deepinfra"
@@ -717,7 +662,7 @@
       "object": "chat.completions",
       "description": "72 billion parameter instructional model by Qwen, version 2.",
       "image": "https://example.com/Qwen2-72B-Instruct-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "Qwen",
       "providers": [
         "deepinfra"
@@ -729,7 +674,7 @@
       "object": "chat.completions",
       "description": "70 billion parameter instructional LLaMA 3 model by Meta.",
       "image": "https://example.com/Meta-Llama-3-70B-Instruct-logo.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "meta-llama",
       "providers": [
         "deepinfra"
@@ -741,7 +686,7 @@
       "object": "chat.completions",
       "description": "176 billion parameter WizardLM model (8x22B) by Microsoft, version 2.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "microsoft",
       "providers": [
         "deepinfra"
@@ -753,7 +698,7 @@
       "object": "chat.completions",
       "description": "176 billion parameter (8x22B) instructional Mixtral model by Mistralai, version 0.1.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
-      "created": 1726838422,
+      "created": 1726875355,
       "owned_by": "mistralai",
       "providers": [
         "deepinfra"

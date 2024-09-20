@@ -19,7 +19,6 @@ function ModelSelect({ size, disabled, options, onChange }) {
   return (
     <div className="relative">
       <button
-
         onClick={() => setIsOpen(!isOpen)}
         className={`border border-md border-gray-700 ${size} flex items-center justify-between text-white text-[9px] h-10 px-2 py-2 rounded-md`}
       >

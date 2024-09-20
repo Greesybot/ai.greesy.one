@@ -118,7 +118,7 @@ export default function Blog({ params }: { params: BlogParams }) {
           setData(result[0]);
         }
       } catch (error) {
-        router.push("/404")
+        router.push("/404");
         setError("Failed to fetch data");
         console.error("Fetch error:", error);
       } finally {
@@ -166,7 +166,7 @@ export default function Blog({ params }: { params: BlogParams }) {
   }
 
   if (!data) {
-    return router.push("/404")
+    return router.push("/404");
   }
 
   return (

@@ -1,31 +1,30 @@
 [
-  
   {
     "provider": "github",
-    "models":[
+    "models": [
       {
-        "name":"openai/gpt-4o",
-        "type":"llm",
+        "name": "openai/gpt-4o",
+        "type": "llm",
         "description": "GPT-4 model by OpenAI for generating human-like text.",
-         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-         "premium": true
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
-        {
-        "name":"openai/gpt-4o-mini",
-        "type":"llm",
+      {
+        "name": "openai/gpt-4o-mini",
+        "type": "llm",
         "description": "GPT-4 model by OpenAI for generating human-like text.",
-         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-         "premium": false
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": false
       },
-     {
+      {
         "name": "mistralai/Mistral-large-2407",
         "type": "llm",
         "description": "Coding AI by Mistralai for programming tasks and suggestions.",
         "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
       },
       {
-        "name":"meta/Meta-Llama-3-1-405B-Instruct",
-        "type":"llm",
+        "name": "meta/Meta-Llama-3-1-405B-Instruct",
+        "type": "llm",
         "description": "405 billion parameter LLaMA 3.1 model by Meta.",
         "image": "https://example.com/llama3.1-405b-logo.png"
       }
@@ -115,64 +114,68 @@
         "name": "openai/gpt-4-1106-preview",
         "type": "llm",
         "description": "Preview version of GPT-4 by OpenAI from November 2023.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": false
       },
       {
-        "name": "gpt-4o-2024-05-13",
+        "name": "openai/gpt-4o-2024-05-13",
         "type": "llm",
         "description": "GPT-4 model by OpenAI, updated version from May 2024.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
       {
-        "name": "gpt-4o",
+        "name": "openai/gpt-4o",
         "type": "llm",
         "description": "Standard GPT-4 model by OpenAI for text generation.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
       {
-        "name": "gemini-1.5-pro",
+        "name": "google/gemini-1.5-pro",
         "type": "llm",
         "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
-        "image": "https://example.com/gemini-1.5-pro-logo.png"
+        "image": "https://example.com/gemini-1.5-pro-logo.png",
+        "premium": true
       },
       {
-        "name": "claude-3-haiku",
+        "name": "anthropic/claude-3-haiku",
         "type": "llm",
         "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
         "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
       },
       {
-        "name": "command-r-plus",
+        "name": "cohere/command-r-plus",
         "type": "llm",
         "description": "Advanced conversational AI model by Cohere.",
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
-        "name": "claude-2",
+        "name": "anthropic/claude-2",
         "type": "llm",
         "description": "Conversational AI model by Anthropic for various topics.",
         "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
       },
       {
-        "name": "gemma-2-27b",
+        "name": "google/gemma-2-27b",
         "type": "llm",
         "description": "27 billion parameter language model by Google.",
         "image": "https://example.com/gemma-2-27b-logo.png"
       },
       {
-        "name": "mistral-next",
+        "name": "mistralai/mistral-next",
         "type": "llm",
         "description": "Open-source conversational AI model.",
         "image": "https://example.com/openchat-3.6-8b-logo.png"
       },
       {
-        "name": "mistral-large",
+        "name": "mistralai/mistral-large",
         "type": "llm",
         "description": "Latest large language model by Mistralai.",
         "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
       },
       {
-        "name": "claude-instant",
+        "name": "antrophic/claude-instant",
         "type": "llm",
         "description": "Claude model optimized for chat, by Anthropic.",
         "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
@@ -183,11 +186,12 @@
     "provider": "greesyai",
     "models": [
       {
-        "name": "perplexity/sonar-medium",
+        "name": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
         "type": "llm",
-        "description": "Conversational AI by Perplexity for diverse topics.",
-        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
+        "description": "70 billion parameter LLaMA 3 model by Meta.",
+        "image": "https://example.com/llama3.1-405b-logo.png"
       },
+
       {
         "name": "openai/gpt-4o-2024-05-13",
         "type": "llm",
@@ -198,18 +202,20 @@
         "name": "openai/o1-preview",
         "type": "llm",
         "description": "O1 Provided By GreesyAI",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
-       {
+      {
         "name": "openai/o1-mini",
         "type": "llm",
         "description": "O1 Provided By GreesyAI",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
       {
-        "name": "huggingface/starcoder-7b",
+        "name": "cohere/command-r",
         "type": "llm",
-        "description": "Star Coder Provided By GreesyAI",
+        "description": "Command R Provided By GreesyAI",
         "image": ""
       },
       {
@@ -240,7 +246,8 @@
         "name": "openai/chatgpt-4o-latest",
         "type": "llm",
         "description": "High-performance GPT-4 variant for faster, more accurate results.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
       {
         "name": "cohere/command-r-plus",
@@ -258,7 +265,8 @@
         "name": "google/gemini-1.5-pro",
         "type": "llm",
         "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
-        "image": "https://example.com/gemini-1.5-pro-logo.png"
+        "image": "https://example.com/gemini-1.5-pro-logo.png",
+        "premium": true
       },
       {
         "name": "meta/llama-3.1-405b",
@@ -270,7 +278,8 @@
         "name": "openai/gpt-4o",
         "type": "llm",
         "description": "Standard GPT-4 model by OpenAI for text generation.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": true
       },
       {
         "name": "openai/gpt-4o-mini",

@@ -86,6 +86,19 @@ export default function Nav() {
                 Blogs
               </a>
             </motion.div>
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.4 }}
+              className="pagesCol fixed ml-auto mt-32"
+            >
+              <a
+                href="/billing"
+                className="link font-sans text-gray-300 bg-opacity-50 text-xl delay-100 transition-all font-semibold"
+              >
+                Premium
+              </a>
+            </motion.div>
           </div>
           {login && (
             <motion.div
@@ -154,7 +167,9 @@ export default function Nav() {
               </div>
             </motion.div>
           )}
-          {modal && <SettingsModal isOpen={modal} onClose={() => setModal(false)} />}
+          {modal && (
+            <SettingsModal isOpen={modal} onClose={() => setModal(false)} />
+          )}
           <motion.footer
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -181,15 +196,15 @@ export default function Nav() {
                 <div className="text-lg font-semibold">{session.user.name}</div>
               </motion.div>
             ) : (
-             <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.3, duration: 0.4 }}
-                  className="flex justify-center mx-auto items-center bg-gradient-to-br from-blue-500 to-sky-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-sky-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md cursor-pointer"
-                  onClick={() => signIn()}
-                >
-                  Sign In
-                </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.4 }}
+                className="flex justify-center mx-auto items-center bg-gradient-to-br from-blue-500 to-sky-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-sky-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md cursor-pointer"
+                onClick={() => setLogin(true)}
+              >
+                Sign In
+              </motion.div>
             )}
             {status === "authenticated" && (
               <motion.div

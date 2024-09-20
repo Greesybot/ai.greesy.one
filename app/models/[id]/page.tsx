@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Models from "../../components/Models/Card";
 import Nav from "../../components/Main/Nav";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 interface Mparams {
   id: string[];
@@ -25,10 +25,10 @@ export default function Home({ params }: { params: Mparams }) {
           throw new Error("Failed to fetch models");
         }
         const data = await response.json();
-        
+
         // Combine id parts like "openai/o1"
         const fullModelId = params.id.join("/");
-console.log(fullModelId)
+        console.log(fullModelId);
         const model = data.find((x: any) => x.name === fullModelId);
         if (model) {
           setModels([model]);

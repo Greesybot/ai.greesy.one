@@ -4,13 +4,12 @@ import UserModel from "../../schemas/User";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import cors from "../../middleware/cors";
-import { useSession } from 'next-auth/react'
-import { getSession } from "next-auth/react"
-import { getServerSession } from "next-auth"
-import { authOptions } from '../../lib/authOptions'
-import { getToken } from "next-auth/jwt"
+import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../lib/authOptions";
+import { getToken } from "next-auth/jwt";
 // Connect to the database when the server starts
-
 
 /**
  * Handles GET requests to this API endpoint.
@@ -18,15 +17,15 @@ import { getToken } from "next-auth/jwt"
  * @param req The incoming request object.
  * @param res The outgoing response object.
  */
-export async function GET(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
-  const data = await getToken({req})
-console.log(data)
+  const data = await getToken({ req });
+  console.log(data);
   if (!data) {
-    return NextResponse.json({ message: "You do not have access to do this."}, { status: 401 });
+    return NextResponse.json(
+      { message: "You do not have access to do this." },
+      { status: 401 },
+    );
   }
 
   try {

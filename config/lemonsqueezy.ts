@@ -1,24 +1,24 @@
 export function configureLemonSqueezy() {
   const requiredVars = [
-    'LEMONSQUEEZY_API_KEY',
-    'LEMONSQUEEZY_STORE_ID',
-    'LEMONSQUEEZY_WEBHOOK_SECRET',
-  ]
+    "LEMONSQUEEZY_API_KEY",
+    "LEMONSQUEEZY_STORE_ID",
+    "LEMONSQUEEZY_WEBHOOK_SECRET",
+  ];
 
-  const missingVars = requiredVars.filter((varName) => !process.env[varName])
+  const missingVars = requiredVars.filter((varName) => !process.env[varName]);
 
   if (missingVars.length > 0) {
     throw new Error(
       `Missing required LEMONSQUEEZY env variables: ${missingVars.join(
-        ', '
-      )}. Please, set them in your .env file.`
-    )
+        ", ",
+      )}. Please, set them in your .env file.`,
+    );
   }
 
   lemonSqueezySetup({
     apiKey: process.env.LEMONSQUEEZY_API_KEY,
     onError: (error) => {
-      throw new Error(`Lemon Squeezy API error: ${error.message}`)
+      throw new Error(`Lemon Squeezy API error: ${error.message}`);
     },
-  })
+  });
 }

@@ -1,15 +1,19 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { lemonSqueezySetup, createCheckout, type NewCheckout } from '@lemonsqueezy/lemonsqueezy.js';
-import connectMongo from '../../../../util/mongo';
-import Order from '../../../schemas/Order';
-import CryptoJS from 'crypto-js';
-import { v4 as uuidv4 } from 'uuid';
+import { NextRequest, NextResponse } from "next/server";
+import {
+  lemonSqueezySetup,
+  createCheckout,
+  type NewCheckout,
+} from "@lemonsqueezy/lemonsqueezy.js";
+import connectMongo from "../../../../util/mongo";
+import Order from "../../../schemas/Order";
+import CryptoJS from "crypto-js";
+import { v4 as uuidv4 } from "uuid";
 
 // Setup Lemon Squeezy API
 lemonSqueezySetup({
   apiKey: process.env.LEMON_SQUEEZY_API_KEY!,
   onError(error) {
-    console.error('Lemon Squeezy SDK error:', error);
+    console.error("Lemon Squeezy SDK error:", error);
   },
 });
 
@@ -24,7 +28,13 @@ interface PaymentRequestBody {
 }
 
 export async function POST(req: NextRequest) {
-  const { customerEmail, productId, amount, storeId, variantId }: PaymentRequestBody = await req.json();
+  const {
+    customerEmail,
+    productId,
+    amount,
+    storeId,
+    variantId,
+  }: PaymentRequestBody = await req.json();
 
   await connectMongo();
   const hash = CryptoJS.HmacSHA256(uuid, process.env.SECRET).toString();
@@ -33,14 +43,14 @@ export async function POST(req: NextRequest) {
     productId,
     orderId: hash,
     amount: amount ?? 1,
-    status: 'pending',
+    status: "pending",
   });
   await newOrder.save();
 
   const newCheckout: NewCheckout = {
     productOptions: {
-      name: 'Greesy Premium',
-      description: 'Access Premium',
+      name: "Greesy Premium",
+      description: "Access Premium",
     },
     checkoutOptions: {
       embed: true,
@@ -49,7 +59,7 @@ export async function POST(req: NextRequest) {
     },
     checkoutData: {
       email: customerEmail,
-      name: 'Customer Name',
+      name: "Customer Name",
     },
     expiresAt: null,
     preview: true,
@@ -57,16 +67,26 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    const { statusCode, error, data } = await createCheckout("121376", "512496", newCheckout);
+    const { statusCode, error, data } = await createCheckout(
+      "121376",
+      "512496",
+      newCheckout,
+    );
 
     if (error) {
-      console.error('Create Checkout error:', error);
+      console.error("Create Checkout error:", error);
       throw new Error(error.message);
     }
 
-    return NextResponse.json({ checkoutUrl: data?.data.attributes.url }, { status: statusCode });
+    return NextResponse.json(
+      { checkoutUrl: data?.data.attributes.url },
+      { status: statusCode },
+    );
   } catch (error) {
-    console.error('Request error:', error);
-    return NextResponse.json({ error: 'Payment initiation failed' }, { status: 500 });
+    console.error("Request error:", error);
+    return NextResponse.json(
+      { error: "Payment initiation failed" },
+      { status: 500 },
+    );
   }
 }
