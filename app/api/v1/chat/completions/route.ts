@@ -219,7 +219,22 @@ export async function POST(req) {
         await UserModel.findByIdAndUpdate(userdata._id, {
           $inc: { "limits.0.left": -10, "limits.0.total": -10 },
         });
-
+        
+        const log = await fetch(process.env.WEBHOOKURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        embeds: [
+          {
+            title: "GreesyAI Moderation Logs",          // Title of the embed
+            description: `\n- Model: ${model}\n- Content (user): ${messages}\n- Content (modrl): ${response.choices[0].content.split(100)}`,  // Description text
+            color: parseInt(65280, 16), // Embed color in decimal format (hex)
+          },
+        ],
+      }),
+    });
         return NextResponse.json({
           id: response.id,
           model: model,
