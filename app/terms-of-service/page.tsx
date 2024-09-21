@@ -25,7 +25,7 @@ const TermsOfService = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">Limitation of Liability</h2>
       <p className="mb-4">
-        Our services are provided on an "as is" and "as available" basis. We make no warranties or guarantees about the availability or accuracy of our services.
+Our services are provided on an &quot;as is&quot; and &quot;as available&quot; basis. We make no warranties or guarantees about the availability or accuracy of our services.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">Changes to Terms</h2>
