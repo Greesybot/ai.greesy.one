@@ -9,7 +9,7 @@ import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authOptions";
 import { getToken } from "next-auth/jwt";
-// Connect to the database when the server starts
+
 
 /**
  * Handles GET requests to this API endpoint.
@@ -20,7 +20,7 @@ import { getToken } from "next-auth/jwt";
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
   const data = await getToken({ req });
-  console.log(data);
+  
   if (!data) {
     return NextResponse.json(
       { message: "You do not have access to do this." },

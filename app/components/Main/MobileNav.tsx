@@ -28,7 +28,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 fixed backdrop-filter bg-black bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-full md:w-full lg:w-full h-16 mx-auto items-center justify-between select-none">
+      <div className="flex flex-col gap-4 fixed backdrop-filter bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-full md:w-full lg:w-full h-16 mx-auto items-center justify-between select-none">
         <div className="flex w-full mx-auto items-center justify-between space-x-8 mx-auto mb-4">
           <p className="w-full font-normal bg-transparent text-[#e7e8ea] !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pr-6 rtl:pr-0 rtl:pl-6 is-filled font-sans text-[25px] ml-8">
             Greesy
