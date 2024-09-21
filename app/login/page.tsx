@@ -61,11 +61,11 @@ export default function Login() {
 
           <p className="text-gray-400 text-xs text-center mt-4">
             By clicking continue, you agree to our{" "}
-            <a href="#" className="text-white underline">
+            <a href="/terms-of-service" className="text-white underline">
               Terms of Service
             </a>{" "}
             and{" "}
-            <a href="#" className="text-white underline">
+            <a href="/privacy" className="text-white underline">
               Privacy Policy
             </a>
             .

@@ -22,6 +22,7 @@ export default async function Home() {
             <div
               className="flex flex-col justify-center items-start sm:items-start sm:justify-between"
               id="greesyguard"
+              onClick={() => window.location.href("https://huggingface.co/OnlyCheeini/greesychat-turbo")}
             >
               <h1
                 className="text-3xl sm:text-4xl font-extrabold font-sans text-[#ecedef] text-left"
