@@ -44,7 +44,12 @@ export default function Nav() {
               className="hover:bg-opacity-40 text-[#e7e8ea]"
               onClick={() => setOpen(!open)}
             >
-              {!open ? <HiBars2 size={25} /> : <IoCloseSharp size={25} />}
+              {!open ? (<><svg className="h-[30px] mx-auto -mt-0.5 w-[30px]" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+	<g fill="none">
+		<path fill="currentColor" d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"></path>
+		<circle cx={12} cy={12} r={10} stroke="currentColor" strokeWidth={1.5} opacity={0.5}></circle>
+	</g>
+</svg></>) : <IoCloseSharp size={25} />}
             </button>
           </div>
         </div>
