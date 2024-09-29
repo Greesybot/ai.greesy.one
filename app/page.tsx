@@ -12,15 +12,15 @@ export default async function Home() {
   return (
     <>
       <Nav />
-      <div className="flex w-full flex-col mx-auto z-0">
-        <main className="flex flex-col gap-8 items-center sm:items-start">
+      <div className="flex w-full flex-col mx-auto z-0 bg-[rgba(0, 0, 0, 0.4)">
+        <main className="bg-transparent flex flex-col gap-8 items-center sm:items-start">
           <Hero />
           <CompanySlider />
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start mt-12 sm:mt-24 mx-4 sm:mx-8 lg:mx-16 space-y-12 lg:space-y-0 lg:space-x-16">
             {/* GreesyGuard Section */}
             <div
-              className="flex flex-col justify-center items-start sm:items-start sm:justify-between"
+              className="flex flex-col justify-center items-start sm:items-start sm:justify-between bg-transparent"
               id="greesyguard"
 
             >

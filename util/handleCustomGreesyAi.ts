@@ -83,21 +83,21 @@ async function fetchProvider1(body: ReqBody) {
     }
 
     //  const randomKey = getRandomProviderOneKey();
-    const randomProxy = getRandomProxy();
+   /* const randomProxy = getRandomProxy();
     const { host, port, username, password } = parseProxyString(randomProxy);
 
-    // Setup HttpsProxyAgent with authentication
+
     const agent = new HttpsProxyAgent({
       host,
       port: parseInt(port),
       auth: `${username}:${password}`,
-    });
+    });*/
     const keys = [
       process.env.providerone_key,
       process.env.providerone_key_2,
-      // process.env.providerone_key_3,
-      //  process.env.providerone_key_4,
-      //  process.env.providerone_key_5,
+     // process.env.providerone_key_3,
+    //  process.env.providerone_key_4,
+    //  process.env.providerone_key_5,
     ];
     const randomIndex = Math.floor(Math.random() * keys.length);
     console.log(keys[randomIndex]);
@@ -111,7 +111,7 @@ async function fetchProvider1(body: ReqBody) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${keys[randomIndex]}`,
         },
-        httpsAgent: agent, // Use the proxy with authentication
+        //httpsAgent: agent, // Use the proxy with authentication
       },
     );
 
@@ -131,13 +131,13 @@ async function fetchProvider1(body: ReqBody) {
 
 async function fetchProvider2(body: ReqBody) {
   try {
-    const randomProxy = getRandomProxy();
+   /* const randomProxy = getRandomProxy();
     const { host, port, username, password } = parseProxyString(randomProxy);
     const agent = new HttpsProxyAgent({
       host,
       port: parseInt(port),
       auth: `${username}:${password}`,
-    });
+    }); */
 
     const response = await axios.post(
       process.env.providertwo_url + "v1/chat/completions",
@@ -151,7 +151,7 @@ async function fetchProvider2(body: ReqBody) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.providertwo_key}`,
         },
-        httpsAgent: agent, // Use the proxy with authentication
+        //httpsAgent: agent, // Use the proxy with authentication
       },
     );
 

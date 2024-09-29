@@ -104,7 +104,7 @@ export async function POST(req) {
         { status: 400 },
       );
     }
-
+console.log(authHeader.split("Bearer ")[1])
     const userdata = await UserModel.findOne({
       apiKey: authHeader.split("Bearer ")[1],
     });
@@ -132,9 +132,10 @@ export async function POST(req) {
         { status: 402 },
       );
     }
-
+  
     for (const provider of providers) {
       try {
+        
         let response;
         switch (provider) {
           case "greesyai":
@@ -194,7 +195,7 @@ export async function POST(req) {
                   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
                 },
                 body: JSON.stringify({
-                  model: modelInfo.name.split("/")[1],
+                  model: model?.split("/")[1],
                   messages,
                   tools,
                 }),
@@ -220,7 +221,7 @@ export async function POST(req) {
           $inc: { "limits.0.left": -10, "limits.0.total": -10 },
         });
         
-        const log = await fetch(process.env.WEBHOOKURL, {
+      /*  const log = await fetch(process.env.WEBHOOKURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -234,7 +235,7 @@ export async function POST(req) {
           },
         ],
       }),
-    });
+    });*/
         return NextResponse.json({
           id: response.id,
           model: model,

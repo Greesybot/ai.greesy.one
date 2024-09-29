@@ -1,7 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(blue) var(purple);
+}
+*::-webkit-scrollbar {
+  width: 15px;
+}
 
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -22,10 +39,19 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-body {
-  background: #000000;
+html {
+  /*backdrop-filter: blur(20px); Adjust the blur value as needed 
+  background: rgb(0,0,0); */
+backdrop-filter: blur(8px);
+background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(66,5,207,1) 25%, rgba(0,0,0,1) 100%);
   min-height: 100vh;
 }
+
+body {
+  z-index: 5;
+  min-height: 100vh;
+}
+        
 
 /*
 body {
@@ -110,3 +136,7 @@ body pre[class^="language-"]::before {
   flex-shrink: 0;
   width: 125px;
 }
+/*
+.react-modal-sheet-backdrop{
+  background-color: black;
+}*/

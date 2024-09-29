@@ -6,8 +6,21 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { useSession, signOut, signIn } from "next-auth/react";
 import SettingsModal from "../Modals/Settings";
+import MSettingsModal from "../Modals/MobileSettings";
 
 export default function Nav() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [open, setOpen] = useState(false);
   const [modal, setModal] = useState(false);
   const [login, setLogin] = useState(false);
@@ -28,7 +41,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 fixed backdrop-filter bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-full md:w-full lg:w-full h-16 mx-auto items-center justify-between select-none">
+      <div className="flex flex-col gap-4 fixed backdrop-filter bg-black bg-opacity-40 backdrop-blur-lg z-20 bg-opacity-30 w-full md:w-full lg:w-full h-16 mx-auto items-center justify-between select-none">
         <div className="flex w-full mx-auto items-center justify-between space-x-8 mx-auto mb-4">
           <p className="w-full font-normal bg-transparent text-[#e7e8ea] !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pr-6 rtl:pr-0 rtl:pl-6 is-filled font-sans text-[25px] ml-8">
             Greesy
@@ -44,12 +57,7 @@ export default function Nav() {
               className="hover:bg-opacity-40 text-[#e7e8ea]"
               onClick={() => setOpen(!open)}
             >
-              {!open ? (<><svg className="h-[30px] mx-auto -mt-0.5 w-[30px]" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-	<g fill="none">
-		<path fill="currentColor" d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"></path>
-		<circle cx={12} cy={12} r={10} stroke="currentColor" strokeWidth={1.5} opacity={0.5}></circle>
-	</g>
-</svg></>) : <IoCloseSharp size={25} />}
+              {!open ? <HiBars2 size={25} /> : <IoCloseSharp size={25} />}
             </button>
           </div>
         </div>
@@ -172,9 +180,14 @@ export default function Nav() {
               </div>
             </motion.div>
           )}
-          {modal && (
-            <SettingsModal isOpen={modal} onClose={() => setModal(false)} />
-          )}
+{modal && (
+  isDesktop ? (
+    <SettingsModal isOpen={modal} onClose={() => setModal(false)} />
+  ) : (
+    <MSettingsModal isOpen={modal} onClose={setModal} />
+  )
+)}
+
           <motion.footer
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
