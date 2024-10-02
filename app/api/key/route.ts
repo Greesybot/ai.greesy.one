@@ -43,8 +43,8 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     if (force === process.env.key) {
       return NextResponse.json({ key: email });
     }
-
-    const user = await UserModel.findOne({ email });
+console.log(data)
+    const user = await UserModel.findOne({ email:data.email });
 
     if (!user) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });

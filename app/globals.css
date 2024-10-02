@@ -39,16 +39,17 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 html {
   /*backdrop-filter: blur(20px); Adjust the blur value as needed 
-  background: rgb(0,0,0); */
+  background: rgb(0,0,0);*/
 backdrop-filter: blur(8px);
-background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(66,5,207,1) 25%, rgba(0,0,0,1) 100%);
+/*bcackground: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(66,5,207,1) 25%, rgba(0,0,0,1) 100%);*/
+background: black;
   min-height: 100vh;
 }
-
 body {
-  z-index: 5;
+  
   min-height: 100vh;
 }
         
@@ -140,3 +141,35 @@ body pre[class^="language-"]::before {
 .react-modal-sheet-backdrop{
   background-color: black;
 }*/
+.main {
+  
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  
+}
+
+.testimonial-container {
+  scroll-behavior: smooth;
+}
+
+.testimonial-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .testimonial-container {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 1rem;
+  }
+}
+
+/* Add to your global CSS */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
