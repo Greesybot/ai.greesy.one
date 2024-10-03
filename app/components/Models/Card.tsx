@@ -1,6 +1,7 @@
 import React from "react";
 
 const Models = ({ models, searchQuery }) => {
+  console.log(models)
   // Filter models based on the search query
   const filteredModels = models.filter((model) =>
     model.id.toLowerCase().includes(searchQuery.toLowerCase()),

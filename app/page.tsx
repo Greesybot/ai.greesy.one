@@ -6,7 +6,7 @@ import ImageSlider from "./components/Main/ImageSlider";
 import Nav from "./components/Main/Nav";
 import UserComments from "./components/Main/UserComments";
 import Hero from "./components/Main/Hero";
-import Models from "./components/Models/Card";
+import ModelCarousel from "./components/Models/Carousel";
 
 export default async function Home() {
   return (
@@ -15,8 +15,9 @@ export default async function Home() {
       <div className="flex w-full flex-col mx-auto  bg-[rgba(0, 0, 0, 0.4)">
         <main className="main bg-transparent flex flex-col gap-8 items-center sm:items-start">
           <Hero />
-
+<ModelCarousel/>
 <UserComments/>
+
       <footer className="border border-b-0 border-gray-700 w-full py-8 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
