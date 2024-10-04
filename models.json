@@ -7,7 +7,7 @@
         "type": "llm",
         "description": "GPT-4 model by OpenAI for generating human-like text.",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-        "premium": true
+        "premium": false
       },
       {
         "name": "openai/gpt-4o-mini",
@@ -73,12 +73,7 @@
         "description": "Language model by Google for human-like text generation.",
         "image": "https://example.com/gemma-7b-logo.png"
       },
-      {
-        "name": "perplexity/llama-3.1-sonar-small-128k-chat",
-        "type": "llm",
-        "description": "Conversational AI by Perplexity for diverse topics.",
-        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
-      },
+
       {
         "name": "openai/gpt-4o-2024-08-06",
         "type": "llm",
