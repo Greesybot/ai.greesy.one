@@ -32,21 +32,16 @@ const Testimonials = () => {
       imageSrc: 'https://via.placeholder.com/40',
       testimonial: 'We use GreesyAI for our services. Thanks to them a lot.'
     },
+
     {
-      name: 'Karim Atiyeh',
-      role: 'Co-Founder & CTO',
+      name: 'Rivalth',
+      role: 'Lilven',
       imageSrc: 'https://via.placeholder.com/40',
-      testimonial: 'Ramp uses Modal to run some of our most data-intensive projects. Our team loves the developer experience because it allows them to be more productive and move faster. Without Modal, these projects would have been impossible for us to launch.'
+      testimonial: 'GreesyAI one of nice services i saw.'
     },
     {
-      name: 'Alex Johnson',
-      role: 'Product Manager',
-      imageSrc: 'https://via.placeholder.com/40',
-      testimonial: 'GreesyAI has made our workflow much smoother and efficient.'
-    },
-    {
-      name: 'Mia Nguyen',
-      role: 'CEO - Techify',
+      name: 'Etolia',
+      role: 'Moderator - DisCore',
       imageSrc: 'https://via.placeholder.com/40',
       testimonial: 'The integration of AI with our platform has been seamless thanks to GreesyAI.'
     }
