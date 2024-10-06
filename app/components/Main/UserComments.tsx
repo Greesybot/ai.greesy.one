@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const TestimonialCard = ({ name, role, imageSrc, testimonial }) => {
   return (
-    <div className="w-full md:w-1/4 bg-gray-800 rounded-lg p-6 backdrop-filter backdrop-blur-xl bg-opacity-40 shadow-2xl border border-gray-700 mb-4">
+    <div className=" bg-gray-800 rounded-lg p-6 backdrop-filter backdrop-blur-xl bg-opacity-40 shadow-2xl border border-gray-700 mb-4">
       <div className="flex items-center mb-2">
         <img 
           src={imageSrc} 
@@ -40,7 +40,7 @@ const Testimonials = () => {
       testimonial: 'GreesyAI one of nice services i saw.'
     },
     {
-      name: 'Etolia',
+      name: 'Etoila',
       role: 'Moderator - DisCore',
       imageSrc: 'https://via.placeholder.com/40',
       testimonial: 'The integration of AI with our platform has been seamless thanks to GreesyAI.'
@@ -50,7 +50,7 @@ const Testimonials = () => {
   return (
     <div className="px-4 pb-4 ">
       <h2 className="text-4xl font-semibold mb-4 text-white">Reviews </h2>
-      <div className="flex flex-col md:flex-row gap-2 md:flex-wrap">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
         {users.map((user, index) => (
           <TestimonialCard
             key={index}

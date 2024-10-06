@@ -71,12 +71,12 @@ export async function POST(req) {
     const ip = req.ip ?? headers().get("X-Forwarded-For") ?? "unknown";
     const isRateLimited = limit(ip);
 
-    if (isRateLimited) {
+    /*if (isRateLimited) {
       return NextResponse.json(
         { error: "Rate limit exceeded" },
         { status: 429 },
       );
-    }
+    }*/
 
     const authHeader = headers().get("Authorization");
     if (!authHeader) {

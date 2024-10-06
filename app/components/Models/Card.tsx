@@ -18,7 +18,7 @@ const Models = ({ models, searchQuery }) => {
   });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {sortedModels.length > 0 ? (
         sortedModels.map((model) => {
           // Replace 'chat.completions' with 'official' in the model ID
@@ -28,7 +28,7 @@ const Models = ({ models, searchQuery }) => {
           return (
             <div
               key={model.id}
-              className="bg-black border border-gray-800 rounded-lg p-4"
+              className="w-full bg-black border border-gray-800 rounded-lg p-4"
             >
               <div className="flex items-center justify-between mb-2">
                 <h2 className="text-lg font-semibold text-white">
