@@ -54,7 +54,8 @@ const handleLemonSqueezyCheckout = async (productId: string) => {
     alert("You need to be logged in to make a purchase.");
     return;
   }
-
+  alert("This Feature disabled")
+/*
   try {
     const response = await axios.post("/api/billing/checkout", {
       customerEmail: session?.user.email,
@@ -76,7 +77,7 @@ console.log(response.data)
     }
   } catch (error) {
     console.error("Error creating checkout session:", error);
-  }
+  }*/
 };
   return (
     <section className="flex flex-col items-center justify-center mt-8 z-10 backdrop-filter border-gradient-to-r bg-opacity-40 backdrop-blur-lg">
