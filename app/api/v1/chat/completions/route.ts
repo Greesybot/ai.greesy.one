@@ -71,12 +71,7 @@ export async function POST(req) {
     const ip = req.ip ?? headers().get("X-Forwarded-For") ?? "unknown";
     const isRateLimited = limit(ip);
 
-    /*if (isRateLimited) {
-      return NextResponse.json(
-        { error: "Rate limit exceeded" },
-        { status: 429 },
-      );
-    }*/
+    
 
     const authHeader = headers().get("Authorization");
     if (!authHeader) {
@@ -85,7 +80,7 @@ export async function POST(req) {
         { status: 401 },
       );
     }
-
+ 
     const requestData = await req.json();
     const {
       model,
@@ -108,6 +103,12 @@ console.log(authHeader.split("Bearer ")[1])
     const userdata = await UserModel.findOne({
       apiKey: authHeader.split("Bearer ")[1],
     });
+    if (isRateLimited && !userdata.premium) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded" },
+        { status: 429 },
+      );
+    } 
     if (!userdata) {
       return NextResponse.json(
         { error: "The API Key doesn't exist in the database" },
@@ -163,17 +164,17 @@ console.log(authHeader.split("Bearer ")[1])
               },
             );
             break;
-          case "deepseek":
+          case "pocketai":
             response = await fetchFromProvider(
-              "https://api.deepseek.com/v1/chat/completions",
+              "https://pocket.holabo.co/v1/chat/completions",
               {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+                  Authorization: `Bearer ${process.env.POCKETAI_API_KEY}`,
                 },
                 body: JSON.stringify({
-                  model: modelInfo.name,
+                  model: modelInfo.name.split("/")[1],
                   tools,
                   messages,
                   max_tokens: max_tokens ?? 1024,
@@ -202,7 +203,7 @@ console.log(authHeader.split("Bearer ")[1])
               },
             );
             break;
-          case "pocketai":
+          
           case "lepton":
           case "deepinfra":
             console.warn(`Provider ${provider} not implemented yet`);

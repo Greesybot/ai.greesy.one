@@ -102,81 +102,7 @@
       }
     ]
   },
-  {
-    "provider": "pocketai",
-    "models": [
-      {
-        "name": "openai/gpt-4-1106-preview",
-        "type": "llm",
-        "description": "Preview version of GPT-4 by OpenAI from November 2023.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-        "premium": false
-      },
-      {
-        "name": "openai/gpt-4o-2024-05-13",
-        "type": "llm",
-        "description": "GPT-4 model by OpenAI, updated version from May 2024.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-        "premium": true
-      },
-      {
-        "name": "openai/gpt-4o",
-        "type": "llm",
-        "description": "Standard GPT-4 model by OpenAI for text generation.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
-        "premium": true
-      },
-      {
-        "name": "google/gemini-1.5-pro",
-        "type": "llm",
-        "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
-        "image": "https://example.com/gemini-1.5-pro-logo.png",
-        "premium": true
-      },
-      {
-        "name": "anthropic/claude-3-haiku",
-        "type": "llm",
-        "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
-        "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4"
-      },
-      {
-        "name": "cohere/command-r-plus",
-        "type": "llm",
-        "description": "Advanced conversational AI model by Cohere.",
-        "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
-      },
-      {
-        "name": "anthropic/claude-2",
-        "type": "llm",
-        "description": "Conversational AI model by Anthropic for various topics.",
-        "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4"
-      },
-      {
-        "name": "google/gemma-2-27b",
-        "type": "llm",
-        "description": "27 billion parameter language model by Google.",
-        "image": "https://example.com/gemma-2-27b-logo.png"
-      },
-      {
-        "name": "mistralai/mistral-next",
-        "type": "llm",
-        "description": "Open-source conversational AI model.",
-        "image": "https://example.com/openchat-3.6-8b-logo.png"
-      },
-      {
-        "name": "mistralai/mistral-large",
-        "type": "llm",
-        "description": "Latest large language model by Mistralai.",
-        "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4"
-      },
-      {
-        "name": "antrophic/claude-instant",
-        "type": "llm",
-        "description": "Claude model optimized for chat, by Anthropic.",
-        "image": "https://example.com/llama-3.1-sonar-small-128k-chat-logo.png"
-      }
-    ]
-  },
+
   {
     "provider": "greesyai",
     "models": [
@@ -305,14 +231,9 @@
   {
     "provider": "lepton",
     "models": [
+
       {
-        "name": "dolphinmixtral8x7b",
-        "type": "llm",
-        "description": "Mixtral-based model by Dolphin AI for text generation.",
-        "image": "https://example.com/dolphinmixtral8x7b-logo.png"
-      },
-      {
-        "name": "gemma-7b",
+        "name": "google/gemma-7b",
         "type": "llm",
         "description": "7 billion parameter language model by Google.",
         "image": "https://example.com/gemma-7b-logo.png"

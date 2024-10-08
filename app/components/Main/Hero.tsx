@@ -12,7 +12,7 @@ const Hero = () => {
         <div className={styles.gradientBorder}>
           <a href="#" className={styles.introLink}>
             <span className="mr-2">🎉</span>
-            <span className={styles.gradientText}>Introducing GreesyChat</span>
+            <span onClick={()=>router.get("https://huggingface.co/OnlyCheeini/greesychat-turbo")} className={styles.gradientText}>Introducing GreesyChat</span>
 
             <FaArrowRight className={styles.arrowIcon} />
           </a>
@@ -28,7 +28,7 @@ const Hero = () => {
           for Community
         </h1>
 
-        <p className={styles.subHeading}>API Support coming soon.</p>
+        <p className={styles.subHeading}>Beta Version</p>
 
         <div className={styles.buttonWrapper}>
           <button

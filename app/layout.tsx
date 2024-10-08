@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "GreesyAI",
-  description: "AI for Everyone",
+  description: "New GenAI Models for Community",
   keywords: ["ai", "gpt", "chatgpt", "claude", "gemini", "deepseek", "llma"],
   robots: "noindex, nofollow",
   charset: "utf-8",
