@@ -1,6 +1,6 @@
 import cron from "node-cron";
 import UserModel from "./app/schemas/User"; // Adjust path to your User model
-import connectToDatabase from "./mongo"; // MongoDB connection utility
+import connectToDatabase from "./mongo"; 
 
 interface UserSchema {
   email: string;
