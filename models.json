@@ -34,11 +34,11 @@
     "provider": "openrouter",
     "models": [
       {
-        "name": "openai/gpt4o",
+        "name": "liquid/lfm-40b:free",
         "type": "llm",
         "premium": true,
-        "description": "GPT-4 model by OpenAI for generating human-like text.",
-        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
+        "description": "LFM model by Liquid for generating human-like text.",
+        "image": ""
       },
       {
         "name": "deepseek/deepseek-chat",
@@ -81,12 +81,7 @@
         "description": "GPT-4 model by OpenAI, updated version from August 2024.",
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       },
-      {
-        "name": "01-ai/yi-large-fc",
-        "type": "llm",
-        "description": "Large language model by 01-ai for text generation.",
-        "image": "https://example.com/yi-large-fc-logo.png"
-      },
+
       {
         "name": "google/gemini-pro-1.5-exp",
         "type": "llm",
