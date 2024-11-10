@@ -44,6 +44,7 @@ export const authOptions: NextAuthOptions = {
           limits: {
             left: 2000,
             total: 2000,
+            lastRequest: new Date()
           },
         });
 
@@ -54,6 +55,7 @@ export const authOptions: NextAuthOptions = {
             console.error("Error creating user:", error);
           });
       }
+     if(!findUser?.lastRequest) await UserModel.findOneAndUpdate({ email: session.user.email}, { $set: { lastRequest: Date.now()}})
       return session;
     },
     async signIn({ user, account, profile, email, credentials }) {

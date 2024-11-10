@@ -1,18 +1,26 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    return [
+      {
+        // matching all API routes
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "https://ai.nicatdcw.dev" }, // replace "*" with your actual origin for security
+          { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
+          { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+        ],
+      },
+    ];
+  },
   experimental: {
     serverActions: true,
-    esmExternals: "loose", // <-- add this
-    serverComponentsExternalPackages: ["mongoose"], // <-- and this
+    esmExternals: "loose", // <-- allows ESM packages
+    serverComponentsExternalPackages: ["mongoose"], // <-- includes external package mongoose
   },
-  // and the following to enable top-level await support for Webpack
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true, // WARNING: allows production builds with type errors
   },
   images: {
     remotePatterns: [
