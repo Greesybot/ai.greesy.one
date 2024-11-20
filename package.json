@@ -19,6 +19,7 @@
     "clipboard": "^2.0.11",
     "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
+    "deepinfra": "^2.0.2",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.3.28",
     "fs": "^0.0.1-security",
