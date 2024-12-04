@@ -1,0 +1,249 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.handleCustomGreesyAi = void 0;
+var axios_1 = require("axios");
+require("dotenv/config");
+var fs_1 = require("fs");
+var https_proxy_agent_1 = require("https-proxy-agent");
+function getRandomProviderOneKey() {
+    var keys = [
+        process.env.providerone_key,
+        process.env.providerone_key_2,
+    ];
+    var randomIndex = Math.floor(Math.random() * keys.length);
+    return keys[randomIndex];
+}
+function parseProxyString(proxyString) {
+    var _a = proxyString.split(":"), host = _a[0], port = _a[1], username = _a[2], password = _a[3];
+    return { host: host, port: port, username: username, password: password };
+}
+function getRandomProxy() {
+    var proxies = fs_1.default.readFileSync("proxy.txt", "utf-8").split("\n");
+    var randomIndex = Math.floor(Math.random() * proxies.length);
+    return proxies[randomIndex].trim();
+}
+function handleSearchAndGPT(model, query) {
+    var _a, _b, _c;
+    return __awaiter(this, void 0, Promise, function () {
+        var googleResults, items, resultsText, gptPrompt, gptResponse, summary, markdownResults;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
+                case 0: return [4 /*yield*/, axios_1.default.get("https://www.googleapis.com/customsearch/v1", {
+                        params: {
+                            key: process.env.GOOGLE_API_KEY,
+                            cx: "364f7ffcea56a4c2a",
+                            q: query,
+                        },
+                    })];
+                case 1:
+                    googleResults = _d.sent();
+                    items = ((_a = googleResults === null || googleResults === void 0 ? void 0 : googleResults.data) === null || _a === void 0 ? void 0 : _a.items) || [];
+                    resultsText = items.map(function (item, index) {
+                        return "".concat(index + 1, ". Title: ").concat(item.title, "\n   Link: ").concat(item.link, "\n   Snippet: ").concat(item.snippet);
+                    }).join("\n\n");
+                    gptPrompt = "\nYou can summarizing web search results when users stars his prompt with 'search', 'search on web' and 'on web'.Summarize web search results concisely if the user's prompt starts with \"search,\" \"search on web,\" or \"on web.\"\n\nDo not use web searches or provide search results if the prompt starts with casual greetings like \"hi,\" \"how are you,\" etc., or any other type of query.\nDo not use web searches for simple questions or somethings you know it isnt for searching.\nOnly use Search results when user starts his prompt with those words \"web search\", \"use search\",\"search on google\".\n\nUser Query: \"".concat(query, "\"\n\nSearch Results:\n").concat(resultsText, "\n\nProvide a concise summary of the above results.\n  ");
+                    return [4 /*yield*/, axios_1.default.post(process.env.providertwo_url + "v1/chat/completions", {
+                            model: model,
+                            messages: [{ role: "user", content: gptPrompt }],
+                        }, {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: "Bearer ".concat(process.env.providertwo_key),
+                            },
+                        })];
+                case 2:
+                    gptResponse = _d.sent();
+                    summary = ((_c = (_b = gptResponse.data.choices[0]) === null || _b === void 0 ? void 0 : _b.message) === null || _c === void 0 ? void 0 : _c.content) || "Error generating summary.";
+                    markdownResults = items.map(function (item, index) {
+                        return "".concat(index + 1, ". [").concat(item.title, "](").concat(item.link, ")");
+                    }).join("\n");
+                    return [2 /*return*/, gptResponse.data];
+            }
+        });
+    });
+}
+function handleCustomGreesyAi(body) {
+    var _a;
+    return __awaiter(this, void 0, void 0, function () {
+        var providers, lastError, userMessage, query, ds, _i, providers_1, provider, _b, error_1;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    providers = [
+                        process.env.providerone,
+                        process.env.providertwo,
+                        process.env.providerthird,
+                    ];
+                    console.log(body);
+                    lastError = null;
+                    if (!body.model.endsWith("-online")) return [3 /*break*/, 2];
+                    body.model = body.model.replace("-online", "").trim();
+                    userMessage = (_a = body.messages.find(function (msg) { return msg.role === "user"; })) === null || _a === void 0 ? void 0 : _a.content;
+                    if (!userMessage)
+                        throw new Error("No user message found.");
+                    query = userMessage.replace("search ", "").trim();
+                    return [4 /*yield*/, handleSearchAndGPT(body.model, query)];
+                case 1:
+                    ds = _c.sent();
+                    return [2 /*return*/, ds];
+                case 2:
+                    _i = 0, providers_1 = providers;
+                    _c.label = 3;
+                case 3:
+                    if (!(_i < providers_1.length)) return [3 /*break*/, 15];
+                    provider = providers_1[_i];
+                    _c.label = 4;
+                case 4:
+                    _c.trys.push([4, 13, , 14]);
+                    if (!body || Object.keys(body).length === 0) {
+                        throw new Error("Invalid or empty body provided.");
+                    }
+                    _b = provider;
+                    switch (_b) {
+                        case process.env.providerone: return [3 /*break*/, 5];
+                        case process.env.providertwo: return [3 /*break*/, 7];
+                        case process.env.providerthird: return [3 /*break*/, 9];
+                    }
+                    return [3 /*break*/, 11];
+                case 5: return [4 /*yield*/, fetchProvider1(body)];
+                case 6: return [2 /*return*/, _c.sent()];
+                case 7: return [4 /*yield*/, fetchProvider2(body)];
+                case 8: return [2 /*return*/, _c.sent()];
+                case 9: return [4 /*yield*/, fetchProvider3(body)];
+                case 10: return [2 /*return*/, _c.sent()];
+                case 11: throw new Error("Unknown provider: ".concat(provider));
+                case 12: return [3 /*break*/, 14];
+                case 13:
+                    error_1 = _c.sent();
+                    lastError = error_1;
+                    console.error("Error with ".concat(provider, ":"), error_1);
+                    return [3 /*break*/, 14];
+                case 14:
+                    _i++;
+                    return [3 /*break*/, 3];
+                case 15:
+                    if (lastError) {
+                        throw lastError;
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.handleCustomGreesyAi = handleCustomGreesyAi;
+//.
+function fetchProvider1(body) {
+    return __awaiter(this, void 0, void 0, function () {
+        var keys, randomIndex, response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    keys = [
+                        process.env.providerone_key,
+                        process.env.providerone_key_2,
+                    ];
+                    console.log(body.stream);
+                    randomIndex = Math.floor(Math.random() * keys.length);
+                    return [4 /*yield*/, axios_1.default.post(process.env.providerone_url + "v1/chat/completions", body, {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: "Bearer ".concat(keys[randomIndex]),
+                            },
+                        })];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.data];
+            }
+        });
+    });
+}
+function fetchProvider2(body) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios_1.default.post(process.env.providertwo_url + "v1/chat/completions", {
+                        stream: body.stream,
+                        model: body.model,
+                        messages: body.messages,
+                    }, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer ".concat(process.env.providertwo_key),
+                        },
+                    })];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.data];
+            }
+        });
+    });
+}
+function fetchProvider3(body) {
+    return __awaiter(this, void 0, void 0, function () {
+        var randomProxy, _a, host, port, username, password, agent, response;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    randomProxy = getRandomProxy();
+                    _a = parseProxyString(randomProxy), host = _a.host, port = _a.port, username = _a.username, password = _a.password;
+                    agent = new https_proxy_agent_1.default({
+                        host: host,
+                        port: parseInt(port),
+                        auth: "".concat(username, ":").concat(password),
+                    });
+                    return [4 /*yield*/, axios_1.default.post(process.env.providerthird_url + "v1/chat/completions", {
+                            model: body.model,
+                            messages: body.messages,
+                        }, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: "Bearer ".concat(process.env.providerthird_key),
+                            },
+                            httpsAgent: agent,
+                        })];
+                case 1:
+                    response = _b.sent();
+                    return [2 /*return*/, response.data];
+            }
+        });
+    });
+}

@@ -9,6 +9,13 @@
         "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
         "premium": false
       },
+     {
+        "name": "openai/gpt-4o-online",
+        "type": "chat.completions",
+        "description": "GPT-4 model by OpenAI for generating human-like text.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": false
+      },
       {
         "name": "openai/gpt-4o-mini",
         "type": "chat.completions",
