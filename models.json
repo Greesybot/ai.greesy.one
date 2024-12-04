@@ -222,6 +222,16 @@
         "premium": true
       },
       {
+<<<<<<< HEAD
+=======
+        "name": "openai/gpt-4o-online",
+        "type": "chat.completions",
+        "description": "Web Capabilty GPT-4 model by OpenAI for text generation.",
+        "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+        "premium": false
+      },
+      {
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
         "name": "openai/gpt-4o-mini",
         "type": "chat.completions",
         "description": "Compact variant of the GPT-4 model by OpenAI.",

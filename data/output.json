@@ -6,7 +6,11 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI for generating human-like text.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "github",
@@ -31,7 +35,11 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI for generating human-like text.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "github",
@@ -44,7 +52,11 @@
       "object": "chat.completions",
       "description": "Coding AI by Mistralai for programming tasks and suggestions.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "mistralai",
       "providers": [
         "github"
@@ -56,7 +68,11 @@
       "object": "chat.completions",
       "description": "405 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "meta",
       "providers": [
         "github"
@@ -68,7 +84,11 @@
       "object": "chat.completions",
       "description": "LFM model by Liquid for generating human-like text.",
       "image": "",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "liquid",
       "providers": [
         "openrouter"
@@ -80,7 +100,11 @@
       "object": "chat.completions",
       "description": "Conversational AI by DeepSeek for a wide range of topics.",
       "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "deepseek",
       "providers": [
         "openrouter"
@@ -92,7 +116,11 @@
       "object": "chat.completions",
       "description": "Coding AI by DeepSeek for code assistance and suggestions.",
       "image": "https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_400x400.jpg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "deepseek",
       "providers": [
         "openrouter"
@@ -104,7 +132,11 @@
       "object": "chat.completions",
       "description": "High-performance GPT-4 variant for faster, more accurate results.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "openrouter",
@@ -117,7 +149,11 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "anthropic",
       "providers": [
         "openrouter"
@@ -129,7 +165,11 @@
       "object": "chat.completions",
       "description": "Language model by Google for human-like text generation.",
       "image": "https://example.com/gemma-7b-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "google",
       "providers": [
         "openrouter",
@@ -142,7 +182,11 @@
       "object": "chat.completions",
       "description": "Gemini model by Google for reasoning text generation.",
       "image": "https://www.gstatic.com/lamda/images/gemini_sparkle_red_4ed1cbfcbc6c9e84c31b987da73fc4168aec8445.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "google",
       "providers": [
         "openrouter"
@@ -154,7 +198,11 @@
       "object": "chat.completions",
       "description": "GPT-4 model by OpenAI, updated version from August 2024.",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "openrouter"
@@ -166,7 +214,11 @@
       "object": "chat.completions",
       "description": "Advanced language model by Google, Gemini Pro 1.5 experimental version.",
       "image": "https://example.com/gemini-pro-1.5-exp-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "google",
       "providers": [
         "openrouter"
@@ -178,7 +230,11 @@
       "object": "chat.completions",
       "description": "Coding AI by Mistralai for programming tasks and suggestions.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "mistralai",
       "providers": [
         "openrouter"
@@ -190,7 +246,11 @@
       "object": "chat.completions",
       "description": "Mini AI MODEL by Mistralai for programming tasks and suggestions.",
       "image": "https://avatars.githubusercontent.com/u/132372032?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "mistralai",
       "providers": [
         "openrouter"
@@ -202,7 +262,11 @@
       "object": "images.generations",
       "description": "Flux By BlackBoxAI",
       "image": "https://flux1.ai/_next/image?url=https%3A%2F%2Fimagedelivery.net%2FqyBi8Sldkv04GDFhInQH5A%2Fff2305c9-c8f7-4f43-34ce-d932e97d1600%2Fpublic&w=828&q=75",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "blackboxai",
       "providers": [
         "greesyai"
@@ -214,7 +278,11 @@
       "object": "chat.completions",
       "description": "70 billion parameter LLaMA 3 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "meta-llama",
       "providers": [
         "greesyai"
@@ -226,7 +294,11 @@
       "object": "chat.completions",
       "description": "GPT-4o Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "greesyai"
@@ -238,7 +310,11 @@
       "object": "chat.completions",
       "description": "O1 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "greesyai"
@@ -250,7 +326,11 @@
       "object": "chat.completions",
       "description": "O1 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "greesyai"
@@ -262,7 +342,11 @@
       "object": "chat.completions",
       "description": "Command R Provided By GreesyAI",
       "image": "",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "cohere",
       "providers": [
         "greesyai"
@@ -274,7 +358,11 @@
       "object": "chat.completions",
       "description": "GPT-3 Provided By GreesyAI",
       "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "openai",
       "providers": [
         "greesyai"
@@ -286,7 +374,11 @@
       "object": "chat.completions",
       "description": "Latest Model of GreesyAI, Suprasses GPT-4 and Llama 3 8b",
       "image": "",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "greesyai",
       "providers": [
         "greesyai"
@@ -298,7 +390,11 @@
       "object": "text.moderations",
       "description": "Latest Strong Guard Model of GreesyAI, Suprasses Text-Moderation By OpenAI and Llama Guard",
       "image": "",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "greesyguard-2.5-pre",
       "providers": [
         "greesyai"
@@ -310,7 +406,11 @@
       "object": "chat.completions",
       "description": "Advanced conversational AI model by cohere.",
       "image": "https://avatars.githubusercontent.com/u/54850923?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "cohere",
       "providers": [
         "greesyai"
@@ -322,7 +422,11 @@
       "object": "chat.completions",
       "description": "Fast variant of the Gemini 1.5 model by Google.",
       "image": "https://example.com/gemini-1.5-flash-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "google",
       "providers": [
         "greesyai"
@@ -334,7 +438,11 @@
       "object": "chat.completions",
       "description": "Advanced language model by Google, Gemini 1.5 Pro version.",
       "image": "https://example.com/gemini-1.5-pro-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "google",
       "providers": [
         "greesyai"
@@ -346,8 +454,24 @@
       "object": "chat.completions",
       "description": "405 billion parameter LLaMA 3.1 model by Meta.",
       "image": "https://example.com/llama3.1-405b-logo.png",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "meta",
+      "providers": [
+        "greesyai"
+      ],
+      "premium": false
+    },
+    {
+      "id": "openai/gpt-4o-online",
+      "object": "chat.completions",
+      "description": "Web Capabilty GPT-4 model by OpenAI for text generation.",
+      "image": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+      "created": 1733333014,
+      "owned_by": "openai",
       "providers": [
         "greesyai"
       ],
@@ -358,7 +482,11 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "anthropic",
       "providers": [
         "greesyai"
@@ -370,7 +498,11 @@
       "object": "chat.completions",
       "description": "Creative text generation model by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "anthropic",
       "providers": [
         "greesyai"
@@ -382,7 +514,11 @@
       "object": "chat.completions",
       "description": "Compact, fast-response model in the Claude 3 family by Anthropic.",
       "image": "https://avatars.githubusercontent.com/u/76263028?s=280&v=4",
+<<<<<<< HEAD
       "created": 1733333822,
+=======
+      "created": 1733333014,
+>>>>>>> 77c1cbdf (,@added openai/gpt-4o-online)
       "owned_by": "anthropic",
       "providers": [
         "greesyai"
